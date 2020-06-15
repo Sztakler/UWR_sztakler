@@ -1,4 +1,4 @@
-Przedmioty:
+## Przedmioty:
 - Wstęp do Programowania (Python)
 - Logika dla Informatyków
 - Wstęp do Informatyki
