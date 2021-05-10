@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> intList = new List<int>();
+            for (int iter = 0; iter < 10; iter++)
+            {
+                intList.Add(iter);
+            }
+            
+            Console.WriteLine(intList[5]);
+            // foreach (var number in intList)
+            // {
+            //     Console.WriteLine(number);
+            // }
+        }
+    }
+}

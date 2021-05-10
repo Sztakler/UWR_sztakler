@@ -1,0 +1,27 @@
+/home/krystian/Studia/C#/bin/Debug/netcoreapp3.1/C#
+/home/krystian/Studia/C#/bin/Debug/netcoreapp3.1/C#.deps.json
+/home/krystian/Studia/C#/bin/Debug/netcoreapp3.1/C#.runtimeconfig.json
+/home/krystian/Studia/C#/bin/Debug/netcoreapp3.1/C#.runtimeconfig.dev.json
+/home/krystian/Studia/C#/bin/Debug/netcoreapp3.1/C#.dll
+/home/krystian/Studia/C#/bin/Debug/netcoreapp3.1/C#.pdb
+/home/krystian/Studia/C#/obj/Debug/netcoreapp3.1/C#.csprojAssemblyReference.cache
+/home/krystian/Studia/C#/obj/Debug/netcoreapp3.1/C#.AssemblyInfoInputs.cache
+/home/krystian/Studia/C#/obj/Debug/netcoreapp3.1/C#.AssemblyInfo.cs
+/home/krystian/Studia/C#/obj/Debug/netcoreapp3.1/C#.dll
+/home/krystian/Studia/C#/obj/Debug/netcoreapp3.1/C#.pdb
+/home/krystian/Studia/C#/helloworld/bin/Debug/netcoreapp3.1/C#
+/home/krystian/Studia/C#/helloworld/bin/Debug/netcoreapp3.1/C#.deps.json
+/home/krystian/Studia/C#/helloworld/bin/Debug/netcoreapp3.1/C#.runtimeconfig.json
+/home/krystian/Studia/C#/helloworld/bin/Debug/netcoreapp3.1/C#.runtimeconfig.dev.json
+/home/krystian/Studia/C#/helloworld/bin/Debug/netcoreapp3.1/C#.dll
+/home/krystian/Studia/C#/helloworld/bin/Debug/netcoreapp3.1/C#.pdb
+/home/krystian/Studia/C#/helloworld/obj/Debug/netcoreapp3.1/C#.csprojAssemblyReference.cache
+/home/krystian/Studia/C#/helloworld/obj/Debug/netcoreapp3.1/C#.AssemblyInfoInputs.cache
+/home/krystian/Studia/C#/helloworld/obj/Debug/netcoreapp3.1/C#.AssemblyInfo.cs
+/home/krystian/Studia/C#/helloworld/obj/Debug/netcoreapp3.1/C#.dll
+/home/krystian/Studia/C#/helloworld/obj/Debug/netcoreapp3.1/C#.pdb
+/home/krystian/Studia Wrocław/Semestr II/C#/helloworld/obj/Debug/netcoreapp3.1/C#.csprojAssemblyReference.cache
+/home/krystian/Studia Wrocław/Semestr II/C#/helloworld/obj/Debug/netcoreapp3.1/C#.AssemblyInfoInputs.cache
+/home/krystian/Studia Wrocław/Semestr II/C#/helloworld/obj/Debug/netcoreapp3.1/C#.AssemblyInfo.cs
+/home/krystian/Studia Wrocław/Semestr II/C#/helloworld/obj/Debug/netcoreapp3.1/C#.dll
+/home/krystian/Studia Wrocław/Semestr II/C#/helloworld/obj/Debug/netcoreapp3.1/C#.pdb

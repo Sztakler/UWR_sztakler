@@ -1,0 +1,26 @@
+Czarek: weteran kupowania biletów przez internet. Bardzo lubi aplikację pol-regio, bez problemu orientuje się na pkpic.
+Agata: często jezdzi pociagami, czasami strona pkpic sie wylacza randomowo, nie wiadomo gdzie sie wybiera miejsce.
+Piotrek: często jeździ pociągami, bilety zawsze kupuje w kasie, nigdy nie kupował przez Internet.
+
+TESTY
+
+Wyszukiwanie bez problemów. Może dodanie więcej szczegółów o pociągu przy kliknięciu w tabeli, wyświetlane przy kliknięciu na jakieś połączenie, np. jak jest zatłoczony, nazwa pociągu, pełna trasa.
+Liczba biletów zamiast ilości przy formularzu zakupu biletu. Informacje o peronie i torze na bilecie. 
+Zwiń i rozwiń zamiast czytaj dalej, czytaj mniej. Dodanie do mapy automatycznego doboru miejsc i ilustracji pociągu (dostęp w O(1)).
+
+Czarek:
+
+Agata:
+
+Piotrek:
+
+- jebitny przycisk "-" do usuwania biletu, napierdala po oczach
+- wybór pociągu klikając na cały row tabeli, mógłby być jakiś przycisk od tego po prawej stronie czy coś,
+  sama tabelka nie zachowuje stylu reszty strony (border)
++ wybór miejsc bardzo fajny
+- komunikaty błędu mogłyby wyświetlać się w inny sposób, nie na cały ekran zasłaniając wszystko
+- wąskie panele z podsumowaniem i płatnością, mogłyby być szersze i wtedy rozmiar czcionki mógłby być większy
+? nazwa peronu i toru na który przyjedzie pociąg
++ dobrze że jest pomoc, bo ja jestem głupi i się nie znam
+- w ekranie wyboru miejsc można dodać suwak, który pokazuje nam w którym wagonie jesteśmy obecnie i klikając na niego
+  można szybko zmienić wagon

@@ -1,0 +1,98 @@
+Zad 1
+
+-----------
+
+Zad 2
+
+<https://markboulton.co.uk/journal/visual-design-is-not-a-thing/>
+
+    Mark Boulton w swoim artykule podkreśla, jak ludzie bardzo często używają pojęcia 'Visual Design' w rozumieniu 'Graphic Design', tym samym krzywdząco spłycając jego prawdziwe znaczenie. 'Visual Design' zdaniem autora to nie jedynie proces tworzenia rzeczy pięknych i atrakcyjnych wizualnie, ale przemyślany sposób przekazywania treści odbiorcy, to jak należy opakować intecje autora, by były najbardziej czytelne, intuicyjne, atrakcyjne i użyteczne dla użytkownika. Podaje jako przykład zajęcia, jakie podejmował podczas swojej pracy w tej materii, między innymi analizowanie poruszania się gościu muzeum, czy przeprowadzanie wywiadu z potencjalnymi klientami pewnej firmy przed rozpoczęciem procesu budowania świadomości marki.
+
+Zad 3
+
+    User experience is a term used to describe the overall experience and satisfaction a user has when using a product or system. It most commonly refers to a combination of software and business topics, such as selling over the web, but it applies to any result of interaction design. <Wikipedia definition>
+
+    User experience design is a subset of the broader field of experience design; the latter being defined as:
+an approach to the design of products, services and environments based on a holistic consideration of the users’ experience. Experience design is therefore driven by consideration of the ‘moments’ of engagement between people and brands, and the memories these moments create. Also known as experiential marketing, customer experience design, experiential design, brand experience. Wikipedia definition
+
+    We refer to a person as a user particularly in the case where he/she is operating a computer or similar device. Thus the ‘user experience’ refers to the overall impression, feelings, interactions that a person has while operating these systems. In the end this could break down to almost all electronic and mechanical products we own/use since they often rely on computers for their functioning; however, the term in practice has been specifically associated to the direct interactions with devices operated by specific peripherals and providing an interface for feedback via a screen. (It would be somewhat of a stretch to call a child playing with a toy a ‘user.’)
+
+    Interaction design is a sub-discipline of design which examines the role of embedded behaviors and intelligence in physical and virtual spaces as well as the convergence of physical and digital products. Sometimes referred to by the acronyms “IxD” or “iD” Wikipedia definition
+
+    Information Architecture (IA) is the art and science of structuring knowledge (technically data), and defining user interactions. Wikipedia definition
+A system will be more intuitive and pleasing to the user if the organization of information is logical and understandable.
+
+    Usability is the measure of the ease with which particular people can employ a particular tool or other human-made object in order to achieve a particular goal. Usability can also refer to the methods of measuring usability and the study of the principles that may predict whether an object is found usable in practice. Wikipedia definition
+The section of usability that intersects with user experience design is that which speaks to the human’s ability to use a system or application. Usability has a great impact in creating a positive user experience; however, it should be noted that a system can be usable, but create a poor user experience.
+
+Accessibility
+
+Accessibility is a general term used to describe how easy it is for people to get to, use, and understand things. It is not to be confused with usability which is used to describe how easily a thing can be used by any type of user. One meaning of accessibility specifically focuses on people with disabilities, but there are other meanings… Wikipedia definition
+Although not a field of its own, it is important to note that accessibility also contributes to the overall user experience, to increase the likelihood of a wide-spread satisfactory user-experience. Accessibility is wholly contained by usability and is important at all levels of product design.
+
+Human-computer interaction (HCI) is the study of interaction between people (users) and computers. It is an interdisciplinary subject, relating computer science with many other fields of study and research. Wikipedia definition
+Human-computer interaction is a great contributor to user experience design by providing key research findings which can inform the improvement of systems for people. HCI extends to incorporate more integrated interactions between humans and computers which are generally not covered in the practice of user experience, such as interactions with physical devices.
+
+Human factors engineering, also referred to as Ergonomics is the study of optimizing the interface between human beings, and the designed objects and environments they interact with. Wikipedia definition
+Human factors engineering affect user experience design in a similar fashion as human-computer interaction: providing insights into other aspects of devices and input designs which can affect the user’s interaction and overall experience. User experience designers and human factors engineers often collaborate to combine expertise to create a full-fledged system on the physical and virtual levels.
+
+User interface design is the overall process of designing the interaction between a human (user) and a machine (computer). It includes graphic design, information design and a wide variety of usability methods. Wikipedia
+User interface design falls in the center of all of these fields. This is the ultimate goal for all: create an optimized mechanism for interfacing between the user and the system. definition
+
+The design elements outlined by Jesse James Garrett are summarized as:
+
+    1.User’s needs and site (business) objectives
+    2.Content requirements and functional specifications
+    3.Information architecture and interaction design
+    4.Interface, navigation and information design
+    5.Visual design
+
+Zad 4
+    
+    Don Norman w swoim wykładzie przybliża aspekt wzornictwa przedmiotów użytkowych, które nas otaczają i próbuje wytłumaczyć, dlaczego jest on tak istotny dla nas jako użytkowników. Zwraca uwagę na to, że właściwie zaprojektowany przedmiot powinien nie tylko dobrze spełniać swoją funkcję, ale również sprawiać przyjemność, satysfakcję użytkownikowi, dawać mu poczucie kontroli nad czynnością, którą wykonuje, pewność siebie. Argumentuje to biologicznymi uwarunkowaniami człowieka, między innymi tym, że poczucie bezpieczeństwa umożliwia szersze, kreatywne podejscie do rozwiązywania problemów, stres z kolei sprawia, że nasze działania skierowane są w stronę jak najszybszego, wydajnego rozwiązania problemu, ograniczają postrzeganie. Norman wprowadza podział na trzy poziomu odbioru wrażeń płynących z używania przedmiotu: instynktowny (visceral), behawioralny (behavioral) oraz refleksyjny (reflexive). 
+    Poziom instynktowny skupia się na emocjach płynących z wizualnej strony przedmiotu. Pewne kształty, barwy, tekstury wpływają na nas w określony sposób, pobudzają, uspokajają, ostrzegają, przyciągają lub odstręczają. To właśnie efektem tego jest to iż często zachowujemy butelki po winie jako wazony lub dekorację, a nasycone, ciepłe barwy jedzenia na zdjęciu wzmagają nasz apetyt, z kolei zimne, poddane desaturacji wręcz przeciwnie.
+    Kolejnym krokiem w procesie jest poziom behawioralny, który skupia się przede wszystkim na tym jak duże poczucie kontroli, pewność siebie daje nam korzystanie z przedmiotu. Przyjemnie, efektywnie używa się noża, który jest dobrze wyważony i ostry niż tępego i tandetnego. Z tego powodu mamy też poczucie, że cięższy pilot do telewizora jest solidniejszy niż lżejszy. Nie jesteśmy świadomi dlaczego tak myślimy, jest to proces podświadomy, lecz w decydującym stopniu to jak wykonany jest przedmiot, jego solidność, faktura, kształt i ciężar dają nam poczucie kontroli. To na tym poziomie zachodzi też proces interpretowania tego co postrzegamy. Jako przykład autor podaje dzbanek na herbatę w Four Seasons Hotel w Chicago. Dzbanek zaprojektowano w taki sposób, by był ustawiony w określonej pozycji w zależności od tego, jaki jest stopień przyrządzenia herbaty, co daje jasno do zrozumienia kelnerom kiedy gość może potrzebować dolewki wody. 
+    Ostatni stopień to poziom refleksyjny, który ma wiele wspólnego z superego - świadomością społeczną, narzuconymi przez otoczenie wartościami i normami. To na tym poziomie kształtuje się wrażenie luksusu i ekskluzywności produktu. Przez to wyceniami jedne zegarki jako droższe niż inne, choć mogą spełniać swoją funkcję tak samo dobrze. Jednak to w jaki sposób zostały wykonane, jak atrakcyjne są i jak mogą podkreślić nasz status stanowi o ich wartości w większym stopniu niż użyteczność. Refleksyjna natura produktu może się objawiać również w tym, że często jesteśmy gotowi wybrać gorszy, droższy i mniej dopracowany produkt wierząc, że robimy coś dobrego moralnie. Gdy kupujemy samochód elektryczny, którego technologia wciąż jest niedopracowana i który może stwarzać więcej problemów niz tradycyjny wierzymy, że jest to dobre dla środowiska i powinniśmy wspierać inicjatywę producenta poprzez zakup ich produktu. To tutaj też kreowane jest zrozumienie mitów społecznych, dzięki temu poziomowi rozumiemy sztukę, potrafimy dopowiadać do przedmiotu historię, odczuwać w jego stronę emocje takie jak współczucie, smutek, radość, sympatia, czy empatia. 
+
+Zad 5
+
+<https://pl.wikipedia.org/wiki/Interfejs_(programowanie_obiektowe)> 
+Interfejs – definicja abstrakcyjnego typu posiadającego jedynie operacje, a nie dane. Kiedy w konkretnej klasie zdefiniowane są wszystkie metody interfejsu mówimy, że klasa implementuje dany interfejs. W programie mogą być tworzone zmienne typu referencja do interfejsu, nie można natomiast tworzyć obiektów tego typu. Referencja może wskazywać na obiekt dowolnej klasy implementującej dany interfejs. Interfejs określa udostępniane operacje, nie zawiera natomiast ich implementacji i danych. Z tego powodu klasy mogą implementować wiele interfejsów, bez problemów wynikających z wielokrotnego dziedziczenia. Wszystkie metody w interfejsie z reguły muszą być publiczne. 
+
+<https://pl.wikipedia.org/wiki/Interfejs_(urz%C4%85dzenie)>
+Interfejs (spolszczenie angielskiego słowa interface, które na język polski bywa tłumaczone jako styk lub łącznik, potocznie międzymordzie; również złącze) – w informatyce i elektronice urządzenie pozwalające na połączenie ze sobą dwóch (lub więcej) innych urządzeń, które bez niego nie mogłyby ze sobą współpracować.
+Czasami jako interfejs określa się gniazdo złącza wystające z urządzenia na zewnątrz, w które można wetknąć zgodną z nim wtyczkę innego urządzenia (zob. urządzenie peryferyjne). Aby dwa urządzenia mogły współpracować muszą mieć zgodne (kompatybilne) interfejsy. Interfejsem może być kabel łączący dwa urządzenia, ale zarówno wtyczki na tym kablu jak i pasujące do nich gniazda są również interfejsami. 
+
+<https://sjp.pwn.pl/slowniki/interfejs.html>
+
+interfejs, interface [wym. interfejs] inform. «zasady łączenia ze sobą i współpracy dwóch różnych urządzeń lub programów; też: urządzenie lub program realizujące te zasady»
+interfejs użytkownika «program umożliwiający współpracę użytkownika z oprogramowaniem komputera»
+
+<https://www.merriam-webster.com/dictionary/interface>
+1:
+    a : the place at which independent and often unrelated systems meet and act on or communicate with each other the man-machine interface
+    b : the means by which interaction or communication is achieved at an interface
+2: 
+    a: surface forming a common boundary of two bodies, spaces, or phases an oil-water interface
+
+Zad 6
+
+    Odkręcane kapsle, 
+
+Zad 7
+    ---
+
+Zad 8
+
+    Afordancja = Dostarczanty / potencjał oddziaływania / sposobność oddziaływania / możliwości oddziaływania 
+
+Zad 9
+
+    1. gąsienica - podłoże
+    2. gąsienica - białe rolki
+    3. białe rolki - szary stojan w centrum koła
+    4. oś pojazdu - koło
+
+Zad 10
+    
+    EMOJI!!!! <3 <3 <3

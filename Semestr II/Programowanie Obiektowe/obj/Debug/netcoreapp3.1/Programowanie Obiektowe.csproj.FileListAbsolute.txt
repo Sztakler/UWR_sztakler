@@ -1,0 +1,3 @@
+/home/krystian/Studia/Programowanie Obiektowe/obj/Debug/netcoreapp3.1/Programowanie Obiektowe.csprojAssemblyReference.cache
+/home/krystian/Studia/Programowanie Obiektowe/obj/Debug/netcoreapp3.1/Programowanie Obiektowe.AssemblyInfoInputs.cache
+/home/krystian/Studia/Programowanie Obiektowe/obj/Debug/netcoreapp3.1/Programowanie Obiektowe.AssemblyInfo.cs

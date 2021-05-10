@@ -1,0 +1,312 @@
+Ćwiczenie 10
+
+Autor: Krystian Jasionek (317806)
+
+Ćwiczenie zostało rozwiązane przy współpracy z:
+- Piotr Dobiech,
+- Cezary Świtała,
+- Bartosz Janikowski,
+- Jakub Grabarczuk,
+- Jakub Skalski
+
+##OZNACZENIA##
+
+W dowodzie zastosowane zostaną następujące oznaczenia:
+
+== - równoważność,
+!== - zaprzeczenie równoważności,
+^n - fakt n
+==^n - równoważność wynikająca z faktu n
+
+##FAKTY##
+
+Za fakt uznajemy następujące własności:
+
+- (cons e1 e2) !== null,
+- (car (cons e1 e2)) == e1,
+- (cdr (cons e1 e2)) == e2
+
+##DEFINICJE##
+
+Będziemy również używać następujących definicji:
+
+Append
+Dla dowolnych list l1, l2, t.że (list? l1) == (list? l2) == #t
+
+(append l1 l2) ==
+(if (null? l1)
+	l2
+	(cons (car l1) (append (cdr l1) l2)))
+	
+
+Map
+Dla dowolnej procedury jednoargumentowej p oraz dowolnego l, t.że (list? l) == #t
+
+(map p l) ==
+(if (null? l)
+	null
+	(cons (p (car l)) (map p (cdr l))))
+	
+
+Filter
+Dla pewnego predykatu jednoargumentowego p? i dowolnego l, t.że (list? l) == #t
+
+(filter p? l) ==
+(cond [(null? l) null]
+	  [(p? (car l)) (cons (car l) (filter p? (cdr l)))]
+	  [else (filter p? (cdr l))])
+	  
+##INDUKCJA##	  
+  
+Zastosujemy następująca zasadę indukcji:
+Dla dowolnej własności P, jeśli zachodzi P(null) oraz dla dowolnych x, xs, jeśli zachodzi P(xs), to zachodzi P((cons x xs)), to dla dowolnego xs, dla którego (list? xs) == #t zachodzi P(xs).
+
+
+
+
+
+## DOWÓD I ##
+
+Udowodnimy indukcyjnie twierdzienie, mówiące że dla dowolnego xs i ys, jeśli (list? xs) == (list? ys) == #t, to dla dowolnej procedury jednoargumentowej f zachodzi 
+(map f (append xs ys)) == (append (map f xs) (map f ys))
+
+Weźmy dowolne ys, t.że  (list? ys) == #t oraz dowolną procedurę jednoargumentową f. Indukcję przeprowadzimy względem xs, przy czym (list? xs) == #t
+
+Zacznijmy od podstawy indukcji. Załóżmy, że xs == null i pokażmy prawdziwość tezy indukcyjnej dla tego przypadku.
+
+Teza: (map f (append xs ys)) == (append (map f xs) (map f ys))
+
+Rozpiszmy oddzielnie lewą i prawą stronę:
+
+L == (map f (append xs ys)), gdzie xs == null
+L == (map f (append null ys))
+
+Zastosujmy definicję procedury append:
+
+(append l1 l2) ==
+(if (null? l1)
+	l2
+	(cons (car l1) (append (cdr l1) l2)))
+
+Widzimy wtedy, że spełniony jest warunek (null? l1), zatem otrzymujemy, że
+
+L == (map f ys)
+
+Teraz zajmijmy się prawą stroną:
+
+P == (append (map f xs) (map f ys))
+P == (append (map f null) (map f ys))
+
+Zastosujmy definicję procedury map:
+
+(map p l) ==
+(if (null? l)
+	null
+	(cons (p (car l)) (map p (cdr l))))
+	
+Widzimy, że dla (map f null) spełniony jest warunek (null? l). Otrzymamy zatem, że
+
+P == (append null (map f ys)), 
+
+co mozemy uprościć, gdyż pierwszy argument append to null. Otrzymamy wtedy:
+
+P == (map f ys)
+
+Zatem L == P.
+
+W kroku indukcyjnym załóżmy, że 
+(map f (append xs ys)) == (append (map f xs) (map f ys)) 
+jest spełnione. Dla uproszczenia zapisu nazwijmy to założenie Z. Następnie pokażmy, że (map f (append (cons x xs) ys)) == (append (map f (cons x xs)) (map f ys)) zachodzi dla dowolnego x. Zatem weźmy dowolne x. Ponownie pokażemy równość lewej i prawej strony.
+
+L == (map f (append (cons x xs) ys))
+
+Za fakt przyjęliśmy, że (cons e1 e2) !== null, zatem wiemy, że 
+(cons x xs) !== null.
+
+Z definicji append otrzymamy zatem, że
+(append (cons x xs) ys) == (cons (car (cons x xs)) (append (cdr (cons x xs)) ys)),
+
+Zatem otrzymujemy:
+
+L == (map f (cons (car (cons x xs)) (append (cdr (cons x xs)) ys)))
+
+Z przyjętych przez nas faktów mówiących o car i cdr otrzymamy:
+
+L == (map f (cons x (append xs ys)))
+
+Korzystając z definicji map
+
+(map p l) ==
+(if (null? l)
+	null
+	(cons (p (car l)) (map p (cdr l))))
+	
+widzimy, że nie może zachodzić (null? l), bo (cons x (append xs ys)) !== null zatem otrzymamy:
+
+L == (cons (f (car (cons x (append xs ys)))) (map f (cdr (cons x (append xs ys)))))
+
+co nasza znajomość działania car i cdr pozwala uprościć do:
+
+L == (cons (f x) (map f (append xs ys)))
+
+zauważmy, że (map f (append xs ys)) to lewa strona naszego założenia indukcyjnego Z. Zostawmy więc L w obecnej postaci i zajmijmy się prawą stroną.
+
+P == (append (map f (cons x xs)) (map f ys))
+
+Kolejny raz zastosujmy definicję map. Widzimy, że (cons x xs) !== null, zatem:
+
+(map f (cons x xs))  == (cons (f (car (cons x xs))) (map f (cdr (cons x xs))))
+(map f (cons x xs)) == (cons (f x) (map f xs))
+
+P == (append (cons (f x) (map f xs)) (map f ys))
+
+Zastosujmy definicję append wiedząc, że (cons (f x) (map f xs)) (map f ys) !== null oraz wiedząc jak zachowują się car i cdr
+
+(append l1 l2) ==
+(if (null? l1)
+	l2
+	(cons (car l1) (append (cdr l1) l2)))
+	
+P == (cons (car (cons (f x) (map f xs))) (append (cdr (cons (f x) (map f xs))) (map f ys)))
+
+P == (cons (f x) (append (map f xs) (map f ys)))
+
+Tutaj zauważamy, że P to prawa strona Z. Możemy oznaczyć więc:
+ZP == (append (map f xs) (map f ys))
+ZL == (map f (append xs ys))
+Z założenia Z wiemy, że ZP == ZL == Z1. Zatem widzimy, że 
+L == (cons (f x) Z1)
+P == (cons (f x) Z1)
+Czyli L==P dla dowolnego x, co dowodzi naszego twierdzenia i kończy dowód.
+
+
+
+
+## DOWÓD II ##
+
+Dowiedziemy indukcyjnie, że dla dowolnych xs i ys, jeśli 
+(list? xs) == (list? ys) == #t to
+(filter p? (append xs ys)) == (append (filter p? xs) (filter p? ys))
+gdzie p? to dowolny predykat jednoargumentowy.
+
+
+Zatem weźmy dowolne ys, t.że  (list? ys) == #t oraz dowolny predykat jednoargumentowy p?. Indukcję przeprowadzimy względem xs, przy czym (list? xs) == #t
+
+Zacznijmy od podstawy indukcji.
+Weźmy xs == null i pokażmy, że 
+(filter p? (append null ys)) == (append (filter p? null) (filter p? ys))
+
+Zacznijmy od lewej strony.
+
+L == (filter p? (append null ys)), więc z definicji append otrzymujemy
+L == (filter p? ys)
+
+Zajmijmy się prawą stroną.
+
+(append (filter p? null) (filter p? ys))
+
+Tym razem zastosujmy definicję filter
+
+(filter p? l) ==
+(cond [(null? l) null]
+	  [(p? (car l)) (cons (car l) (filter p? (cdr l)))]
+	  [else (filter p? (cdr l))])
+	  
+Widzimy, że (null? l) jest spełnione dla (filter p? null). Możemy zatem zapisać:
+
+P == (append null (filter p? ys)), a z definicji append
+P == (filter p? ys)
+
+Czyli P == L.
+
+Przejdźmy do kroku indukcyjnego. Załóżmy, że
+ZL == (filter p? (append xs ys))
+ZP == (append (filter p? xs) (filter p? ys))
+ZL == ZP jest spełnione.
+Będzie to nasze założenie indukcyjne. Pokażmy, że wtedy dla dowolnego x zachodzi:
+
+(filter p? (append (cons x xs) ys)) == (append (filter p? (cons x xs)) (filter p? ys))
+
+Zajmijmy się lewą stroną.
+
+L == (filter p? (append (cons x xs) ys))
+
+Zastosujmy definicję append wiedząc, że (cons x xs) != null
+
+(append l1 l2) ==
+(if (null? l1)
+	l2
+	(cons (car l1) (append (cdr l1) l2)))
+
+L == (filter p? (cons (car (cons x xs)) (append (cdr (cons x xs)) ys)))
+
+Korzystając z faktu o car i cdr możemy zapisać:
+
+L == (filter p? (cons x xs) (append xs ys))
+
+Zauważmy, że sytuacja nieco się komplikuje. Korzystając z funkcji filter przeanalizujmy
+(filter p? (cons x xs)).
+
+1. Gdy (p? x) == #t, 
+	L == (cons x (filter p? (append xs ys)))
+	Zauważmy, że (filter p? (append xs ys)) == ZL, czyli mamy:
+	L == (cons x ZL)
+2. Gdy (p? x) == #f
+	L == (filter p? (append xs ys))), zauważmy też, że w takim przypadku:
+	L == ZL
+
+Przejdźmy zatem do prawej strony.
+
+P == (append (filter p? (cons x xs)) (filter p? ys))
+
+Skorzystajmy z definicji filter:
+
+(filter p? l) ==
+(cond [(null? l) null]
+	  [(p? (car l)) (cons (car l) (filter p? (cdr l)))]
+	  [else (filter p? (cdr l))])
+
+Widzimy, że (cons x xs) != null, zatem możemy napisać:
+
+P == (append (if (p? (car ((cons x xs))))
+				(cons (car (cons x xs)) (filter p? (cdr (cons x xs))))
+				(filter p? (cdr (cons x xs)))
+			(filter p? ys))
+			
+Ponownie musimy rozpatrzyć przypadki:
+
+1. (p? (car ((cons x xs)))) == (p? x) == #t,
+	P == (append (cons (car (cons x xs)) (filter p? (cdr (cons x xs)))) (filter p? ys))
+	P == (append (cons x (filter p? xs)) (filter p? ys))
+	
+	Użyjmy definicji append
+	
+	(append l1 l2) ==
+	(if (null? l1)
+		l2
+		(cons (car l1) (append (cdr l1) l2)))
+	
+	P == (append (cons x (filter p? xs)) (filter p? ys))
+	P == (cons x (append (filter p? xs) (filter p? ys)))
+	Zauważamy, że 
+	(append (filter p? xs) (filter p? ys)) == ZP, zatem
+	P == (cons x ZP)
+	
+2. (p? (car ((cons x xs)))) == (p? x) == #f,
+	P == (append (filter p? (cdr (cons x xs))) (filter p? ys))
+	P == (append (filter p? xs) (filter p? ys)), zatem
+	P == ZP
+	
+Zatem w pierwszym przypadku mamy:
+	L == (cons x ZL) oraz P == (cons x ZP)
+	ale ZL == ZP z zał. indukcyjnego, zatem L == P
+
+Z kolei w drugim przypadku:
+	L == ZL oraz P == ZP
+	ale ZL == ZP z zał. indukcyjnego, zatem L == P
+	
+Czyli L==P dla dowolnego x, co dowodzi naszego twierdzenia i kończy dowód.
+
+
+
+

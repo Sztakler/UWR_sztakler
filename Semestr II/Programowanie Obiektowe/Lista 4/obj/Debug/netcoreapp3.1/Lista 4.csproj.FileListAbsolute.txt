@@ -1,0 +1,11 @@
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 4/bin/Debug/netcoreapp3.1/Lista 4
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 4/bin/Debug/netcoreapp3.1/Lista 4.deps.json
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 4/bin/Debug/netcoreapp3.1/Lista 4.runtimeconfig.json
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 4/bin/Debug/netcoreapp3.1/Lista 4.runtimeconfig.dev.json
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 4/bin/Debug/netcoreapp3.1/Lista 4.dll
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 4/bin/Debug/netcoreapp3.1/Lista 4.pdb
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 4/obj/Debug/netcoreapp3.1/Lista 4.csprojAssemblyReference.cache
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 4/obj/Debug/netcoreapp3.1/Lista 4.AssemblyInfoInputs.cache
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 4/obj/Debug/netcoreapp3.1/Lista 4.AssemblyInfo.cs
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 4/obj/Debug/netcoreapp3.1/Lista 4.dll
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 4/obj/Debug/netcoreapp3.1/Lista 4.pdb

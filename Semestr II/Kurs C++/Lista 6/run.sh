@@ -1,0 +1,1 @@
+g++ main.cpp classes.cpp && ./a.out

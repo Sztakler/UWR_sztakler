@@ -1,0 +1,11 @@
+/home/krystian/Studia Wrocław/Semestr II/C#/interfejsy/obj/Debug/netcoreapp3.1/interfejsy.csprojAssemblyReference.cache
+/home/krystian/Studia Wrocław/Semestr II/C#/interfejsy/obj/Debug/netcoreapp3.1/interfejsy.AssemblyInfoInputs.cache
+/home/krystian/Studia Wrocław/Semestr II/C#/interfejsy/obj/Debug/netcoreapp3.1/interfejsy.AssemblyInfo.cs
+/home/krystian/Studia Wrocław/Semestr II/C#/interfejsy/bin/Debug/netcoreapp3.1/interfejsy
+/home/krystian/Studia Wrocław/Semestr II/C#/interfejsy/bin/Debug/netcoreapp3.1/interfejsy.deps.json
+/home/krystian/Studia Wrocław/Semestr II/C#/interfejsy/bin/Debug/netcoreapp3.1/interfejsy.runtimeconfig.json
+/home/krystian/Studia Wrocław/Semestr II/C#/interfejsy/bin/Debug/netcoreapp3.1/interfejsy.runtimeconfig.dev.json
+/home/krystian/Studia Wrocław/Semestr II/C#/interfejsy/bin/Debug/netcoreapp3.1/interfejsy.dll
+/home/krystian/Studia Wrocław/Semestr II/C#/interfejsy/bin/Debug/netcoreapp3.1/interfejsy.pdb
+/home/krystian/Studia Wrocław/Semestr II/C#/interfejsy/obj/Debug/netcoreapp3.1/interfejsy.dll
+/home/krystian/Studia Wrocław/Semestr II/C#/interfejsy/obj/Debug/netcoreapp3.1/interfejsy.pdb

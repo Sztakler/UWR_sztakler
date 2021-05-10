@@ -1,0 +1,8 @@
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 3/obj/Debug/netstandard2.0/Lista 3.csprojAssemblyReference.cache
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 3/obj/Debug/netstandard2.0/Lista 3.AssemblyInfoInputs.cache
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 3/obj/Debug/netstandard2.0/Lista 3.AssemblyInfo.cs
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 3/bin/Debug/netstandard2.0/Lista 3.deps.json
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 3/bin/Debug/netstandard2.0/Lista 3.dll
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 3/bin/Debug/netstandard2.0/Lista 3.pdb
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 3/obj/Debug/netstandard2.0/Lista 3.dll
+/home/krystian/Studia Wrocław/Semestr II/Programowanie Obiektowe/Lista 3/obj/Debug/netstandard2.0/Lista 3.pdb

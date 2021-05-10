@@ -1,0 +1,165 @@
+Zadanie 1
+
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+double f(double x)
+{
+    return 4040.d * (sqrt(pow(x, 11) + 1) - 1) / pow(x, 11);
+}
+
+int main()
+{   
+    double x = 0.001;
+    std::cout << std::setprecision(30);
+    std::cout << "Result for x = " << x <<":\n" << f(x) << std::endl;
+    return 0;
+}
+
+#####################################
+
+Zadanie 2
+
+#include <iostream>
+#include <cmath>
+
+float f_float(float x)
+{
+    return (float)12120 * ((x - (float)sin(x)) / (float)pow(x, 3));
+}
+
+double f_double(double x)
+{
+    return (double)12120 * (double)((x - sin(x)) / (double)pow(x, 3));
+}
+
+
+int main()
+{
+    int a = 1;
+    int b = 0;
+
+    for(int i = 11; i < 21; i++)
+    {
+        std::cout << "For 10^(" << -i << ")\n\tfloat: ";
+        std::cout << f_float(float(pow(10, -i))) << "\n\tdouble: ";
+        std::cout << f_double(double(pow(10, -i))) << std::endl;
+    }
+
+    return 0;
+}
+
+#####################################
+
+Zadanie 3
+
+#include <iostream>
+#include <iomanip>
+
+double rec_y(int i)
+{
+    double prev = 1.0;
+    double curr = -1.0/7.0;
+
+    if(i == 0) return prev;
+    else if(i == 1) return curr;
+    else
+    {
+        for(int j = 2; j <= i; j++)
+        {
+            double temp = curr;
+            curr = 1.0/7.0 * (69.0 * curr + 10.0 * prev);
+            prev = temp + 1.f;
+        }
+        return curr;
+    }
+}
+
+
+
+int main()
+{
+    for(int i = 0; i < 51; i++)
+    {
+        std::cout << std::fixed << std::setprecision(20)<< i << ": " << rec_y(i) << std::endl;
+    }
+
+    return 0;
+}
+
+#####################################
+
+Zadanie 4
+
+#include <iostream>
+#include <cmath>
+
+// double integral(int n)
+// {
+//     if(n == 0)
+//     {
+//         return log(2021.d / 2020.d);
+//     }
+//     else
+//     {
+//         return (1.d / n) - 2020.d * integral(n - 1); 
+//     }
+// }
+
+double integral_iter(int n)
+{
+    double result = (double)log(2021.0 / 2020.0);
+    
+    for(int i = 1; i <= n; i++)
+    {
+        result = 1.0/i - 2020.0 * result;
+    }
+
+    return result;
+}
+
+int main()
+{
+    for(int n = 1; n < 21; n++)
+    {
+        std::cout << std::fixed << integral_iter(n) << std::endl;
+    }
+
+    return 0;
+}
+
+#####################################
+
+Zadanie 5
+
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+double alternating_series(int n)
+{
+    double pi = 0;
+
+    for(int k = 0; k < n; k++)
+    {
+        pi += pow(-1, k) / (2 * k + 1); 
+    }
+
+    return 4 * pi;
+}
+
+bool error(double evaluated_value)
+{
+    return abs(M_PI - evaluated_value) < pow(10, -4);
+}
+
+int main()
+{
+    double evaluated_value = alternating_series(19999);
+    std::cout << std::setprecision(10) << evaluated_value << std::endl;
+    std::cout << M_PI << std::endl;
+    std::cout << "is error?: " << error(evaluated_value) << std::endl;;
+    
+    return 0;
+}

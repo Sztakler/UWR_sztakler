@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+
+
+class LazyList
+{
+    public List<int> lazy_list = new List<int>();
+
+    virtual public int element(int i)
+    {
+        while (size() < i)
+        {
+            lazy_list.Add(0);
+        }
+
+        return lazy_list[i-1];
+    }
+
+    public int size()
+    {
+        return lazy_list.Count;
+    }
+}
+
+class Primes : LazyList
+{
+    override public int element(int i)
+    {
+        while (size() < i)
+        {
+            lazy_list.Add()
+        }
+    }
+}
+
+class Program_2
+{
+    static void Main()
+    {
+        LazyList newList = new LazyList();
+
+        Console.WriteLine(newList.size());
+        Console.WriteLine(newList.element(40));
+        Console.WriteLine(newList.size());
+    }
+}

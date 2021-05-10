@@ -1,0 +1,4 @@
+﻿interface IDisplay
+    {
+        void display();
+    }

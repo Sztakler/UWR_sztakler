@@ -1,0 +1,15 @@
+Napisz program testujący zdefiniowane
+przez ciebie manipulatory.
+Jednym z elementów testowania
+ma być procedura,
+która odczyta wszystkie
+linie danych,
+zapamiętując je w
+kontenerze vector<>,
+następnie posortuje
+odczytane linie
+leksykograficznie
+i wypisze je wraz z
+pierwotnymi numerami linii 
+(numer linii umieść na początku
+wiersza w nawiasach kwadratowych).

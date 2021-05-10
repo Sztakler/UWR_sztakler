@@ -1,0 +1,338 @@
+\documentclass{article}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\geometry{margin=1in}
+\usepackage{titlesec}
+\titlelabel{\thetitle.\quad}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\urlstyle{same}
+
+\date{30 października 2020}
+\author{Krystian Jasionek, Jakub Skalski}
+\title{Znajdowanie potrzeb}
+
+\begin{document}
+
+
+
+\thispagestyle{empty}
+\begin{center}
+\vspace*{1cm}
+
+\LARGE{Krystian Jasionek, Jakub Skalski}
+
+\vspace{0.5cm}
+\Huge\textbf{ Znajdowanie potrzeb}
+\vspace{0.5cm}
+
+\large{30 października 2020}
+\end{center}
+
+\newpage
+
+\section{Wstęp}
+Badanie ma na celu określenie potrzeb użytkowników dokonujących zakupu biletów kolejowych online.
+Do analizy wybrano serwis \emph{PKP Intercity} \ref{PKPIC}, jeden z najpopularniejszych tego typu w Polsce.
+Wyznaczyliśmy trzem badanych osób zadanie zakupu różnej liczby biletów o taryfikacji ulgowej i normalnej.
+
+\section{Sylwetki badanych osób}
+\subsection{Sebastian Zeral}
+Dziewiętnastoletni student na wydziale Elektroniki Mikrosystemów i Fotoniki. Pochodzi z Raciborza.
+Rzadko podróżuje pociągiem, choć kupował już bilety przez Internet.
+
+\subsection{Karolina Borowska}
+Dwudziestojednoletnia studenta Grafiki na wrocławskiej ASP. Jej rodzina mieszka niedaleko Katowic,
+z tego powodu Karolina często korzysta z transportu kolejowego jako najszybszego i najtańszego sposobu
+podróży w rodzinne strony. Nie są jej obce zakupy internetowe, często odwiedza witryny takie jak Allegro czy AliExpress.
+
+\subsection{Iga Andruszkiewicz}
+Dwudziestoletnia studentka Konserwacji i Restauracji Dzieł Sztuki na wrocławskiej ASP. Pochodzi
+z okolic Szczecina. Posiada własny samochód, ale ceny paliwa sprawiają, że podróżowanie nim do rodzinnej
+miejscowości jest dla niej nieopłacalne. Często korzysta z usług przewoźników kolejowych. Preferuje
+zakupy przez Internet, w tradycyjny sposób nabywa niemal jedynie produkty spożywcze.
+
+\section{Notatki z przebiegu obserwacji}
+\subsection{Sebastian Zeral}
+Sebastian postanowił zakupić dwa bilety -- ulgowy i normalny.
+Obserwowany napotkał problem przy wyborze klasy wagonu (różnice między pierwszą i drugą klasą nie były wyjaśnione ani w sekcji wyboru klasy,
+ani nie zamieszczono przy nich stosownego odnośnika do strony zawierającej tę informację).
+FAQ (ang. \emph{Frequently Asked Questions}, najczęściej zadawane pytania) również nie okazało się pomocne w znalezieniu szukanych informacji.
+Niektóre pola w sekcji wyboru biletów zostały słabo opisane i brakowało im stosownych etykiet. Na przykład, strona oferuje opcję zakupu
+kilku biletów o różnych rodzajach ulg, jednak tylko pole wyboru pierwszego jest etykietowane jako \emph{Liczba osób wg taryfy ulgowej
+i rodzaju ulgi/rezerwacji}, z kolei pozostałe jako \emph{Informacja o ulgach ustawowych}, co nieco zbiło testującego z tropu.
+Powiadomienie o konfiguracji drugiego odcinka trasy (po przesiadce) jest mylące -- czerwony kolor czcionki sugeruje
+napotkanie problemu, co stoi w sprzeczności z jego treścią, informującą o braku konieczności
+uzupełniania parametrów dla drugiego pociągu, ponieważ są identyczne z wypełnionymi dla pierwszego. Badany, wyraźnie zbity z tropu, zdecydował się je zignorować.
+Przy potwierdzeniu wyboru biletu pojawiają się dwa klikalne pola -- \emph{Powrót} i \emph{Wybierz} -- żaden z nich nie został zinterpretowany przez badanego
+jako kontynuacja do kolejnego formularza. Zabrakło przycisku jasno sugerującego finalizację obecnego etapu zakupu.
+
+\subsection{Karolina Borowska}
+\label{3.2.}
+Karolina zdecydowała się kupić dwa bilety ulgowe. Badana miała problem z wyborem stacji (nieuwzględnione na nagraniu).
+Strona nie podpowiadała Katowic jako stacji początkowej, gdy w polu do wprowadzania nazwy po Ciągu liter dodano spację.
+Wybór zniżek i liczby biletów przebiegł bezproblemowo. Nie udało się jej ustalić, jak wybrać miejsca obok siebie -- strona pyta jedynie o preferowane
+usytuowanie (\emph{dowolne}, \emph{okno}, \emph{środek}, \emph{korytarz}), nie informuje jednak, o usytuowaniu [sic] którego miejsca lub miejsc mowa.
+Instrukcja, nb. prowadząca do tej samej strony co FAQ, nie była pomocna -- nieczytelność i nadmiar opcji zniechęciły Karolinę do dalszych poszukiwań.
+Ostatecznie wybrała opcję \emph{dowolne}. Badana od razu zauważyła możliwość dokonania płatności bez rejestracji konta.
+Wprowadzanie danych użytkownika przebiegło bezproblemowo. W podsumowaniu wybrane miejsca okazały się ustawione
+naprzeciw siebie, nie obok. Nie udało się jej osiągnąć zamierzonego celu.
+
+\subsection{Iga Andruszkiewicz}
+\label{3.3.}
+Iga zamierzała kupić jeden bilet ulgowy. Wybór stacji początkowej, końcowej oraz daty i godziny odjazdu nie sprawił jej problemów.
+Badana zwróciła uwagę na to, że strona niepotrzebnie ustawia \emph{ilość osób wg taryfy normalnej} [sic] na \emph{jeden}.
+Iga przyznała, że na co dzień nie korzysta z instrukcji obsługi oferowanej przez stronę, ale była jej pomocna przy zakupie
+biletów na podróże międzykrajowe. Po zajrzeniu do FAQ zauważyła, że jedne z najistotniejszych
+informacji dla kupujących (instrukcja zakupu biletu i wyjaśnienie numeracji miejsc) są na samym dole
+długiej na 47 pozycji listy. Zwróciła uwagę na niejasność niektórych skrótów na stronie (np. IC, TLK, EIC).
+Badana uznała, że już na podglądzie informacji o bilecie i cenie powinien pojawić się numer wybranego miejsca.
+Nie zauważyła od razu możliwości zakupu bez rejestracji. Ostatecznie badanej udało się osiągnąć zamierzony cel.
+
+\section{Ankieta}
+\label{4.}
+\subsection{Treść ankiety}
+\begin{enumerate}
+\item Ile czasu zajęło Ci zamówienie biletów?
+\item W jakim jesteś wieku?
+\item Dla ilu osób zamawiałeś bilety?
+\item Jak oceniasz jakość usługi?
+\item Czy komunikaty strony były dla Ciebie jasne: co wykonać najpierw? Co zrobić, by kontynuować? Jakie są Twoje opcje?
+\item Czy pojawiły się problemy z działaniem strony?
+\item Czy strona udzieliła Ci wszystkich potrzebnych Ci informacji: czy zakupiłeś bilety? Jakie miejsca zarezerwowałeś? Jak usytuowane
+są zakupione miejsca?
+\item Czy zakup biletu w ten sposób był wygodniejszy od tradycyjnego?
+\item Czy skorzystałbyś z tej usługi ponownie?
+\item Czy poleciłbyś tę usługę innym?
+\end{enumerate}
+
+\subsection{Sebastian Zeral}
+\begin{enumerate}
+\item Pytanie: Ile czasu zajęło Ci zamówienie biletów? \newline
+Sebastian Zeral: 5 minut.
+\item P.: W jakim jesteś wieku? \newline
+S.Z.: 19 lat.
+\item P.: Dla ilu osób zamawiałeś bilety? \newline
+S.Z.: Dwóch osób.
+\item P.: Jak oceniasz jakość usługi? \newline
+S.Z.: Nie najlepiej.
+\item P.: Czy komunikaty strony były dla Ciebie jasne (co wykonać najpierw?, co zrobić, by kontynuować?, jakie są Twoje opcje?)? \newline
+S.Z.: Komunikaty były momentami nieoczywiste.
+\item P.: Czy pojawiły się problemy z działaniem strony? \newline
+S.Z.: Nie.
+\item P.: Czy strona udzieliła Ci wszystkich potrzebnych Ci informacji (czy zakupiłeś bilety?, jakie miejsca zarezerwowałeś?, jak usytuowane są zakupione miejsca?)? \newline
+S.Z.: Nie udało mi się dowiedzieć, czym dokładnie różnią się klasy.
+\item P.: Czy zakup biletu w ten sposób był wygodniejszy od tradycyjnego? \newline
+S.Z.: Zawsze preferuję opcję online, ponieważ jest szybsza.
+\item P.: Czy skorzystałbyś z tej usługi ponownie? \newline
+S.Z.: Tak.
+\item P.: Czy poleciłbyś tę usługę innym? \newline
+S.Z.: Tak.
+\end{enumerate}
+
+\subsection{Karolina Borowska}
+\begin{enumerate}
+\item Pytanie: Ile czasu zajęło Ci zamówienie biletów? \newline
+Karolina Borowska: 5 minut.
+\item P.: W jakim jesteś wieku? \newline
+K.B.: 21 lat.
+\item P.: Dla ilu osób zamawiałaś bilety? \newline
+K.B.: Dwóch osób.
+\item P.: Jak oceniasz jakość usługi? \newline
+K.B.: Średnio (5/10).
+\item P.: Czy komunikaty strony były dla Ciebie jasne (co wykonać najpierw?, co zrobić, by kontynuować?, jakie są Twoje opcje?)? \newline
+K.B.: Były dość przejrzyste.
+\item P.: Czy pojawiły się problemy z działaniem strony? \newline
+K.B.: Czasami strona nie podpowiada nazw stacji. Pojawiają się problemy z pamięcią cache przeglądarki przy kilkukrotnych próbach zakupu.
+\item P.: Czy strona udzieliła Ci wszystkich potrzebnych Ci informacji (czy zakupiłaś bilety?, jakie miejsca zarezerwowałaś?, jak usytuowane są zakupione miejsca?)? \newline
+K.B.: Strona nie informuje o usytuowaniu miejsc przy ich wyborze, a dopiero przy płatności.
+\item P.: Czy zakup biletu w ten sposób był wygodniejszy od tradycyjnego? \newline
+K.B.: Jest wygodniejsza od tradycyjnej metody.
+\item P.: Czy skorzystałabyś z tej usługi ponownie? \newline
+K.B.: Tak.
+\item P.: Czy poleciłabyś tę usługę innym? \newline
+K.B.: Nie.
+\end{enumerate}
+
+\subsection{Iga Andruszkiewicz}
+\begin{enumerate}
+\item Pytanie: Ile czasu zajęło Ci zamówienie biletów.? \newline
+Iga Andruszkiewicz: 5-10 minut.
+\item P.: W jakim jesteś wieku? \newline
+I.A.: 20 lat.
+\item P.: Dla ilu osób zamawiałaś bilety? \newline
+I.A.: Jednej osoby.
+\item P.: Jak oceniasz jakość usługi? \newline
+I.A.: Dobrze, ale może to wynikać z obeznania ze stroną.
+\item P.: Czy komunikaty strony były dla Ciebie jasne (co wykonać najpierw?, co zrobić, by kontynuować?, jakie są Twoje opcje?)? \newline
+I.A.: Były jasne, choć niekiedy niepotrzebnie powtarzały te same informacje.
+\item P.: Czy pojawiły się problemy z działaniem strony? \newline
+I.A.: Nie.
+\item P.: Czy strona udzieliła Ci wszystkich potrzebnych Ci informacji (czy zakupiłaś bilety?, jakie miejsca zarezerwowałaś?, jak usytuowane są zakupione miejsca?)? \newline
+I.A.: Udzieliła, ale nie w oczekiwanym przeze mnie czasie, niektóre mogłyby pojawić się dużo wcześniej.
+\item P.: Czy zakup biletu w ten sposób był wygodniejszy od tradycyjnego? \newline
+I.A.: Wygodniejsza była wersja online.
+\item P.: Czy skorzystałabyś z tej usługi ponownie? \newline
+I.A.: Tak, nie mam innego wyjścia.
+\item P.: Czy poleciłabyś tę usługę innym? \newline
+I.A.: Tak.
+\end{enumerate}
+
+\section{Wywiad}
+\label{5.}
+\subsection{Treść pytań}
+\begin{enumerate}
+\item Jak opisałbyś swoje doświadczenie z korzystania z witryny?
+\item Jakie jej aspekty zrobiły na Tobie pozytywne wrażenie?
+\item Co sprawiło Ci największą trudność podczas korzystania z usługi?
+\item Jakie jej elementy, Twoim zdaniem, należałoby poprawić lub zmienić?
+\item Czy czułeś się zagubiony podczas zakupu? Czy instrukcje ze strony serwisu były dla Ciebie wystarczające?
+\end{enumerate}
+
+\subsection{Sebastian Zeral}
+\begin{enumerate}
+\item Pytanie: Jak opisałbyś swoje doświadczenie z korzystania z witryny? \newline
+Sebastian Zeral: Kilka rzeczy wydawało mi się nieoczywistych, ale ostatecznie udało mi się dokonać zakupu.
+\item P: Jakie jej aspekty zrobiły na Tobie pozytywne wrażenie? \newline
+S.Z.: Żadne.
+\item P: Co sprawiło Ci największą trudność podczas korzystania z usługi? \newline
+S.Z.: Odszukanie odpowiednich informacji
+\item P:Jakie jej elementy, Twoim zdaniem, należałoby poprawić lub zmienić? \newline
+S.Z.: Sekcja wyboru biletów.
+\item P: Czy czułeś się zagubiony podczas zakupu? Czy instrukcje ze strony serwisu były dla Ciebie wystarczające? \newline
+S.Z.: Czułem się zagubiony i instrukcje nie były wystarczające.
+\end{enumerate}
+
+\subsection{Karolina Borowska}
+\begin{enumerate}
+\item Pytanie: Jak opisałabyś swoje doświadczenie z korzystania z witryny? \newline
+Karolina Borowska: Strona posiada kilka źle działających funkcji, np. podpowiadanie nazw stacji, innych funkcji,
+takich jak ręczny wybór miejsca, nie ma w ogóle, przez co korzystanie z niej jest nieprzyjemne.
+\item P.: Jakie jej aspekty zrobiły na Tobie pozytywne wrażenie? \newline
+K.B.: Opcja płatności przez internet, podpowiadanie nazw stacji (gdy działa).
+\item P.: Co sprawiło Ci największą trudność podczas korzystania z usługi? \newline
+K.B.: Wybór stacji docelowej i początkowej. Zakup miejsc obok siebie.
+\item P.:Jakie jej elementy, Twoim zdaniem, należałoby poprawić lub zmienić? \newline
+K.B.: Dodanie mapy przedziału, umożliwiającej ręczny wybór miejsca. Wybór ulgi
+w formie przycisków radio zamiast rozwijanej listy.
+\item P.: Czy czułaś się zagubiona podczas zakupu? Czy instrukcje ze strony serwisu były dla Ciebie wystarczające? \newline
+K.B.: Tak, głównie przez niedziałające elementy strony.
+\end{enumerate}
+
+\subsection{Iga Andruszkiewicz}
+\begin{enumerate}
+\item Pytanie: Jak opisałabyś swoje doświadczenie z korzystania z witryny? \newline
+Iga Andruszkiewicz: Raczej pozytywne, strona jest w miarę czytelna. Jeśli ktoś jest obeznany z zakupami przez Internet,
+nie powinien mieć problemów.
+\item P.: Jakie jej aspekty zrobiły na Tobie pozytywne wrażenie? \newline
+I.A.: Podoba mi się sugerowanie przez stronę wcześniejszych i późniejszych przejazdów.
+\item P.: Co sprawiło Ci największą trudność podczas korzystania z usługi? \newline
+I.A.: Odszukanie odpowiednich informacji.
+\item P.: Jakie jej elementy, Twoim zdaniem, należałoby poprawić lub zmienić? \newline
+I.A.: Sekcja wyboru biletów -- obecnie wydaje się dostosowana pod urządzenia dotykowe.
+Niektóre informacje, np. o położeniu zakupionego miejsca w przedziale, powinny być przekazane użytkownikowi wcześniej.
+Cofanie się do poprzednich kart nie powinno resetować wprowadzonych danych.
+\item P.: Czy czułaś się zagubiona podczas zakupu? Czy instrukcje ze strony serwisu były dla Ciebie wystarczające? \newline
+I.A.: Dla mnie były wystarczające, ale dla osób mniej zaznajomionych z zakupami online byłoby to skomplikowane i niejasne.
+\end{enumerate}
+
+\section{Potrzeby}
+\label{6.}
+\subsection{Szybszy zakup biletu}
+W czasie badania zaobserwowaliśmy, że testujący spędzali zbyt wiele czasu na nieowocnym poszukiwaniu pomocy ze strony serwisu, dodatkowo spowalniani przez problemy z nawigacją po jego interfejsie.
+\subsection{Więcej informacji ze strony serwisu przy zakupie biletu}
+Strona zakłada, że użytkownik jest już zaznajomiony z ofertą PKPIC i nie są mu potrzebne rozwinięcia zawartych na stronie treści, np. skrótów (TLK -- Twoje Linie Kolejowe) i dostępnych opcji (różnice między pierwszą i drugą klasą.
+\subsection{Przejrzystszy interfejs}
+Wiele elementów interfejsu jest sprzecznych z intuicją, np. wertykalny ruch kółka myszy przewija panel wyboru przejazdu \ref{panel_wyboru_przejazdu}. horyzontalnie, lub nieadekwatnie etykietowane, jak w przypadku przycisku wyboru biletu.
+\subsection{Możliwość ręcznego wyboru miejsca}
+Większość badanych zwracała uwagę na trudność wyboru kilku miejsc obok siebie. Brakowało im prostego sposobu na określenie jak położone będą zakupione przez nich miejsca.
+\subsection{Możliwość cofania zmian za pomocą interfejsu przeglądarki}
+Serwis oferuje własne przyciski do cofania formularzy, jednak próba powrotu do poprzedniej strony przy pomocy narzędzi przeglądarki często skutkuje błędem.
+\subsection{Dodanie osobnej instrukcji zakupu biletu}
+Testujący zwracali uwagę na brak instrukcji obsługi serwisu. Strona oferuje jedynie FAQ, w którym najistotniejsze dla badanych informacje (sposób zakupu biletu, wyboru miejsc) znajdowały się na 45. pozycji z 47-iu.
+\subsection{Dodanie obsługi większej liczby języków, np. rosyjskiego, niemieckiego}
+Obecnie stronę można przeglądać wyłącznie w języku polskim i angielskim. Dodanie innych wersji językowych znacznie ułatwiłoby korzystanie z niej zagranicznym podróżnym, tym bardziej że PKPIC oferuje podróże międzynarodowe.
+\subsection{Mniej dwuznaczne powiadomienia ze strony serwisu}
+Strona wyświetla powiadomienia czcionką w kolorze czerwonym, ostrzegawczym, poprzedzone słowem \emph{Uwaga!}. Jest to bardzo mylące i budzące zaniepokojenie u kupującego.
+\subsection{Lepsza nawigacja po sekcji FAQ}
+Długa, nieuporządkowana lista pytań i odpowiedzi odstrasza szukających pomocy klientów. Część badanych wolała zrezygnować z poszukiwań i improwizować.
+\subsection{Informacja, czy jesteśmy w wagonie z przedziałami, czy bez i jeśli tak, to iloosobowy jest to przedział}
+Obecnie kupujący nie ma bezpośredniego wglądu w to, jak zatłoczony jest wybrany przez niego przedział. Nie jest też w stanie łatwo sprawdzić, czy będzie podróżować w przedziale, czy nie.
+
+\section{Inspiracje}
+\subsection{Dodanie mapy przedziału}
+Obecnie klient dowiaduje się o numerze przydzielonego mu miejsca na samym końcu procesu zakupu.
+Jest ono przydzielane automatycznie, użytkownik może tylko określić swoje preferencje (przy oknie, pośrodku przedziału,
+przy korytarzu, konkretny numer siedzenia). Dodanie interaktywnej mapy przedziału (podobne do często spotykanych przy
+zakupie biletu do kina) z opcją wyboru miejsc znacznie zwiększyłoby komfort kupującego.
+
+\subsection{Przebudowanie panelu wyboru przejazdu}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=\textwidth]{img/wybor_przejazdu.png}
+\caption{Panel wyboru przejazdu}
+\label{panel_wyboru_przejazdu}
+\end{figure}
+Obsługa pola wyboru przejazdu jest w tej chwili dostosowana pod urządzenia
+dotykowe -- wspiera przewijanie poprzez przeciąganie segmentu strony lub ruch kółkiem myszy -- jednak
+z poziomu komputera osobistego staje się bardzo niewygodna, np. użytkownicy często chcąc przewinąć
+stronę w dół, przesuwają wspomniany panel. Zmiana tego rozwiązania w wersji strony na komputery, np. na
+przeciąganie przy pomocy strzałek w prawo i lewo, usunęłaby tę niedogodność.
+
+\subsection{Bogatsze opisy}
+Sekcje wyboru biletu, miejsca, przewoźnika dają kupującemu wyjątkowo skromne informacje.
+Często są one niewystarczające dla dokonania satysfakcjonującego dla niego wyboru, np. nie rozumie on niektórych skrótów lub
+poleceń witryny. Rozwinięcie akronimów, dodanie bogatszych, klarownych opisów lub odnośników do nich w znacznej mierze zwiększyłoby komfort użytkownika.
+\subsection{Usunięcie konieczności wprowadzania kilka razy tych samych danych}
+Witryna wymaga dwukrotnego wprowadzenia informacji osobowych na różnych etapach zakupu. Wygodniejszym rozwiązaniem byłoby
+podawanie tych danych jeden raz i przeniesienie ich do następnego formularza.
+\subsection{Podział FAQ na kategorie}
+Korzystanie z FAQ w jego obecnej formie jest bardzo niewygodne i niekomfortowe, odstrasza użytkowników nadmiarem treści, zamiast udzielać im pomocy.
+Wprowadzenie prostego podziału pytań na kategorie, np. w formie rozwijanych list, istotnie ułatwiłoby nawigację po tym dziale. Kolejnym polem do wprowadzania
+usprawnień jest pozycjonowanie pytań -- te najczęściej zadawane, szczególnie przez nowych użytkowników, powinny znajdować się na pierwszych pozycjach listy.
+
+
+
+\section{Komentarz}
+Bardzo dziękujemy za recenzję grupie Karminowych. Nasza praca w wielu miejscach odbiegała jakością od zamierzonego przez nas poziomu zarówno pod względem
+poprawności językowej, jak i merytorycznym, co bardzo dosadnie przekazaliście nam swoim tekstem. Zastosowaliśmy się do większości poczynionych przez Was uwag,
+jednak nie zgadzamy z kilkoma z nich i zdecydowaliśmy się wprowadzić, niezależne od Waszych propozycji, zmiany lub, w niektórych miejscach, zachować
+tekst w postaci pierwotnej.
+
+W kwestii językowej nie byliśmy w pełni zgodni co do Waszego argumentu odnośnie do niepoprawności \emph{wrocławskiego ASP}.
+Zdaniem Karoliny Szymanik oraz Łukasza Mackiewicza \ref{skrotowce}. poprawne są dwa sposoby odmiany skrótowców -- zgodnie z rodzajem ich wyrazu nadrzędnego lub przypisując im odrębne cechy gramatyczne. Nie mamy pewności co do wiarygodności tych źródeł, czekamy na opinię Pana Płoskiego. Zdecydowaliśmy się na zmianę tego fragmentu w ostatecznej wersji dokumentu na \emph{wrocławskiej ASP} -- wydało nam się lepiej pasować.
+
+W \ref{3.2.}. postanowiliśmy pozostawić naszą uwagę o nadmiarze opcji w FAQ. Nie zgadzamy się, żeby trudno było przedstawić tę sekcję w inny sposób, wystarczyłoby -- wymienione w naszej pracy -- wprowadzenie podziału pytań na kategorie i adekwatniejsze do potrzeb użytkownika pozycjonowanie ich.
+
+W \ref{3.3.}. nie zmieniliśmy fragmentu \emph{osób wg taryfy normalnej}, mimo że zgadzamy się z argumentem, że osoby nie mają taryfy. Jest to jednak cytat ze strony omawianej w pracy, niestety nie oznaczyliśmy go odpowiednio w poprzedniej wersji tekstu. Nie zastosowaliśmy się także do uwagi o braku instrukcji obsługi. Strona istotnie nie odsyła do niej po kliknięciu przycisku z etykietą \emph{Instrukcja}, ale samą instrukcję obsługi posiada -- w formie odpowiedzi na pytania zawarte w FAQ.
+
+Drugie pytanie w ankiecie, tj. \emph{W jakim jesteś wieku?} istotnie nie wnosi wiele do naszych rozważań, w dodatku przeprowadzanych z udziałem zaledwie trzech badanych. Zrozumieliśmy to ćwiczenie jako symulację tego rodzaju analizy, przeprowadzaną na fikcyjnych osobach lub, jak w naszym przypadku, niewielkiej grupie prawdziwych. Jednak w przypadku realnych badań liczba uczestników byłaby znacznie większa, a spektrum ich wieku wyraźnie szersze. Wtedy pytanie o wiek byłoby jak najbardziej zasadne, np. dając nam informację o tym, jak przyjazny jest interfejs strony dla osób starszych. Pozostawiliśmy je w tekście również z innego powodu, bardziej prozaicznego -- ankieta została już przeprowadzona, a jej wyniki spisane, nie widzieliśmy więc sensu we wprowadzaniu do niej zmian. Nie wprowadziliśmy również proponowanych zmian w transkrypcji wypowiedzi uczestników w  \ref{5.}. oraz \ref{4.}.. Przedstawienie ich w zbiorczej postaci było naszym pierwszym pomysłem, odrzuciliśmy go jednak, by zwiększyć czytelność. Część czytelników może nie potrzebować wszystkich wyników ankiety oraz przebiegu wywiadów naraz, niektórym potrzebna będzie wypowiedź tylko jednego badanego, a wtedy łatwiej będzie im ją odnaleźć i przeczytać w obecnej postaci. Nie jest to oczywiście rozwiązanie optymalne, zdecydowaliśmy się pójść na kompromis i kosztem rosnących rozmiarów dokumentu zachować strukturę odrębnych ankiet i wywiadów dla każdego z uczestników.
+
+W przypadku licznych powtórzeń w sekcji \ref{6.}. uznaliśmy, że nie są one problemem. W poprzedniej wersji ten fragment składał się z listy, w której wyliczano kolejne pomysły na usprawnienie witryny. Taka forma -- enumeracja -- wydawała nam się naturalnie powiązana z częstym powielaniem danej części tekstu, więc nie uznaliśmy jej za błąd, podobnie jak nie uznajemy za błąd powtórzeń w katolickich litaniach. Nie jesteśmy jednak pewni słuszności naszej opinii, chętnie usłyszymy zdanie Pana Płoskiego na ten temat.
+    
+
+
+\section{Źródła}
+    \subsection{Witryna PKPIC}
+    \label{PKPIC}
+    \url{https://www.intercity.pl/pl/}\newline
+    \subsection{Artykuły o skrótowcach}
+    \label{skrotowce}
+    Artykuł Karoliny Szymanik: \url{https://polszczyzna.pl/skrotowce-odmiana-i-zapis/} \newline
+    Artykuł Łukasza Mackiewicza: \url{https://www.ekorekta24.pl/rodzaj-gramatyczny-skrotowcow-i-odmiana-skrotowcow/} \newline
+
+
+\end{document}
+

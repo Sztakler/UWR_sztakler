@@ -1,0 +1,350 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\title{Matematyka Dyskretna (L)}
+
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{enumerate}
+\usepackage[T1]{fontenc}
+\usepackage{natbib}
+\usepackage{graphicx}\usepackage{amsmath,amssymb,amsthm}
+\makeatletter
+\tikzoption{base font}{\def\tikz@base@textfont{#1}}
+\tikzoption{font}{\def\tikz@textfont{\tikz@base@textfont#1}}
+\tikzset{
+  base font=\sffamily,
+}
+\makeatother
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\usepackage{titlesec}
+\titleformat{\subsection}
+  {\normalfont\fontsize{14}{17}}
+  {\thesubsection}
+  {1em}
+  {}
+
+\lstset{language=Python}
+\lstset{frame=lines}
+\lstset{basicstyle=\footnotesize}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\begin{document}
+
+
+\vspace{1cm}
+
+\maketitle
+\begin{center}
+    
+    \Large{Zadania na egzamin}
+    
+\end{center}
+
+\newpage
+
+\emph{Powodzenia!}
+
+\section{Prawdopodobieństwo/Kombinatoryka}
+
+\subsection{Bolek zabrał na piknik: czereśnie, nektarynkę, kanapkę, piwo, wino, ogórek, mleko i ciastko. Chce ustalić dobrą kolejność spożycia tych wiktuałów. Ile ma różnych możliwości jeśli wiadomo, że piwo i wino nie mogą być pite bezpośrednio po sobie oraz ogórek i mleko nie powinny następować zaraz po sobie?}
+
+\subsection{Spośród n osób chcemy wybrać trzy drużyny k osobowe. Na ile sposobów możemy to zrobić?}
+
+\subsection{Na ile sposobów mozna ustawić w ciąg n par osób tak, aby każdy stał obok osoby ze swojej pary?}
+
+\subsection{W pewnych zawodach sportowych bierze udział 2n sportowców $S_1, S_2,....,S_{2n}$. Wiadomo dla każdego $i$, 1 $\leq$ i $\leq$ $n$, że sportowiec $S_{2i}$ jest słabszy od sportowca $S_{2i-1}$. Trzech najlepszych staje na podium: miejsce I, II, III. Ile jest możliwych ustawień na podium?}
+
+\subsection{Na ile sposobów można ustawić n zer i n jedynek w rząd tak, aby żadne pierwsze $i (i \leq 2n)$ liczb w rzędzie nie zawierało więcej zer niż jedynek.}
+
+\subsection{Każde pole tablicy 5x5 kolorujemy na niebiesko lub czerwono. Na ile sposobów można to zrobić by nie powstał jednokolorowy wiersz ani jednokolorowa kolumna?}
+
+\subsection{W pewnym 5-pokojowym mieszkaniu organizowane jest przyjęcie. Każdy z pokoi w mieszkaniu mieści maksymalnie 15 osób. Dla jakiej liczby osób można zagwarantować rozmieszczenie, w którym żadne dwa pokoje nie zawierają tyle samo gości?}
+
+\subsection{Mamy 15 piłek czerwonych i 15 zielonych. Na każdej z nich zapisujemy jakąś liczbę naturalną z przedziału [1,100]. Żadna z liczb się nie powtarza. Udowodnij, że istnieją dwie pary piłek - zielona plus czerwona, dla których suma liczb napisanych na piłkach jest taka sama. A gdyby piłek było po 14?}
+
+\newpage
+
+\subsection{Spośród 8 osób: Ani, Asi, Marzeny, Natalii, Antka, Bolka, Karola i Tadka chcemy utworzyć dwa nierozróżnialne zespoły 4-osobowe. Na ile sposobów możemy to zrobić, jeśli mają być spełnione następujące warunki: Asia musi być w tym samym zespole co Antek lub Bolek, Tadek Antek i Bolek nie mogą być w tym samym zespole, Natalia i Karol nie mogą być w tym samym zespole.}
+
+\subsection{W przedziale pociągu siedzi sześć osób. Udowodnij, że wsród tych osób są trzy takie, które się albo nawzajem znają albo się nie znają}
+
+\subsection{Uwaga zadanie z typu pojebanych. Do pałacu pewnego szejka prowadzą dwie aleje: jedna ze wschodu, druga z zachodu. Wynajęty architekt ma za zadanie zaplanować rozmieszczenie 95 palm wzdłuż tych alej. Warunki są dwa: po każdej ze stron (północnej i południowej) każdej alei ma rosnąć przynajmniej 20 palm oraz żadne dwie z czterech w sumie stron nie mogą zawierać dokładnie takie samej liczby palm. Ile jest takich rozmieszczeń? (Palmy są nierozróżnialne)}
+
+\subsection{W miasteczku Matmazja sygnalizacja świetlna drogowa jest nieco rozregulowana i na każdym sygnalizatorze może świecić zero, jeden, dwa lub trzy ze świateł: czerwony, żółty, zielony. Ile przynajmniej przejść dla pieszych z sygnalizacją świetlną jest w tym mieście, jesli wiadomo, że w każdym momencie przynajmniej 7 sygnalizatorów świeci (lub nie świeci) tak samo?}
+
+\subsection{Do każdego z trzech przedziałów pewnego wagonu wsiada dokładnie 5 podróżnych. W każdym przedziale jest 8 miejsc numerowanych od 1 do 8. Na ile sposobów mogą usiąść owi pasażerowie, aby w żadnych dwóch przedziałach nie były zajęte dokładnie te same piątki siedzeń?}
+
+\subsection{W pewnej grupie muzykujących osób jedna gra na fortepianie, harfie i skrzypcach druga na kontrabasie, harfie i wiolonczeli trzecia na skrzypcach czwarta na wiolonczeli i piąta na skrzypcach i wiolonczeli. Chcieliby zagrać utwór na fortepian, skrzypce, wiolonczelę, kontrabas i harfę. Czy uda im się dobrać skład?}
+
+\subsection{Z macierzy $n x n$ usuwamy część nad przekątną otrzymując macierz "schodkową". Na ile sposobów można ją podzielić na n prostokątów?}
+
+
+\newpage
+
+\subsection{Pewną grupę 24 osób składającą się z 12 kibiców drużyny A i 12 drużyny B chcemy rozmieścić w czterech przedziałach 6 osobowych o numerach 1-4. Rozmieszczenia wewnątrz przedziałów są nieistotne. \\ a) na ile sposobów możemy to zrobić aby w żadnym przedziale nie było tyle samo kibiców drużyny A co kibiców B? \\b) ile jest rozmieszczeń w których sumaryczna liczba w przedziałach 1 i 2 kibiców A nie jest taka sama jak kibiców B?}
+
+
+
+\subsection{Na ile sposobów można ułożyć bukiet składający się z 15 kwiatków, jeśli do dyspozycji mamy tulipany, róże, stokrotki, niezapominajki i piwonie? Wszystkich rodzajów kwiatków jest po 15, kwiatki jednego typu są nierozróżnialne. Bukietów, w których występują inaczej rozmieszczone takie same kwiatki nie traktujemy jako różne.}
+
+
+\section{Zasada szufladkowa Dirichleta}
+
+\subsection{Zaznaczono $k$ punktów kratowych w przestrzeni trójwymiarowej (czyli punktów o trzech współrzędnych całkowitoliczbowych). Dla jakiej liczby $k$ będziemy mieć gwarancję, że środek odcinka łączącego pewne dwa sposrów tych punktów jest także punktem kratowym?}
+
+
+\subsection{Na ile sposobów można wrzucić $n$ kulek do $k$ szuflad tak, aby w każdej szufladzie była parzysta ilość kulek?}
+
+\subsection{Danych jest 12 róznych liczb dwucyfrowych. Wykaż, że wśrod nich istnieją takie dwie których różnica jest liczbą dwucyfrową o jednakowych cyfrach.}
+
+\subsection{Dana jest tablica $15\times 15$ mająca $15 \times 15$ pól. Każde pole malujemy na niebiesko, zielono lub czerwono. Pokaż, że jakkolwiek byśmy nie pomalowali tablicy, zawsze znajdą się dwa rzędy o takiej samej liczbie pól w którymś z kolorów.}
+
+\subsection{Ile rozwiązań wśród liczb naturalnych ma równanie $x_1+x_2+x_3+x_4+x_5=7$, jeśli dodatkowo $x_1, x_2, x_3, x_4, x_5 \leq 20$?}
+
+\section{Funkcje tworzące}
+
+\subsection{Podaj funkcję tworzącą dla ciągu ($0, 0, 0, 1, 3, 7, 15, 31, ... $}
+
+\subsection{Podaj funkcję tworzącą dla ciągu ($0, 0, 0,\frac{1}{2}, 3, \frac{1}{4}, 9, \frac{1}{8}, 27, ...$).}
+
+\newpage
+
+\subsection{Podaj funkcję tworzącą dla ciągu $a_n$ = ${n}\choose{2}$.}
+
+\subsection{Podaj funkcję tworzącą dla ciągu $a_n$ = (1,0,0,$\pi$,0,0,$\pi^2$,0,0,$\pi^3$,...)}
+
+\subsection{Podaj funkcję tworzącą dla ciągu $a_n$ = (0,0,$1*2^1$, 0,0,$2*2^2$,0,0,$3*2^3$,...).}
+
+\subsection{Podaj funkcję tworzącą dla ciągu $a_n$ = 1+2+...+$2^n$ + $(-\sqrt{2})^n$}
+
+\subsection{Podaj funkcję tworzącą dla ciągu $a_i=i2^i$.}
+
+
+
+\section{Kongruencja}
+
+\subsection{Rozwiąż układ kongruencji}
+$$
+\left\{ \begin{array}{ll}
+x \equiv 2 & \textrm{(mod 3)}\\
+x \equiv 3 & \textrm{(mod 4)}\\
+x \equiv 4 & \textrm{(mod 5)}\\
+\end{array} \right.
+$$
+
+\subsection{Rozwiąż układ kongruencji.}
+
+$$
+\left\{ \begin{array}{ll}
+x \equiv 1 & \textrm{(mod 2)}\\
+x \equiv 2 & \textrm{(mod 5)}\\
+x \equiv 1 & \textrm{(mod 11)}\\
+\end{array} \right.
+$$
+
+\subsection{Oblicz $27^{162}$ (mod 41).}
+
+\subsection{Oblicz resztę z dzielenia $33^{35}$ przez 21. Pozdrawiam robiących coś innego niż grafy. Dla was wskazóweczka: warto skorzystać z chińskiego twierdzenia o resztach.}
+
+\section{Algorytm Euklidesa}
+
+\subsection{Oblicz $NWD(7, 19)$ oraz całkowite liczby $x,y$ takie, że $7x + 19y = NWD(7, 19)$.}
+
+\subsection{Oblicz $NWD(17, 60)$ oraz całkowite liczby $x$, $y$ takie, że $60x + 17y = NWD(60, 17)$.}
+
+\subsection{Oblicz $NWD(30,19)$ oraz całkowite liczby $x$, $y$, takie że $30x+19y=NWD(30,19)$.}
+
+\section{Anihilatory (Ventus, nie zapominaj o nas!)}
+
+\subsection{Znajdź ogólną postać rozwiązania następującego równania rekurencyjnego za pomocą anihilatorów:}
+$a_{n+2} = 2a_{n+1} - a_n + n3^n - 1$, gdy $a_0 = a_1 = 0$.
+
+\subsection{Znajdź ogólną postać rozwiązania następującego równania rekurencyjnego za pomocą anihilatorów:}
+$a_{n+2} = 4a_{n+1} - 3a_n + n3^n - 1$, gdy $a_0 = a_1 = 0$.
+
+\subsection{Znajdź ogólną postać rozwiązania następującego równania rekurencyjnego za pomocą anihilatorów:}
+$a_{n+2} = 7a_{n+1} - 10a_n + 7n2^n - 1$, gdy $a_0 = a_1 = 0$.
+
+\subsection{Znajdź ogólną postać rozwiązania następującego równania rekurencyjnego za pomocą anihilatorów:\\$a_{n+2} = 2a_{n+1} - a_n + 5^{2n}$, gdy $a_0 = a_1 = 0$. \\Podaj układ równań, który muszą spełnić stałe występujące we wzorze określającym ciąg.}
+
+\subsection{Znajdź ogólną postać rozwiązania następującego równania rekurencyjnego za pomocą anihilatorów:}
+$a_{n+2} = \frac{3}{2}a_{n+1} - \frac{1}{2}a_n + \frac{n}{2^n}$, gdy $a_0 = a_1 = 0$.
+
+\subsection{Znajdź ogólną postać rozwiązania następującego równania rekurencyjnego za pomocą anihilatorów:}
+$a_{n+2} = 5a_{n+1} - 6a_n + \frac{{n \choose 2}}{2^n}$, gdy $a_0 = a_1 = 0$.
+
+\subsection{Znajdź ogólną postać rozwiązania następującego równania rekurencyjnego za pomocą anihilatorów:}
+
+
+$a_{n+1}=-a_n+\frac{n}{e^n}$, gdy $a_0=a_1=0$. \\
+
+Podaj układ równań, które muszą spełniać stałe występujące we wzorze określającym ciąg.
+
+\section{Liczby Catalana}
+
+\subsection{Na ile sposobów można ułożyć wieżę składającą się z $n$ klocków niebieskich i $n$ żółtych tak, aby na żadnej wysokości liczba klocków żółtych nie przewyższała liczby klocków niebieskich?}
+
+\section{Grafy :(}
+
+\subsection{Ile jest nieidentycznych grafów nieskierowanych prostych (bez pętli i krawędzi równoległych) o wierzchołkach $1,2,...,n$, których liczba krawędzi wynosi dokładnie $k$?}
+
+\subsection{Mamy $2n$ uczniów, z których każdy ma przynajmniej $n$ przyjaciół. Pokaż, że można ich usadzić w ławkach tak, by każdy z nich siedział z przyjacielem. Pokaż też, że jeśli $n > 1$, to może być to zrobione na co najmniej dwa sposoby.}
+
+\subsection{Niech $R_k$ oznacza graf którego zbiór wierzchołków tworzą wszystkie k-elementowe ciągi zer i jedynek i dwa wierzchołki są sąsiednie wtedy i tylko wtedy, gdy odpowiadające im ciągi różnią się na dokładnie dwóch współrzędnych. Dla jakich $k$ graf $R_k$ jest dwudzielny? Odpowiedź uzasadnij.}
+
+\subsection{Określ złożoność operacji policzenia liczby krawędzi grafu $G$ dla reprezentacji macierzowej i listowej.}
+
+\subsection{Czy graf prosty, planarny bez trójkątów jest 4-kolorowalny? Wskazówka: Czy można pokazać, że taki graf zawsze ma wierzchołek o stopniu co najwyżej 4?}
+
+\subsection{Dany jest turniej $T$. Pokaż, że w $T$ istnieje cykl wtedy i tylko wtedy gdy istnieje cykl długosci 3.}
+
+\subsection{Udowodnij, że w każdym dwukolorowaniu krawędziowym grafu pełnego $K_n$ istnieje jednokolorowe drzewo spinające.}
+
+\newpage
+
+\subsection{Podaj algorytm znajdujący liczbę spójnych składowych w grafie.}
+
+\subsection{Niech $Q_n$ oznacza graf, którego zbiór wierzchołków tworzą wszystkie k-elementowe ciągi zer i jedynek i dwa wierzchołki są sąsiednie wtedy i tylko wtedy gdy odpowiadające im ciągi różnią się na dokładnie jednej współrzędnej. Dla jakich $k$ graf $Q_k$ jest eulerowski? Dla jakich $Q_k$ graf jest hamiltonowski?}
+
+\subsection{Ile różnych cykli Hamiltona ma klika n-wierzchołkowa? A ile pełny graf dwudzielny $G = (A \cup B)$ taki, że $|A| = |B| = n$? \\ Cykle (1, 2, 3, 1), (2, 3, 1, 2), (3, 2, 1, 3) wszystkie oznaczają ten sam cykl Hamiltona w grafie $K_3$.}
+
+\subsection{Narysuj wszystkie nieizomorficzne grafy proste o 6 wierzchołkach i 6 krawędziach.}
+
+\subsection{Kiedy graf pełny trójdzielny $G = (A = A_1 \cup A_2 \cup A_3, E)$, w którym każdy wierzchołek z $A_i$ jest połączony z każdym wierzchołkiem z $A \backslash A_i$ oraz $|A_1|$ = $|A_2|$ = n, $|A_3|$ = m zawiera cykl Hamiltona/Eulera?}
+
+\subsection{Każdą krawędź kliki $K_{17}$ pomalowano na czerwono, zielono albo niebiesko. Pokaż, że w ten sposób powstał przynajmniej jeden trójkąt $(K_3)$ o bokach jednego koloru. \\ Wskazówka: Na wykładzie pokazane było, że jeśli pomalujemy każdą krawędź kliki $K_6$ na niebiesko albo czerwono to powstanie przynajmniej jeden jednobarwny trojkąt.}
+
+\subsection{Oblicz liczbę różnych grafów prostych skierowanych o n wierzchołkach bez wierzchołków izolowanych. Dwa grafy są różne jesli istnieją dwa wierzchołki $v_i, v_j$, które w jedynm grafie są połączone krawędzią, a w drugim nie.}
+
+\subsection{Pokaż, że dla dowolnego grafu $G = (V,E)$ zachodzi $\chi(G)\chi(\bar{G}) \geq n$ = |V|, gdzie $\chi(G)$ oznacza liczbę chromatyczną G,czyli minimalną liczbę kolorów, jaką można pokolorować G, a $\bar{G}$ oznacza dopełnienie grafu G.}
+
+\newpage
+
+\subsection{$nk$ studentów, przy czym $n, k$ $\geq$ 2, jest podzielonych na $n$ towarzystw po $k$ osób i na $k$ kół naukowych po $n$ osób każde. Wykaż, że da się wysłać delegację $2n$ osób tak, by każde towarzystwo i każde koło naukowe było reprezentowane. Jeden student może reprezentować jedno towarzystwo albo jedno koło.}
+
+\subsection{W grafie spójnym $G = (V, E)$ o nieujemnych wagach na krawędziach chcemy znaleźć drzewo rozpinające, które zawiera dwie wyróżnione krawędzie $e_1$ i $e_2$ i ma możliwie najmniejszą sumaryczną wagę. Skonstruuj algorytm który je policzy i OCZYWIŚCIE uzasadnij jego poprawność. A gdyby krawędzi, które muszą się znaleźć w drzewie rozpinającym było więcej?}
+
+
+\subsection{Niech $G = (V, E)$ oznacza graf, w którym $V = \{v_1, v_2, v_3, v_4, v_5,\\v_6, v_7, v_8\}$ i E = $\{(v_1, v_2), (v_2, v_3), (v_4, v_5), (v_5, v_6), (v_1, v_7),\\(v_7, v_6), (v_6, v_8), (v_8, v_1) (v_3, v_8), (v_4, v_7)\}$ Czy G jest dwudzielny? Jeśli nie jest to znajdź jego podgraf dwudzielny o największej liczbie krawędzi. Udowodnij, że podany graf jest podgrafem dwudzielnym o maksymalnej liczbie krawędzi. Czy G zawiera cykl Hamiltona i Eulera, jeżeli nie zawiera któregoś z tych cykli to ile minimalnie krawędzi trzeba dodać aby powstały graf był hamiltonowski/eulerowski? (zajebałem się spisując to zadanie)}
+
+\subsection{Niech $H$ oznacza graf o wierzchołkach \{1, 2, ..., 15\}, w którym wierzchołki $i$ i $j$ są połączone krawędzią jeśli $NWD(i,j) > 1$. Znajdź optymalne kolorowanie wierzchołkowe $H$. Potrzebne uzasadnienie.}
+
+\subsection{Krawędzie pewnego grafu $G$ pokolorowano na czerwono i niebiesko. Kiedy graf ten zawiera drzewo rozpinające niemonochromatyczne?}
+
+\subsection{Niech $T$ będzie turniejem na $n$ wierzchołkach, w którym dla każdego $k, 1 \leq k \leq n - 1$ istnieje wierzchołek o stopniu wyjściowym k. Pokaż, że każdy taki turniej zawiera przeplataną ścieżkę Hamiltona. Ścieżka Hamiltona $v_1, v_2, v_3,...,v_n$ jest przeplatana jeśli dla każdego $k, 2 \leq k \leq n - 1$ zachodzi: $T_n$ zawiera krawędź ($v_{k-1}, v_k$) wtw gdy $T_n$ zawiera krawędź $(v_{k+1}, v_k)$.}
+
+\newpage
+
+\subsection{$n$ studentów należy do $k$ róznych kół. Każdy student może należeć do dowolnej liczby kół. Rektor chciałby wyznaczyć reprezentację w której każde koło reprezentowane jest przez jednego ze studentów oraz liczba dziewczyn w reprezentacji jest równa liczbie chłopaków i wynosi $k/2$. Skonstruuj algorytm, który taką reprezentację znajduje. Wskazówka: przydatne mogą być przepływy (czymkolwiek to kurwa jest)}
+
+\subsection{Ile co najwyżej krawędzi ma n-wierzchołkowy graf prosty, planarny bez trójkątów?}
+
+\subsection{Podaj algorytm znajdowania w drzewie dwóch najbardziej oddalonych wierzchołków. Uzasadnij jego poprawność i oszacuj złożoność czasowa i zrób fikołka na koniec.}
+
+\subsection{Drabina rzędu n jest to graf skierowany $G = (V,E)$ taki, że $V=\{t_1,b_1,...,t_n,b_n\}$ i $E=\{(t_i,t_{i+1}) : 1 \leq i < n\} \cup \{(b_i,b_{i+1}) : 1 \leq i < n\} \cup \{(t_i,b_i) : \leq i \leq n\}.$ Wyznacz $d_n$ liczbę różnych drzew spinających drabiny rzędu n.(Rok 2017 poprawka 2 warto sprawdzić czy jest dobrze przepisane.)}
+
+\subsection{Niech $G_n = (V,E)$ oznacza n-wierzchołkowy graf, w którym $V=\{v_1,v_2,...,v_n\}$ i $E=\{(v_i,v_j)\ : i-j$ nie jest podzielne przez 3$\}$. Dla każdego naturalnego n > 2 znajdź optymalne kolorowanie wierzchołkowe $G_n$ potrzebne uzasadnienie.}
+
+\subsection{Dla jakich n graf $G_n$ z zadania 1 posiada cykl Eulera? A dla jakich n jest on dwudzielny?}
+
+\subsection{Krawędzie spójnego grafu G mają nieujemne wagi. Podaj algorytm, który sprawdza czy G posiada dwa rózne minimalne drzewa spinające?}
+
+\newpage
+
+\subsection{Pokaż, że dla każdego nieparzystego naturalnego n istnieje turniej n-wierzchołkowy, w którym każdy wierzchołek jest królem. Wierzchołek jest królem jeśli można z niego dojść do każdego innego wierzchołka w grafie po ścieżce skkierowanej o długości co najwyżej 2.}
+
+\subsection{n studentów lat I-III należy do k różnych kół. Każdy student może należeć do dowolnej liczby kół. Rektor chciałby wyznaczyć reprezentację, w której każde koło reprezentowane jest przez jednego ze studentów oraz liczba studentów w reprezentacji każdego roku jest taka sama i wynosi k/3. Skonstruuj algorytm, który taką reprezentację znajduję. Wskazówka: Skorzystaj z przepływów XD}
+
+\subsection{Dowolny graf nieskierowany G można przerobić na skierowany nadając (jedno z dwóch) skierowanie każdej krawędzi. Graf skierowany H powstały w ten sposób nazywamy orientacją G. Pokaż, że dla każdego grafu nieskierowanego G istnieje orientacja H taka, że dla każdego wierzchołka $v \in H$ zachodzi $|deg^+(v) - deg^-(v)| \leq 1$, gdzie $deg^+(v), deg^-(v)$ oznaczają stopień wyjściowy i wejściowy v. Wskazówka zbuduj cykl eulera w pewnym rozszerzeniu G}
+
+\subsection{Niech G=(V,E) oznacza graf, w którym $V=\{a_1,a_2,...,a_n,b_1,b_2,...,b_n\}$, wierzchołki $a_1, a_2,...,a_n$ są połączone w cykl (tzn. dla każdego i, $1 \leq i < n$ wierzchołki $a_i$ i $a_{i+1}$ są połączone krawędzią oraz krawędzią są połączone $a_1$ i $a_n$), wierzcholki $b_1,b_2,...,b_n$ również połączone są w cykl oraz każdy wierzchołek $a_i$ jest połączony z każdym wierzchołkiem $b_j$. Znajdź optymalne kolorowanie wierzchołkowe G. Potrzebne uzasadnienie.}
+
+\subsection{Niech G bedzie grafem spójnym o m krawędziach. Dla każdej krawędzi e tego grafu mamy zadaną liczbę $p_e$ oznaczającą wymaganą liczbę przejść tą krawędzią. Opracuj algorytm, który albo orzeka istnienie trasy w grafie G, w której każda krawędź jest strawersowana dokładnie $p_e$ razy, albo stwierdza, że taka trasa nie istnieje. Punkt startu trasy nie musi być taki sam jak mety.}
+
+\newpage
+
+\subsection{Krawędzie pewnego grafu spójnego G niezawierającego pętli ani krawędzi równoległych pokolorowano na czerwono zielono i niebiesko. G ma przynajmniej 4 krawędzie oraz przynajmniej jedną krawędź każdego z trzech kolorów. Czy graf ten w każdym przypadku zawiera drzewo rozpinające? A gdyby kolorów było cztery i G był dodatkowo dwudzielny czy zawsze zawierałby drzewo rozpinające zawierające przynajmniej jedną krawędź każdego z czterech kolorów? Czy dwudzielność jest potrzebna?}
+
+\subsection{Organizowany jest turniej n osób w którym każdy gra z każdym. Każda rozgrywka kończy się wygraną dokładnie jednej z osób nie ma remisów. Wynik turnieju to graf pełny skierowany na n wierzchołkach w którym krawędź skierowana z u do v oznacza wygrana u z v. Czy możliwy jest wynik turnieju w którym róznica liczby wygranych dwóch dowolnych osób jest niewiększa od 1? Ogólniej czy dla każdego ciągu n liczb całkowitych dodatnich $a_1,a_2,...,a_n$ takiego, że $\sum_{i=1}^{n} a_i = {n \choose 2}$ istnieje wynik turnieju taki, że osoba i wygrała dokładnie $a_i$ pojedynków. W obu przypadakch pokaż algorytm znajdowania takiego rozkładu o ile istnieje. Wskazówka: A jakże, przydatne będą przepływy. }
+
+\subsection{Kwadratem łacińskim nazywamy kwadrat n x n, w którym na każdym polu stoi liczba ze zbioru \{1,2,...,n\} tak, że w każdej kolumnie oraz w każdym wierszu jest po jednej z liczb \{1,2,...,n\}. Prostokątem łacińskim nazywamy prostokąt o n kolumnach i m wierszach, $1 \leq m \leq n$, w którym na każdym polu stoi liczba ze zbioru $\{1,2,,...,n\}$ tak, że w każdym wierszu każdy z liczb $\{1,2,...,n\}$ wystepują dokładnie raz oraz w każdej kolumnie co najwyżej raz. Czy każdy prostokąt łaciński o m < n wierszach można rozszerzyć o jeden wiersz? Wskazówka: przydatne okażą sie skojarzenia.}
+
+\newpage
+
+\subsection{Kiedy}
+\begin{enumerate}[(a)]
+    \item graf pełny $K_n$, $n\geq 3$,
+    \item graf pełny dwudzielny $K_{n,m}$, $n,m\geq 2$ ($K_{n,m}=(A\cupB,E)$, gdzie $|A|=n$, $|B|=m$ oraz każdy wierzchołek z $A$ jest połączony z każdym wierzchołkiem z $B$,
+    \item graf prosty o ciągu stopni $(2,2,2,2,2)$,
+\end{enumerate}
+
+jest grafem eulerowskim/hamiltonowskim?
+
+\subsection{}Zbiór wierzchołków jest \emph{niezależny} w grafie G, jeśli żadne dwa wierzchołki nie są w nim połączone krawędzią. Zbiór wierzchołków jest \emph{pokryciem wierzchołkowym} grafu $G$, jeśli każda krawędź ma przynajmniej jeden z końców w tym zbiorze. Niech $\alpha(G)$ i $\beta(G)$ oznaczają odpowiednio moc największego zbioru niezależnego $G$ i moc najmniejszego pokrycia wierzchołkowego $G$. Pokaż, że $\alpha(G)+\beta(G)=n$, gdzie $N$ to liczba wierzchołków grafu $G$. Pokaż, jak obliczyć $\alpha(G)$, gdy $G$ jest dwudzielny.
+
+\subsection{$nk$ studentów, przy czym $k\geq 2$, jest podzielonych na $n$ towarzystw po $k$ osób i na $n$ kół po $k$ osób każde. Wykaż, że da sę wysłać delegację $2n$ osób tak, by każde towarzystwo i każde koło naukowe było reprezentowane. Jeden student może reprezentować jedno towarzystwo albo jedno koło.}
+
+\subsection{W grafie pełnym $K_n$ dokładnie $n$ krawędzi ma wagę $1$, pozostałe zaś $2$. Jaka jest maksymana waga minimalnego drzewa rozpinającego w tym grafie? Dla jakich rozłożeń wag osiągnęte jest maksimum?}
+
+
+
+\section{Funkcja modulo}
+
+\subsection{Udowodnij, że dla dowolnych $n,m \in N$ zachodzi:\\ (a) $n^2 \not\equiv_3 2$ \\ (b) $n^2 + m^2 \equiv_3 0 \implies n \equiv_3 0 \land m \equiv_3 0.$}
+
+\subsection{Znajdź dwie ostatnie cyfry liczby $AA^{C1}$ zapisanej w systemie czternastkowym. W systemie czternastkowym cyfra $A$ ma wartość $10$, $B$-$11$, itd.}
+
+\newpage
+
+\section{Podzielność}
+
+\subsection{Pokaż, że jeśli $n \in N$ jest podzielne przez 5, to n-ta liczba Fibonacciego $F_n$ również.}
+
+\subsection{Pokaż że istnieją dwie potęgi 3, których róznica jest podzielna przez 2019.}
+
+\subsection{Udowodnij, że dla każdego naturalnego $n$ $30|n^9 - n$.}
+
+\subsection{Wykaż, że dla każdej liczby naturalnej n istnieje liczba podzielna przez n, której zapis dziesiętny złożony jest tylko z zer i siódemek.}
+
+\subsection{Wykaż, że liczba $53^{33} - 33^{33}$ jest podzielna przez 10.}
+
+\subsection{Udowodnij, że dla każdego nieparzystego naturalnego $n$ zachodzi: suma dowolnych $n$ kolejnych liczb całkowitych jest podzielna przez $n$.}
+
+\section{Dzielniki}
+
+\subsection{Ile dzielników ma liczba 720?}
+
+\end{document}
+

@@ -1,0 +1,22 @@
+/home/krystian/Studia/C#/zabawanalistach/bin/Debug/netcoreapp3.1/zabawanalistach
+/home/krystian/Studia/C#/zabawanalistach/bin/Debug/netcoreapp3.1/zabawanalistach.deps.json
+/home/krystian/Studia/C#/zabawanalistach/bin/Debug/netcoreapp3.1/zabawanalistach.runtimeconfig.json
+/home/krystian/Studia/C#/zabawanalistach/bin/Debug/netcoreapp3.1/zabawanalistach.runtimeconfig.dev.json
+/home/krystian/Studia/C#/zabawanalistach/bin/Debug/netcoreapp3.1/zabawanalistach.dll
+/home/krystian/Studia/C#/zabawanalistach/bin/Debug/netcoreapp3.1/zabawanalistach.pdb
+/home/krystian/Studia/C#/zabawanalistach/obj/Debug/netcoreapp3.1/zabawanalistach.csprojAssemblyReference.cache
+/home/krystian/Studia/C#/zabawanalistach/obj/Debug/netcoreapp3.1/zabawanalistach.AssemblyInfoInputs.cache
+/home/krystian/Studia/C#/zabawanalistach/obj/Debug/netcoreapp3.1/zabawanalistach.AssemblyInfo.cs
+/home/krystian/Studia/C#/zabawanalistach/obj/Debug/netcoreapp3.1/zabawanalistach.dll
+/home/krystian/Studia/C#/zabawanalistach/obj/Debug/netcoreapp3.1/zabawanalistach.pdb
+/home/krystian/Studia Wrocław/Semestr II/C#/zabawanalistach/bin/Debug/netcoreapp3.1/zabawanalistach
+/home/krystian/Studia Wrocław/Semestr II/C#/zabawanalistach/bin/Debug/netcoreapp3.1/zabawanalistach.deps.json
+/home/krystian/Studia Wrocław/Semestr II/C#/zabawanalistach/bin/Debug/netcoreapp3.1/zabawanalistach.runtimeconfig.json
+/home/krystian/Studia Wrocław/Semestr II/C#/zabawanalistach/bin/Debug/netcoreapp3.1/zabawanalistach.runtimeconfig.dev.json
+/home/krystian/Studia Wrocław/Semestr II/C#/zabawanalistach/bin/Debug/netcoreapp3.1/zabawanalistach.dll
+/home/krystian/Studia Wrocław/Semestr II/C#/zabawanalistach/bin/Debug/netcoreapp3.1/zabawanalistach.pdb
+/home/krystian/Studia Wrocław/Semestr II/C#/zabawanalistach/obj/Debug/netcoreapp3.1/zabawanalistach.csprojAssemblyReference.cache
+/home/krystian/Studia Wrocław/Semestr II/C#/zabawanalistach/obj/Debug/netcoreapp3.1/zabawanalistach.AssemblyInfoInputs.cache
+/home/krystian/Studia Wrocław/Semestr II/C#/zabawanalistach/obj/Debug/netcoreapp3.1/zabawanalistach.AssemblyInfo.cs
+/home/krystian/Studia Wrocław/Semestr II/C#/zabawanalistach/obj/Debug/netcoreapp3.1/zabawanalistach.dll
+/home/krystian/Studia Wrocław/Semestr II/C#/zabawanalistach/obj/Debug/netcoreapp3.1/zabawanalistach.pdb
