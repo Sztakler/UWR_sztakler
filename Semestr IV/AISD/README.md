@@ -1,0 +1,7 @@
+## Czołem, biedny studencie informatyki!
+
+Utknąłeś na AISDzie? Masz wrażenie, że nie potrafisz zrobić żadnego zadania, a nawet podpierdalanie rozwiązań z neta stało sie niemożliwie trudne? Witaj w klubie, też tam byłem. Dlatego razem z kilkoma przyjaciółmi przyrządziliśmy listę notatek i rozwiązań egzaminów z poprzednich lat, które udało nam się rozwiązać w trakcie przygotowań do naszej edycji egzaminu. Oczywiście wiele z rozwiązań w tym repo zostało podjebanych w mniejszym lub większym stopniu, ale materiały, z których musieliśmy korzystać często były szczątkowe i nie wyczerpywały tematu, czasami były wręcz błędne. Z tego powodu dołożyliśmy wszelkich starań (w miarę możliwości xD), żeby ułatwić życie kolejnym rocznikom i zredagowaliśmy wszystkie po swojemu, mam nadzieję że stały się przez to bardziej przstępne.
+
+Zdanie AISDu w naszym przypadku było wysiłkiem zbiorowym. Każdy z naszej grupy dołożył cegiełkę do budowy tego repo i chciałbym im wszystkim za to bardzo podziękować -- bez was by mi się nie udało, dziękuję!
+
+Życzę powodzenia w zdawaniu tego skurwysyństwa -- nie poddawajcie się, to naprawdę da się zdać, tylko trzeba solidnie się przygotować. Powtórz wszystkie wykłady, najlepiej kilkukrotnie, zrób do nich notatki, przerób wszystkie egzaminy z poprzednich lat, sprawdzaj odpowiedzi z tymi w naszym repo, podobnie powtórz zadania z ćwiczeń i przykłady z wykładów. Przy odrobinie szczęścia staniesz się całkowicie lorysioodporny i żadne zadanie z AISDu nie będzie ci straszne!
