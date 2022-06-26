@@ -1,0 +1,465 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Wykład 5-- Niższe warstwy</title>
+	<meta name='Generator' content='Zim 0.74.3'>
+	<style type='text/css'>
+		a          { text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #4e9a06; margin-bottom: 0 }
+		h2         { color: #4e9a06; margin-bottom: 0 }
+		h3         { color: #4e9a06; margin-bottom: 0 }
+		h4         { color: #4e9a06; margin-bottom: 0 }
+		h5         { color: #4e9a06; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+	</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class='header'>
+	[ <a href='./Wykład_4_--_Routing_(wewnątrz_routera).html'>Prev</a> ]
+
+	[ <span class='insen'>Index</span> ]
+
+	[ <a href='./Wykład_6_--_Transport_(podstawy).html'>Next</a> ]
+</div>
+
+<hr />
+
+<!-- Wiki content -->
+
+<div class='pages'>
+	<div class='heading'>
+	<h1>Wykład 5-- Niższe warstwy <a name='Sieci Komputerowe -- Notatki:Wykład 5-- Niższe warstwy'></a></h1>
+	</div>
+
+	<div class='content'>
+	<p>
+Created Tuesday 21 June 2022
+</p>
+
+<h2>Zagadnienia<a id="zagadnienia" class="h_anchor"></a></h2>
+
+<br>
+
+<h3>❖ Jakie są zadania warstwy łącza danych a jakie warstwy fizycznej?<a id="-jakie-są-zadania-warstwy-łącza-danych-a-jakie-warstwy-fizycznej" class="h_anchor"></a></h3>
+
+<p>
+<b>Warstwa łącza danych:</b><br>
+<ul>
+<li>umożlwiia komunikację między dwoma <i>bezpośrednio połączonymi </i>urządzeniami</li>
+<li>zapewnia zawodną usługę wysyłania <b>ramek</b></li>
+<li>kanał komuniukacyjny może być dzielony między wieloma urządzeniami, np. kilka kart WIFI nadaje jednocześnie i zakłóca się wzajemnie</li>
+<li>musi radzic sobie z błędami transmisji, np. wykrywać błędy, stosuje kody korekcyjne </li>
+<li>posługuje się adresami MAC</li>
+</ul>
+</p>
+
+<p>
+<b>Warstwa fizyczna</b><br>
+<ul>
+<li>Określa szczegóły przesyłania pojedynczych bitów</li>
+<li>kodowanie za pomocą sygnałów elektrycnzych, fal radiowych, itp.</li>
+</ul>
+</p>
+
+<h3>❖ Rozwiń pojęcia LAN i WAN.<a id="-rozwiń-pojęcia-lan-i-wan" class="h_anchor"></a></h3>
+
+<p>
+<b>LAN</b> — Local Area Network — sieci przewodowe Ethernet, sieci bezprzewodowe Wi-Fi<br>
+<b>WAN </b>— Wide Area Network — sieci rozległe Frame Relay, MPLS, PPP
+</p>
+
+<p>
+Powyższe standardy (np. Ethernet) opisują obie warstwy — łącza danych i fizyczną. Są implementowane na kartach sieciowych (firmware).
+</p>
+
+<h3>❖ Czym różni się koncentrator od przełącznika sieciowego?<a id="-czym-różni-się-koncentrator-od-przełącznika-sieciowego" class="h_anchor"></a></h3>
+
+<br>
+
+<p>
+<b>Koncentrator (hub) </b>— urządzenie, które rozdziela sygnały. Replikuje otrzymany sygnał na wszystkie pozostałe porty. Nie rozwiązuje problemu kolizji.<br>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image004.png">
+</p>
+<h3>❖ Jak działa algorytm rundowy i bezrundowy ALOHA?<a id="-jak-działa-algorytm-rundowy-i-bezrundowy-aloha" class="h_anchor"></a></h3>
+
+<p>
+Oba to algorytmy pozwalające na radzenie sobie z problemem kolizji przy jednoczesnym nadawaniu przez kilka urządzeń. Są algorytmami opartymi na losowości.
+</p>
+
+<p>
+<b>Rundowy ALOHA</b><br>
+<ul>
+<li>czas dzielony na rundy — każda starcza na nadanie jednej ramki</li>
+<li>sukces (ramka słyszana) — dokładnie 1 komputer nadaje</li>
+<li>jeśli komputer ma ramkę danych do wysłania to wysyła ją z prawdopodobieństwem p</li>
+<li>dla p  = 1/n, gdzie n to liczba komputerów, które chcą wysyłać, sukces średnio co e=2.71 tur (dla dużych n zbiega do e)</li>
+</ul>
+</p>
+
+<p>
+Problemy:<br>
+<ul>
+<li>niskie wykorystanie łącza (1/e)</li>
+<li>musimy znać n, by wybrać optymalne p</li>
+<li>potrzebny globalny zegar </li>
+</ul>
+</p>
+
+<p>
+<b>Bezrundowy ALOHA</b><br>
+<ul>
+<li>nie potrzebuje globalnego zegara — każde urządzenie ma własne rundy</li>
+<li>dla p=1/n wykorzystanie łącza jest dwukrotnie niższe (ok. 1/2e), bo rundy mogą się na siebie nakładać</li>
+<li>faktycznie wykorzystywany w latach 60-70 na Hawajach</li>
+</ul>
+</p>
+
+<p>
+Oba mają spory problem — musimy znać n, by wyznaczać p.
+</p>
+
+<h3>❖ Jak działa algorytm odczekiwania wykładniczego?<a id="-jak-działa-algorytm-odczekiwania-wykładniczego" class="h_anchor"></a></h3>
+
+<p>
+Jest to algorytm losowego unikania kolizji, gdzie dynamicznie dobieramy prawdopodobieństwo wysyłania. Na początku wszystkie maszyny nadają z prawdopodobieństwem 1. Sprawdzają, czy kanał jest wolny. Jeśli któraś maszyna napotka kolizję, przestaje nadawać. Każda maszyna, która napotkała kolizję zmniejsza swoje prawdopodobieństwo nadawania o połowę — p &lt;- p/2. Z czasem zbiegają do optymalnej wartości w okolicach 1/n.
+</p>
+
+<h3>❖ Wyjaśnij skróty CSMA/CD i CSMA/CA; opisz te algorytmy<a id="-wyjaśnij-skróty-csmacd-i-csmaca-opisz-te-algorytmy" class="h_anchor"></a></h3>
+
+<p>
+<b>CSMA/CD	</b>(<i>Carrier Sense Multiple Access with Collision Detection / Collision Avoidance</i>) — algorytm wysyłania losowy, oparty na algorytmie oczekiwania wykładniczego.
+</p>
+
+<p>
+m zwiększa rozmiar zbioru, z którego losujemy k — wydłuża czas oczekiwania dwukrotnie.
+</p>
+
+<p>
+<ol type="1" start="1">
+<li>Zaczynamy z m=1</li>
+<li>Czekamy, aż kanał będzie pusty i zaczynamy wtedy nadawać.</li>
+<li>Podczas nadawania nasłuchujemy kolizji. Jeśli napotkamy kolizję:
+<ol type="a" start="1">
+<li>kończymy nadawać</li>
+<li>losujemy k ze zbioru {0, ..., 2^m - 1} i odczekujemy k rund</li>
+<li>m &lt;- m + 1</li>
+<li>wracamy do kroku 2</li>
+</ol></li>
+</ol>
+</p>
+
+<p>
+Jak sprawdzać, czy ramka dotarła? Jeśli dobierzemy dość długi rozmiar ramki, to zagwarantujemy, że czas wysłania ramki &gt;= 2 * czas propagacji, czyli ramka dotrze do odbiorcy albo dowiemy się o kolizji, gdy jeszcze ją nadajemy. W Ethernecie kabel ma co najwyżej 100m a ramka 64 ma bajty przy prędkości 100Mbit.<br>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image.png">
+</p>
+
+<p>
+Chcemy też, żeby długość rundy w CSMA/CD była odpowiednio długa, ponieważ chcemy, by oczekujący komputer czekał dość długo, by dotarł do niego powtórzony pakiet, czyli obsłużymy kolizję.<br>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image001.png">
+</p>
+
+<p>
+W WiFi kolizje są droższe, bo nie umiemy jednocześnie nadawać i słuchać (wysyłamy większe ramki i zawsze wysyłamy je w całości, więc w przypadku kolizji wysyłamy dużo bezsensownych danych). Z tego powodu nie używamy Collision Detection, ale Collision Avoidance — <b>CSMA/CA</b>. Nadający nie wie, czy wystąpiłá kolizja, więc konieczne jest potwierdzanie otrzymania każdej ramki. Zawsze odczekujemy pewien czas przed nadawaniem, nawet jeśli kanał jest wolny.
+</p>
+
+<h3>❖ Opisz budowę ramki Ethernetowej.<a id="-opisz-budowę-ramki-ethernetowej" class="h_anchor"></a></h3>
+
+<p>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image002.png">
+</p>
+
+<p>
+Długość ramki: <br>
+<ul style='padding-left: 30pt'>
+<li>MTU &lt;= 1500 bajtów — historyczne (droga pamięć RAM), mniejsze ramki są mniej podatne na uszkodzenia</li>
+<li>musi mieć co najmniej 64 bajty -&gt; dane &gt;= 46 bajtów (reszta na nagłówek) — jeśli jest za mało danych, to dodajemy wypełnienie (wysyłanie musi trwać co najmniej 2 * czas propagacji)</li>
+</ul>
+</p>
+
+<br>
+<br>
+
+<h3>❖ Co to jest adres MAC?<a id="-co-to-jest-adres-mac" class="h_anchor"></a></h3>
+
+<p>
+Unikatowy aders sprzętowym, przypisany karcie sieciowej przez producenta (teoretycznie na stałe, ale można go zmienić w prosty sposób). Ma 6 bajtów, np. 00:14:2a:1f:f3:ba. Pierwsze trzy bajty to adres producenta (przyznawany przez IEEE), a trzy kolejne nadaje sam producent. 
+</p>
+
+<p>
+Adresy MAC i IP globalnie identyfikują kartę sieciową. Nie używamy adresów MAC w warstwie sieciowej, bo nie mają hierarchii, przez co tablice routingu byłyby za duże. Dobrą analogią jest MAC = PESEL, a IP = adres zamieszkania.
+</p>
+
+<h3>❖ Do czego służy tryb nasłuchu (promiscuous mode)?<a id="-do-czego-służy-tryb-nasłuchu-promiscuous-mode" class="h_anchor"></a></h3>
+
+<p>
+Domyślnie karta sieciowa odrzuca ramki, jeśli adres docelowy ramki nie jest równy adresowi MAC naszej karty sieciowej. Jeśli ustawimy kartę sieciową w <b>tryb nasłuchu (promiscuous)</b>, wtedy wszystkie ramki są przesyłane do systemu operacyjnego (robi tak np. Wireshark).
+</p>
+
+<p>
+Jeśli adres odbiorcy to same jedynki — FF:FF:FF:FF:FF:FF, wtedy każdy odbiera taką ramkę (rozgłaszanie).
+</p>
+
+<h3>❖ Dlaczego w Ethernecie definiuje się minimalną długość ramki?<a id="-dlaczego-w-ethernecie-definiuje-się-minimalną-długość-ramki" class="h_anchor"></a></h3>
+
+<p>
+Ze względu na kolizję. Minimalna długość ramki — 64 bajty — gwarantuje, że kolizja zostanie odebrana przez nadawcę zanim skończy on wysyłać tę ramkę.
+</p>
+
+<h3>❖ Jak dobierać długość rundy odczekiwania w protokole CSMA/CD?<a id="-jak-dobierać-długość-rundy-odczekiwania-w-protokole-csmacd" class="h_anchor"></a></h3>
+
+<p>
+Długość rundy dobieramy tak, by był on co najmniej dwa razy dłuższy od czasu propagacji sygnału. Gwarantuje nam to, że w przypadku kolizji gdy jeden z komputerów oczekuje, a drugi ponawia wysyłanie, wtedy ramka przyjdzie do oczekującego, zanim skończy się jego czas oczekiwania.
+</p>
+
+<h3>❖ Do czego służą protokoły ARP, RARP, DHCP i APIPA?<a id="-do-czego-służą-protokoły-arp-rarp-dhcp-i-apipa" class="h_anchor"></a></h3>
+
+<p>
+Służą do przypisania adresów MAC danym adresom IP. Jeśli router chce przesłać dalej pakiet IP, wtedy sprawdza pod jaki docelowy adres IP chce go wysłać i sprawdza, jakie jest IP następnego routera na trasie. Wysyła wtedy komunikaty ARP do swoich sąsiadów, by dowiedzieć się, który z nich ma adres IP, na co oni odpowiadają mu "Tak, to ja mam taki adres IP i mój adres MAC to X:X:X:X:X:X". W ten sposób router dowiaduje się, jaki adres MAC należy wpisać jako adres docelowy w ramce, żeby pakiet IP dotarł do następnego routera na trasie lub do komputera docelowego.
+</p>
+
+<p>
+Istnieje też odwrotne przekształcanie, tzn. adresy MAC są przekształcane na IP. Służy to między innymi do automatycznego przypisywania adresów IP lub jest używane w komputerach bezdyskowych (znają tylko MAC swojej karty sieciowej). Służy do tego protokół <b>RARP </b>(<i>Reverse ARP</i>). Jego bogatszą wersją jest <b>DHCP</b>, który pobiera całą konfigurację sieci (IP, maska podsieci, brama domyślna, itd.).
+</p>
+
+<p>
+Jeśli na <b>DHCP </b>nikt nie odpowie (i wszystkie inny sposoby przypisania IP zawiodą), wtedy używamy <b>APIPA </b>(<i>Automatic Private IP Addressing</i>). Komputer losuje sobie wtedy adres z sieci 169.254.0.0/16. Działa w IPv4, w IPv6 mamy adresy <b>link-local</b>, czyli komputer przydziela sobie adres z sieci fe80::/64, a ostatnie 64 bity adresu są deterministyczną funkcją adresu MAC.
+</p>
+
+<h3>❖ Czym różni się łączenie dwóch sieci za pomocą mostu od łączenia ich za pomocą routera?<a id="-czym-różni-się-łączenie-dwóch-sieci-za-pomocą-mostu-od-łączenia-ich-za-pomocą-routera" class="h_anchor"></a></h3>
+
+<br>
+
+<p>
+<b>Most</b> — przełącznik z dwoma portami. Łączy dwie sieci, często różnych technologii (np. Ethernet  i WLAN).
+</p>
+
+<p>
+<b>Router</b> rozpakowuje ramkę i na podstawie zawartości pakietu przesyła wiadomość dalej, opakowując ją w nową ramkę, dopasowaną do innej technologii, np. WIFI.<br>
+<b>Most </b>nie rozumie pakietów, więc nie wyciąga ich z ramek, a jedynie zmienia nagłówek ramki i przelicza sumę kontrolną. Dzięki temu jest szybszy niż router, ale ma wadę — nie rozumie IP, więc fragmentacja IP jest niemożliwa. W przypadku dużych pakietów (większe niż MTU) nie uda się przesłać.
+</p>
+
+<p>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image007.png">
+</p>
+
+<h3>❖ Jak warstwa łącza danych realizuje rozgłaszanie?<a id="-jak-warstwa-łącza-danych-realizuje-rozgłaszanie" class="h_anchor"></a></h3>
+
+<p>
+<b>Domena rozgłoszeniowa</b> — karty sieciowe osiągalne bez pośrednictwa routera.<br>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image009.png">
+</p>
+
+<p>
+<b>Domena kolizyjna </b> — jeśli karty są w jednej domenie i wysyłają jednocześnie, to następuje kolizja. Switche separują domeny kolizyjne, a koncentratory nie. Efektywność pracy sieci zależy od rozmiaru domeny kolizyjnej. Najlepiej jeśli są dwupunktowe (przy pełnym dupleksie nie ma wtedy w ogóle kolizji).<br>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image010.png">
+</p>
+
+<h3>❖ Na czym polega tryb uczenia się w przełączniku sieciowym?<a id="-na-czym-polega-tryb-uczenia-się-w-przełączniku-sieciowym" class="h_anchor"></a></h3>
+
+<p>
+<b>Switch </b>uczy się, jakie adresy MAC są podłączone do danych portów. Jeśli ktoś wyśle przez niego komunikat, to z początku switch rozsyła ten komunikat do wszystkich portów, ale zapamięta wtedy, do którego udało mu się dotrzeć i przy następnych próbach będzie wysyłał tylko do niego. Jeśli podmienimy komputery, to zmodyfikuje swoje mapowanie adresów MAC.
+</p>
+
+<p>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image006.png">
+</p>
+
+<h3>❖ Po co w przełączanym Ethernecie stosuje się algorytm drzewa spinającego?<a id="-po-co-w-przełączanym-ethernecie-stosuje-się-algorytm-drzewa-spinającego" class="h_anchor"></a></h3>
+
+<p>
+Switche nie zapamiętują topologii sieci, bo są zbyt prostymi urządzeniami. W przypadku cyklów w sieci może dojść do burzy rozgłoszeniowej (ramki wysyłane na adres rozgłoszeniowy są przekazywane do wszystkich portów, a zatem w cyklu zaczynają krążyć w kółko i się nawarstwiać), które mogą spalić switch. Stosuje się w nich <b>STP </b>(<i>Spanning Tree Protocol</i>), czyli rozproszony algorytm budowy drzewa spinającego. Mówi on, że pewne krawędzie w sieci nie są używane — są odcinane. Zaczynamy z nich korzystać tylko wtedy, gdy pozostałe nie będą dostępne, np. w wyniku awarii.
+</p>
+
+<p>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image008.png">
+</p>
+
+<h3>❖ Co to jest sieć VLAN? Po co się ją stosuje?<a id="-co-to-jest-sieć-vlan-po-co-się-ją-stosuje" class="h_anchor"></a></h3>
+
+<p>
+<b>VLAN </b>— wirtualne sieci lokalne. Czasami fizyczna budowa sieci nie odpowiada jej budowie logicznej, np. chcemy mieć w biurze podział sieci pomiędzy działem księgowości, a działem developerskim, ale budowa fizyczna na to nie pozwala. Za pomocą przełączników możemy przydzielać który port należy do jakiej sieci wirtualnej. Wtedy w ramkach pojawia się dodatkowe pole — numer VLANu — i jest ona przesyłana tylko w jego obrębie.<br>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image011.png">
+</p>
+
+<h3>❖ Wyjaśnij zjawisko ukrytej stacji.<a id="-wyjaśnij-zjawisko-ukrytej-stacji" class="h_anchor"></a></h3>
+
+<p>
+Zjawisko to występuje tylko w sieciach bezprzewodowych (nie ma szans wystąpić po kablu). Sieci bezprzewodowe mają pewien zasięg. Jeżeli dwa komputery nie leżą w swoim zasięgu (nie widzą się — są przed sobą <b>ukryte</b>) i jednocześnie nadają do <b>AP</b> (<i>Access Point</i>), to zajdzie kolizja. Oznacza to, że strategia <i>nadawaj, jeśli nikt nie nadaje</i> nie zawsze działa.
+</p>
+
+<p>
+Można sobie poradzić z tym problemem dodając pewną technikę do CSMA/CA. Zanim A nadaje ramkę do AP, to wysyła komunikat <b>RTS </b>(<i>Request To Send</i>). AP odsyła <b>CTS </b>(<i>Clear To Send</i>), które słyszy zarówno A oraz B (wysyła do każdego w zasięgu). B będzie wtedy milczał przez czas, jaki potrzebuje A na nadanie ramki. A wysyła ramkę, a AP ją potwierdza.<br>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image012.png"><br>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image013.png">
+</p>
+
+<h3>❖ Na czym polega rezerwowanie łącza za pomocą RTS i CTS?<a id="-na-czym-polega-rezerwowanie-łącza-za-pomocą-rts-i-cts" class="h_anchor"></a></h3>
+
+<br>
+
+<p>
+<b>RTS </b>(<i>Request To Send</i>) i <b>CTS</b> (<i>Clear To Send) </i>to sygnały pomagające uniknąć problemu <b>ukrytej stacji</b>. Nadawca A wysyła RTS do Acces Pointa, na co ten odpowiada wszystkim CTS i pozwala A nadawać. Wszyscy inni nadawcy wiedzą, że teraz nadaje A, więc milczą. Gdy A wyśle ramkę, wtedy AP potwierdza odbiór.
+</p>
+
+<h3>❖ Jakie znasz problemy z warstwą fizyczną w sieciach przewodowych i bezprzewodowych?<a id="-jakie-znasz-problemy-z-warstwą-fizyczną-w-sieciach-przewodowych-i-bezprzewodowych" class="h_anchor"></a></h3>
+
+<p>
+<b>Problemy z warstwą fizyczną</b><br>
+<ul>
+<li>malejąca siła sygnału (zasięg sieci bezprzewodowych to ok. 50m (2.4GHz) i ok. 20m (5GHz), słabnie z kwadratem odległości, zanika przy przechodzeniu przez ściany, itd. W sieciach przewodowych słabnący sygnał wynika z tłumienia w kablu.</li>
+<li>interferencje z kartami sieciowymi, telefonami bezprzewodowymi, mikrofalówkami, Bluetooth, itd.</li>
+<li>propagacja wielościeżkowa — ten sam sygnał wędruje do celu wieloma ścieżkami różnej długości i interferuje ze sobą.</li>
+</ul>
+</p>
+
+<p>
+Wszystkie te problemy pojawiają się <b>głównie przy sieciach bezprzewodowych</b>.
+</p>
+
+<h3>❖ Jakie znasz standardy szyfrowania w sieciach bezprzewodowych?<a id="-jakie-znasz-standardy-szyfrowania-w-sieciach-bezprzewodowych" class="h_anchor"></a></h3>
+
+<p>
+Przestarzałe mało ważne: <b>WEP</b> (Wired Equvalent Privacy) <i>i</i> <b>WPA </b>(Wi-Fi Protected Access). Nie należy ich używać.
+</p>
+
+<p>
+Współcześnie korzysta się z <b>WPA2 = 802.11i</b>. Ma dwa standardy:<br>
+<ul>
+<li><b>personal, PSK </b>(<i>Pre-Shared Key</i>) — jeden klucz szyfrujący ustalany na początku sesji. Jeśli ktoś go podsłucha na początku komunikacji, to może podsłuchiwać.</li>
+<li><b>enterprise </b>— osobny serwer uwierzytelniający (np. eduroam tak działa)</li>
+</ul>
+</p>
+
+<p>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image014.png">
+</p>
+
+<h3>❖ Wymień popularne standardy Ethernetu i sieci WLAN.<a id="-wymień-popularne-standardy-ethernetu-i-sieci-wlan" class="h_anchor"></a></h3>
+
+<p>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image016.png"><br>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image017.png">
+</p>
+
+<p>
+<b>Najczęstsze</b> <b>warianty</b> <b>Ethernetu</b><br>
+<ul>
+<li>Ethernet (10 Mbit/s, kabel kocentryczny lub skrętka kat. &gt;=3)</li>
+<li>Fast Ethernet (100 Mbit/s, skrętka kat. &gt;=5)</li>
+<li>Gigabit Ethernet (1 Gbit/s, skrętka kat. &gt;= 5e lub światłowód)</li>
+<li>10 Gigabit Ethernet (10 Gbit/s skrętka kat. &gt;= 6a lub światłowód)</li>
+</ul>
+</p>
+
+<p>
+<b>Najczęstsze warianty WLAN</b><br>
+<img src="./Wykład_5--_Niższe_warstwy/pasted_image018.png">
+</p>
+
+	</div>
+
+	<br />
+
+	<div class='page-footer'>
+		<b>Backlinks:</b>
+
+		<a href='../Sieci_Komputerowe_--_Notatki.html'>Sieci Komputerowe -- Notatki</a>
+
+		<br /><br />
+
+			<b>Attachments:</b>
+			<table>
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image.png'>pasted_image.png</a></td><td>&nbsp;</td><td>426kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image001.png'>pasted_image001.png</a></td><td>&nbsp;</td><td>446kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image002.png'>pasted_image002.png</a></td><td>&nbsp;</td><td>284kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image003.png'>pasted_image003.png</a></td><td>&nbsp;</td><td>284kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image004.png'>pasted_image004.png</a></td><td>&nbsp;</td><td>453kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image005.png'>pasted_image005.png</a></td><td>&nbsp;</td><td>453kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image006.png'>pasted_image006.png</a></td><td>&nbsp;</td><td>310kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image007.png'>pasted_image007.png</a></td><td>&nbsp;</td><td>488kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image008.png'>pasted_image008.png</a></td><td>&nbsp;</td><td>412kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image009.png'>pasted_image009.png</a></td><td>&nbsp;</td><td>383kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image010.png'>pasted_image010.png</a></td><td>&nbsp;</td><td>358kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image011.png'>pasted_image011.png</a></td><td>&nbsp;</td><td>196kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image012.png'>pasted_image012.png</a></td><td>&nbsp;</td><td>354kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image013.png'>pasted_image013.png</a></td><td>&nbsp;</td><td>226kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image014.png'>pasted_image014.png</a></td><td>&nbsp;</td><td>247kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image015.png'>pasted_image015.png</a></td><td>&nbsp;</td><td>247kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image016.png'>pasted_image016.png</a></td><td>&nbsp;</td><td>903kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image017.png'>pasted_image017.png</a></td><td>&nbsp;</td><td>440kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image018.png'>pasted_image018.png</a></td><td>&nbsp;</td><td>707kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_5--_Niższe_warstwy/pasted_image019.png'>pasted_image019.png</a></td><td>&nbsp;</td><td>707kb</td></tr>
+
+			</table>
+	</div>
+
+	
+
+</div>
+
+</body>
+</html>

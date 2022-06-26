@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Wykład 13 -- Bezpieczeństwo sieci</title>
+	<meta name='Generator' content='Zim 0.74.3'>
+	<style type='text/css'>
+		a          { text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #4e9a06; margin-bottom: 0 }
+		h2         { color: #4e9a06; margin-bottom: 0 }
+		h3         { color: #4e9a06; margin-bottom: 0 }
+		h4         { color: #4e9a06; margin-bottom: 0 }
+		h5         { color: #4e9a06; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+	</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class='header'>
+	[ <a href='./Wykład_12_--_Podstawy_kryptografii.html'>Prev</a> ]
+
+	[ <span class='insen'>Index</span> ]
+
+	[ <span class='insen'>Next</span> ]
+</div>
+
+<hr />
+
+<!-- Wiki content -->
+
+<div class='pages'>
+	<div class='heading'>
+	<h1>Wykład 13 -- Bezpieczeństwo sieci <a name='Sieci Komputerowe -- Notatki:Wykład 13 -- Bezpieczeństwo sieci'></a></h1>
+	</div>
+
+	<div class='content'>
+	<p>
+Created Sunday 26 June 2022
+</p>
+
+<h2>Zagadnienia<a id="zagadnienia" class="h_anchor"></a></h2>
+
+<br>
+
+<h3>❖ Co to jest pamięć CAM i jak stosuje się ją w przełącznikach? Jak można ją przepełnić?<a id="-co-to-jest-pamięć-cam-i-jak-stosuje-się-ją-w-przełącznikach-jak-można-ją-przepełnić" class="h_anchor"></a></h3>
+
+<p>
+<b>CAM </b>to rodzaj pamięci, adresowanej po zawartości (sprzętowa tablica haszująca — <b>content addresable memory</b>). W przełączanym Ethernecie jeśli często będziemy zmieniać adres MAC, możemy zalać CAM nowymi wpisami, a przełącznik (<b>switch</b>) przejdzie w tryb uczenia się.
+</p>
+
+<h3>❖ Opisz atak typu ARP spoofing.<a id="-opisz-atak-typu-arp-spoofing" class="h_anchor"></a></h3>
+
+<br>
+
+<p>
+Wysyłamy odpowiedź ARP na niezadane pytanie, jako aders IP ustawiając IP uzytkownika, którego chcemy podsłuchać. Pakiety zostają przekierowywane do nas.
+</p>
+
+<h3>❖ Co oznacza termin IP spoofing? Na czym polega metoda weryfikacji tak zmodyfikowanych pakietów (ingress filtering)?<a id="-co-oznacza-termin-ip-spoofing-na-czym-polega-metoda-weryfikacji-tak-zmodyfikowanych-pakietów-ingress-filtering" class="h_anchor"></a></h3>
+
+<p>
+Fałszujemy źródłowy adres IP (można go sobie ustawić samodzielnie). Mozemy w ten sposób uniknąć odpowiedzialności za atak lub uzyskiwać dostęp do niektórych usług.<br>
+<b>Ingress filtering</b> to metoda radzenia sobie z takimi atakami, skuteczna, jeśli router jest blisko nadawcy. Router zakłada, że pakiet musi mieć adres źróðłowy z określonego zakresu. Nie przepuszcza ruchu o adressach IP, które wydają się podejrzane.
+</p>
+
+<h3>❖ Na czym polega atak RIP spoofing?<a id="-na-czym-polega-atak-rip-spoofing" class="h_anchor"></a></h3>
+
+<p>
+RIPv1 nie jest uwierzytelniany. Wystarczy rozgłaszać trasę do siebie o małym koszcie, a wtedy cała sieć zacznie przekierowywać ruch do odbiorców przez nas.
+</p>
+
+<h3>❖ Na czym polega zatruwanie pamięci podręcznej serwera DNS?<a id="-na-czym-polega-zatruwanie-pamięci-podręcznej-serwera-dns" class="h_anchor"></a></h3>
+
+<p>
+<ul>
+<li>Atakujący wysyła do R zapytanie o amazon.com. </li>
+<li>R wysyła zapytanie (przez UDP) o amazon.com do serwera DNS (o adresie IP=X). </li>
+<li>Atakujący wysyła odpowiedzi DNS (datagramy UDP) podszywając się pod X. </li>
+<li>R sprawdza, czy w odpowiedzi jest taki sam 16-bitowy ID jak w zapytaniu</li>
+<li>Wystarczy, że atakujący wyśle 2^16 odpowiedzi ze wszystkimi możliwymi ID.</li>
+</ul>
+</p>
+
+<p>
+Można temu zapobiec za pomocą DNSSEC (kryptograficzne uwierzytelnianie pakietów DNS) — stosowane przez główne serwery DNS. Obecnie ataku na DNS nie są tak skuteczne — uwierzytelnianie punktów końcowych połączenia (TLS).
+</p>
+
+<h3>❖ Jak wygląda uwierzytelnianie serwera SSH?<a id="-jak-wygląda-uwierzytelnianie-serwera-ssh" class="h_anchor"></a></h3>
+
+<p>
+<ul>
+<li>Przy pierwszym połączeniu serwer przesyła klucz publiczny, a program klienta oblicza dla niego funkcję skrótu.</li>
+<li>Użytkownik potwierdza ten fingerprint (albo i nie, bo komu by się chciało dzwonić do administratora).</li>
+<li>Po zaakceptowaniu klucz publiczny jest zapisywany lokalnie w liście znanych hostów.</li>
+</ul>
+</p>
+
+<h3>❖ Na czym polega uwierzytelnianie użytkownika przez SSH z wykorzystaniem kluczy RSA?<a id="-na-czym-polega-uwierzytelnianie-użytkownika-przez-ssh-z-wykorzystaniem-kluczy-rsa" class="h_anchor"></a></h3>
+
+<p>
+<ul>
+<li>Klient może po prostu podać hasło do konta albo</li>
+<li>klient podaje wiadomość, że jest takim użytkownikiem, za jakiego się podaje</li>
+<li>serwer prosi go, by podpisał jakieś dane</li>
+<li>klient podpisuje dane i odsyła</li>
+<li>serwer sprawdza, czy to faktycznie użytkownik (zna jego klucz publiczny, bo użytkownik wcześniej zapisał go w pliku <b>authorized_keys</b> na serwerze. Jest to lepsze niż hasło, bo nie działa atak powtórzeniowy (ktoś może podsłuchać naszą komunikację i ją powtórzyć).</li>
+</ul>
+</p>
+
+<h3>❖ Przedstaw przykładowe ataki wykorzystujące brak sprawdzania poprawności wprowadzanych danych.<a id="-przedstaw-przykładowe-ataki-wykorzystujące-brak-sprawdzania-poprawności-wprowadzanych-danych" class="h_anchor"></a></h3>
+
+<p>
+<ul>
+<li>przepełnienie bufora — nadpisujemy na stosie adres powrotu procedury na adres złośliwego kodu i zapisujemy wyżej ten kod</li>
+</ul>
+<img src="./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image.png"><br>
+<ul>
+<li>atak typu <a href="../Sieci_Komputerowe_--_Notatki" title="../" class="file">../</a> — możemy poprosić w pomocniczym skrypcie WWW o wrażliwy plik z serwera, np.<a href="http://example.com/skrypt?plik=test" title="http://example.com/skrypt?plik=test" class="http">http://example.com/skrypt?plik=test</a> wyświetla zawartość pliku /var/www/test.</li>
+</ul>
+<img src="./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image001.png">
+</p>
+
+<p>
+<ul>
+<li>SQL injection</li>
+</ul>
+<img src="./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image002.png">
+</p>
+
+<h3>❖ Wyjaśnij pojęcia: robak internetowy, exploit, botnet.<a id="-wyjaśnij-pojęcia-robak-internetowy-exploit-botnet" class="h_anchor"></a></h3>
+
+<p>
+<b>Robak internetowy</b> — programy komputerowe, które wykorzystują znalezione luki w bezpieczeństwie niektórych usług.<br>
+<b>Exploit </b>— gotowe sposoby wykorzystania luk w zabezpieczeniach lub implementacji , do znalezienia na specjalistycznych stronach internetowych, np. CIRCL, VulDB, Security Focus. Często uzywane przez niedoświadczonych użyszkodników. Często wystarczy drobna zmiana, np. podmiana numeru portu, na którym nasłuchuje  SSH, żeby taki program przestał działać (<b>security by obscurity</b>).<br>
+<b>Botnet </b>— sieć komputerów, zainfekowanych przez robaka internetowego. Pozwala na rozproszony atak.
+</p>
+
+<h3>❖ Na czym polega phishing?<a id="-na-czym-polega-phishing" class="h_anchor"></a></h3>
+
+<p>
+<b>Phishing</b> — podszywanie się pod zaufaną stronę, np. Facebook, bank, Netflix, by uzyskać dostęp do danych użytkownika.<br>
+<img src="./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image003.png">
+</p>
+
+<h3>❖ Co to jest skanowanie portów? Po co się je wykonuje?<a id="-co-to-jest-skanowanie-portów-po-co-się-je-wykonuje" class="h_anchor"></a></h3>
+
+<p>
+<b>Skanowanie portów</b> to wyszukiwanie otwartych portów. Często wykonywane przed atakiem, by sprawdzić, jakie usługi działają na maszynie. Polega na używaniu specjalnych programów, np. <b>nmap</b>, lub wysyłaniu komunikatów z dziwnymi flagami, np. RST+ACK, skanowanie za pomocą SYN, itp.
+</p>
+
+<h3>❖ Co to są ataki DoS i DDoS?<a id="-co-to-są-ataki-dos-i-ddos" class="h_anchor"></a></h3>
+
+<p>
+<b>DoS </b>i<b> DDoS </b>to ataki polegające na odmowie dostępu do usług, np. w celu wymuszenia okupu lub z chęci zemsty. Mogą polegać na zakłócaniu fizycznego kanału, np. sieci bezprzewodowej, wyczerpywaniu mocy obliczeniowej, zalewaniu łącza pakietami, np. ICMP ECHO. Czasami stosuje się <b>Reflected DoS</b>, gdzie sami nie jesteśmy w stanie zalać ofiary pakietami (mamy za wolny komputer), ale wysyłamy, np. zapytania DNS, z adresem źródłowym ofiary. Wtedy mocniejszy komputer (serwer DNS) zalewa ofiarę znacznie większymi pakietami, niż te wysłane przez nas. Czasami spotyka się też <b>smurf attack</b>, w któ©ym wykorzystujemy ICMP ECHO (ping), by wysłáć jeden pakiet do switcha, ale na adres broadcast. Switch zwielokratnia nasz pakiet i rozsyła po całej sieci. Każdy odbiorca odpowiada ofierze.<br>
+<b>DDoS </b>to <b>Distributed Denial of Service</b>, czyli rozproszony DoS. Jest wykonywany z wielu komputerów, które np. zostały wcześniej zainfekowane robakiem, tworząc botnet.
+</p>
+
+<p>
+<img src="./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image005.png">
+</p>
+
+<h3>❖ Na czym polega atak typu odbity (reflected) DoS?<a id="-na-czym-polega-atak-typu-odbity-reflected-dos" class="h_anchor"></a></h3>
+
+<p>
+ <b>Reflected DoS </b>— sami nie jesteśmy w stanie zalać ofiary pakietami (mamy za wolny komputer), ale wysyłamy, np. zapytania DNS, z adresem źródłowym ofiary. Wtedy mocniejszy komputer (serwer DNS) zalewa ofiarę znacznie większymi pakietami, niż te wysłane przez nas. 
+</p>
+
+<h3>❖ Jak działa i do czego jest wykorzystywany ICMP Traceback?<a id="-jak-działa-i-do-czego-jest-wykorzystywany-icmp-traceback" class="h_anchor"></a></h3>
+
+<p>
+Każdy router dla przesyłanego pakietu z małym prawdopodobieństwem (ok. 1/20000) wysyła do odbiorcy dodatkowy komunikat ICMP. Zawiera on informacje o pakiecie, routerze, itd. Pomaga zidentyfikować podejrzany ruch sieciowy, w przypadku ataku. 
+</p>
+
+<h3>❖ Podaj przykłady tunelowania.<a id="-podaj-przykłady-tunelowania" class="h_anchor"></a></h3>
+
+<p>
+<b>Tunelowanie</b> to przesyłanie usług sieciowych za pomocą innych usług sieciowych, łamiąc standardowy model warstwowy. Pozwala nam to zestawić wirtualne połączenie (często szyfrowane).<br>
+Przykładem jest tunelowanie pakietóœ IPv6 w pakietach IPv4 lub VPN.<br>
+<img src="./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image006.png">
+</p>
+
+<h3>❖ Rozwiń skrót VPN. Do czego służy?<a id="-rozwiń-skrót-vpn-do-czego-służy" class="h_anchor"></a></h3>
+
+<p>
+<b>VPN (Virtual Private Network)</b> — dwie sieci są połączone internetem, ale chcemy z nich zrobić jedną sieć logiczną, np. zdalnie pracujący pracownicy firmy chcą działać w obrębie zaufanej sieci firmowej.<br>
+<img src="./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image008.png">
+</p>
+
+<h3>❖ Porównaj wady i zalety filtrów pakietów: prostych, stanowych i działających w warstwie aplikacji.<a id="-porównaj-wady-i-zalety-filtrów-pakietów-prostych-stanowych-i-działających-w-warstwie-aplikacji" class="h_anchor"></a></h3>
+
+<p>
+<b>Filtry proste</b> — warstwa sieciowa. Analizują tylko IP i porty. Szybkie, ale mało precyzyjne.<br>
+<b>Stanowe</b> — warstwa transportowa. Analizują nagłówki IP i TCP. Śledzą nawiązywanie połączenia TCP, pamiętają jego stan.<br>
+<b>Filtry działające w wastwie aplikacji</b> — analizują zawartość segmentów i datagramów. Rozumieją, że trzeba otworzyć port na dane. Nie należy ich mylić z zaporwami aplikacji, które analizują wywyołania systemowe aplikacji (syscalle). Znacznie wolniejsze niż poprzednie.
+</p>
+
+<h3>❖ Do czego służą moduły input, output, forward w filtrze Netfilter / nftables?<a id="-do-czego-służą-moduły-input-output-forward-w-filtrze-netfilter--nftables" class="h_anchor"></a></h3>
+
+<p>
+<b>Input </b>— konfiguruje zachowanie dla pakietów przychodzących, np. są wpuszczane lub odrzucane..<br>
+<b>Output </b>— konfiguruje zachowanie dla pakietów wychodzących.<br>
+<b>Forward</b> — konfiguruje pakiety, które tylko przechodzą przez nasz router.
+</p>
+
+<p>
+<b>nat PREROUTING</b> — podmiana docelowych adresów IP, np. przy przekierowywaniu do innego komputera.<br>
+<b>nat POSTROUTING</b> — podmiana źróðłowych adresów IP. Ostatnia czynność przed wysłaniem pakietu.
+</p>
+
+<p>
+<img src="./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image009.png">
+</p>
+<h3>❖ W jakich łańcuchach zapory Linuksa wykonywany jest źródłowy a w jakich docelowy NAT?<a id="-w-jakich-łańcuchach-zapory-linuksa-wykonywany-jest-źródłowy-a-w-jakich-docelowy-nat" class="h_anchor"></a></h3>
+
+<p>
+<b>Źródłowy w postrouting.</b><br>
+<b>Docelowy w prerouting.</b> 
+</p>
+
+	</div>
+
+	<br />
+
+	<div class='page-footer'>
+
+			<b>Attachments:</b>
+			<table>
+
+			<tr><td><a href='./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image.png'>pasted_image.png</a></td><td>&nbsp;</td><td>322kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image001.png'>pasted_image001.png</a></td><td>&nbsp;</td><td>334kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image002.png'>pasted_image002.png</a></td><td>&nbsp;</td><td>240kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image003.png'>pasted_image003.png</a></td><td>&nbsp;</td><td>364kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image004.png'>pasted_image004.png</a></td><td>&nbsp;</td><td>364kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image005.png'>pasted_image005.png</a></td><td>&nbsp;</td><td>780kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image006.png'>pasted_image006.png</a></td><td>&nbsp;</td><td>275kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image007.png'>pasted_image007.png</a></td><td>&nbsp;</td><td>275kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image008.png'>pasted_image008.png</a></td><td>&nbsp;</td><td>270kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image009.png'>pasted_image009.png</a></td><td>&nbsp;</td><td>497kb</td></tr>
+
+
+			<tr><td><a href='./Wykład_13_--_Bezpieczeństwo_sieci/pasted_image010.png'>pasted_image010.png</a></td><td>&nbsp;</td><td>497kb</td></tr>
+
+			</table>
+	</div>
+
+	
+
+</div>
+
+</body>
+</html>

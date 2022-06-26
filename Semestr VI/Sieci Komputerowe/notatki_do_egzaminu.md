@@ -1518,38 +1518,219 @@ Created Sunday 26 June 2022
 ### Zagadnienia
 
 #### ❖ Czym szyfrowanie symetryczne różni się od asymetrycznego?
+W **szyfrowaniu symetrycznym** obie strony znają ten sam klucz, który używają do szyfrowania i deszyfrowania. Nikt inny poza nimi nie zna tego klucza.
+W **szyfrowaniu asymetrycznym **dwie strony posiadają swoje własne klucze publiczny i prywatny. Jeśli Alicja chce przesłać coś do Boba, wtedy wymieniają się swoimi kluczami **publicznymi**. Alicja **szyfruje wiadomość kluczem publicznym**, a następnie Bob **rozszyfrowuje ją** **swoim** **kluczem prywatnym**.
 
 #### ❖ Na czym polega bezpieczeństwo przy szyfrowaniu asymetrycznym?
 
+Nie dzielimy się z drugą stroną kluczem, który wykorzystujemy do deszyfrowania, a jedynie kluczem publicznym, którego używamy do szyfrowania. Dzięki temu rozszyfrowanie wiadomości jest bardzo trudne dla adwersarza, ponieważ o ile nie pozna naszego klucza prywatnego, to musi się sporo napocić.
+
 #### ❖ Opisz algorytm RSA.
+
+
+1. Wybieramy duże liczby pierwsze p=/=q.
+2. Obliczamy n = p*q
+3. Znajdujemy duże d względnie pierwsze z (p-1)(q-1)
+4. Znajdujemy takie e, ze d*e mod (p-1)(q-1) = 1 (rozszerzonym algorytmem Euklidesa)
+5. Para (e,n) to klucz publiczny, a (d, n) to klucz prywatne.
+
+
+Szyfrowanie liczby m z przedziału [0, n) polega na ogliczeniu E(m) = m^e mod n. Wysyłamy ją do odbiorcy jako szyfrogram s. Odbiorca bierze s i odszyfrowuje D(s) = s^d mod n.
+
+Dlaczego to działa?
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_12_--_Podstawy_kryptografii/pasted_image.png)
 
 #### ❖ Czy różni się szyfrowanie od uwierzytelniania?
 
+Uwierzytelnianie to weryfikowanie autentyczności drugiej strony — sprawdzamy, czy nikt się nie podszywa pod rózmówcę.
+
+Szyfrowanie to przekształcanie wiadomości z postaci jawnej na szyfrogram, który jest nieczytelny i niezrozumiały, dopóki nie zostanie rozszyfrowany z powrotem do postaci jawnej.
+
 #### ❖ Co to jest atak powtórzeniowy?
+
+Jeśli adwersarz posiada dostęp do kanału komunikacji, to może nagrać całą parę (X, Ea(X)) i wykorzystać ją do udawania jednej ze stron.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_12_--_Podstawy_kryptografii/pasted_image002.png)
 
 #### ❖ Czy w szyfrowaniu asymetrycznym szyfrujemy kluczem publicznym czy prywatnym?
 
+Publicznym. Prywatne służy do deszyfracji.
+
 #### ❖ Na czym polega podpisywanie wiadomości? Jakim kluczem to robimy?
+W przypadku, gdy Alicja wysyła wiadomość do Boba, to ma pewność, że rozmawia z Bobem, o ile uda mu się rozszyfrować wiadomość (tylko on zna swój klucz prywatny(. Ale Bob nie ma pewności, czy wiadomość wysłała do niego Allicja. W tym celu Alicja stosuje podobną metodę co przy szyfrowaniu. Korzystamy z wzajemnej odwrotności funkcji szyfrującej i deszyfrującej, tzn. ![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_12_--_Podstawy_kryptografii/pasted_image001.png)
+i tworzymy wiadomość Eb(m), która jest **podpisem cyfrowym wiadomości m** — **wiadomością zaszyfrowaną kluczem prywatnym**, będziemy ją rozszyfrowywać kluczem publicznym. Tylko Alicja zna swój klucz prywatny, więc tylko ona mogła złożyć ten podpis, ale każdy może go odczytać, bo każdy zna jej klucz publiczny.
 
 #### ❖ Jak można wykorzystać podpisy cyfrowe do uwierzytelniania?
 
+Stosujemy metodę **challenge response. **Jeśli Alicja chce rozmawiać z Bobem, to ten poprosi ją, by udowodniła, że faktycznie jest Alicją. Wysyła jej pewną unikatową, wcześniej nieużywaną wiadomość, którą Alicja musi podpisać. Jesli Bob jest w stanie rozszyfrować odpowiedź kluczem publicznym Alicji, to wie, że rozmawia z Alicją.
+
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_12_--_Podstawy_kryptografii/pasted_image003.png)
+
 #### ❖ Czy HMAC można wykorzystać do uwierzytelniania? Czy HMAC jest podpisem cyfrowym?
+**HMAC (Message Authentication Code)** **można wykorzystywać do uwierzytelniania**, ponieważ skoro polega na szyfrowaniu wiadomości za pomocą jakiegoś sekretu, który jest znany tylko osobom uprawnionym do komunikacji, to jeśli ktoś umie nim coś zaszyfrować, to musi znać sekret (prawdopodobnie). **Nie jest to jednak podpis**, ponieważ sekret jest wspólny — każda osoba, która go zna może go użyć do podpisania się lub rozczytania podpisu, ale podpis powinna umieć wykonać tylko jedna osoba.
 
 #### ❖ Dlaczego lepiej podpisywać funkcję skrótu wiadomości niż samą wiadomość? Z jakim ryzykiem się to wiąże?
+Podpisywanie wiadomości wiąże się z tym, że musimy zaszyfrować całą wiadomość, co jest kosztowne obliczeniowo i zabiera dużo czasu. Lepiej skrócić wiadomość jakąś funkcją skrótu i dopiero ją podpisać, ale istnieje niebezpieczeństwo, że nasz skrót nie będzie unikatowy i może zostać podrobiony.  
 
 #### ❖ Co to są certyfikaty? Co to jest ścieżka certyfikacji?
 
+**Certyfikat** to informacja poświadczające autentyczność klucza publicznego danej osoby, instytucji, itd. Dany klucz publiczny mogą potwierdzić inni użytkownicy lub **urzędy certyfikacji (CA — Certification Authority).**
+**Ścieżka certyfikacji** to  graf certyfikatów, w której kolejni użytkownicy kolejno potwierdzają swoją tożsamość.
+
 #### ❖ Co to jest urząd certyfikacji (CA)?
+To zaufane urzędy, które potwierdzają tożsamość danego klucza publicznego. Weryfikują, czy faktycznie jesteśmy tym, za kogo się podajemy. Klucze publiczne CA są wpisane w przeglądarki (ich zbiory mogą się różnić między przeglądarkami). Pozwalają na niebezpośrednie (użytkownik nie musi tego robić) potwierdzania tożsamości klucza publicznego. Wykorzystuje **TLS**.
 
 #### ❖ Jak SSL/TLS zapewnia bezpieczeństwo połączenia?
 
+Użytkownicy nie chcą sami szyfrować i uwierzytelniać, dlatego stosuje się protokół TLS, który robi to za nich.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_12_--_Podstawy_kryptografii/pasted_image005.png)
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_12_--_Podstawy_kryptografii/pasted_image004.png)
+
 #### ❖ W jaki sposób w SSL następuje uwierzytelnienie serwera, z którym się łączymy?
+
+**Uwierzytelnianie serwera:**
+
+1. Serwer WWW wysyła certyfikat (klucz publiczny + dane o stronie) podpisane przez pewne CA
+2. Przeglądarka sprawcza, czy ma klucz publiczny tego CA i sprawdza prawdziwość podpisu CA
+3. Dane o stronie opisują stronę, z którą zamierzamy się łączyć
+
+**Od tej pory serwer jest uwierzytelniony**
+
+* Szyfrujemy wiadomości dla serwera WWW jego kluczem publicznym
+* A co z odpowiedziami? Jak uwierzytelnić użytkownika?
+
+
+**Uwierzytelnianie użytkownika** w teorii jest możlwe w TLS, ale wymagałoby, żeby miał on certyfikowany klucz. W praktyce zwykle uwierzytelnia się po prostu na poziomie warstwy aplikacji przez parę użytkownik + hasło/token/plik cookie.
 
 #### ❖ Co to są klucze sesji? Po co się je stosuje?
 
+Serwer powinien szyfrować dane do klienta, ale klient zwykle nie ma swojego klucza publicznego. Dlatego w **TLS **przeglądarka generuje **symetryczny klucz sesji (np. AES) **i jest on wykorzystywany do komunikacji. Przeglądarka szyfruje go kluczem publicznym serwera WWW i wysyła na serwer WWW. Dalej komunikacja jest szyfrowana kluczem sesji. Dodatkowo takie szyfrowanie jest szybsze!
+**Szyfrowanie symetryczne jest wielokrotnie szybsze niz asymetryczne!!!**
+
 #### ❖ Co to są kolizje kryptograficznej funkcji skrótu?
+Kryptograficzna funkcja skrótu generuje krótszy ciąg bitów jako wartość dla argumentu, który jest dłuższą wiadomością. Nie ma jednak pewności, że inna wiadomość nie wygeneruje takiej samej funkcji skrótu — mamy wtedy kolizję.
 
 #### ❖ Na czym polega atak urodzinowy?
 
+Chodzi o to, że mamy wiadomość m i chcemy znaleźć inną wiadomość m' taką, że h(m)=h(m'). Teoretycznie znalezienie m' to sprawdzenie ok 2^80 wiadomości (za dużo). Ale adwersarz może najpierw wygenerować m, a potem szukać takiego m' (dodając jakieś nieistotne zmiany, np. spacje, tabulatury, itp.), że h(m)=h(m'). Kosz to dalej 2^80. Ale jeśli adwersarz wygeneruje dwa zbiory wiadomości, oba o liczności ok. 2^40 wiadomości — pierwszy z nich zawiera informacje dotyczącą X, a drugi te same informacje, ale o Y, to mamy pewność, że istnieje taka wiadomość m w pierwszym i m' w drugim zbiorze, że h(m') = h(m). Analogia do paradoksu urodzin.
+
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_12_--_Podstawy_kryptografii/pasted_image006.png)
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_12_--_Podstawy_kryptografii/pasted_image007.png)
+
 #### ❖ Na jaki atak narażone jest podejście, w którym wiadomość najpierw szyfrujemy a potem podpisujemy?
+
+Adwersarz moze przechwycić zaszyfrowaną wiadomość bez podpisu i podpisać ją własnym kluczem, przez co odbiorca będzie myślał, że to adwersarz wysłał tę wiadomość.
+
+
+# Wykład 13 -- Bezpieczeństwo sieci
+Created Sunday 26 June 2022
+
+Zagadnienia
+-----------
+
+### ❖ Co to jest pamięć CAM i jak stosuje się ją w przełącznikach? Jak można ją przepełnić?
+**CAM **to rodzaj pamięci, adresowanej po zawartości (sprzętowa tablica haszująca — **content addresable memory**). W przełączanym Ethernecie jeśli często będziemy zmieniać adres MAC, możemy zalać CAM nowymi wpisami, a przełącznik (**switch**) przejdzie w tryb uczenia się.
+
+### ❖ Opisz atak typu ARP spoofing.
+
+Wysyłamy odpowiedź ARP na niezadane pytanie, jako aders IP ustawiając IP uzytkownika, którego chcemy podsłuchać. Pakiety zostają przekierowywane do nas.
+
+### ❖ Co oznacza termin IP spoofing? Na czym polega metoda weryfikacji tak zmodyfikowanych pakietów (ingress filtering)?
+Fałszujemy źródłowy adres IP (można go sobie ustawić samodzielnie). Mozemy w ten sposób uniknąć odpowiedzialności za atak lub uzyskiwać dostęp do niektórych usług.
+**Ingress filtering** to metoda radzenia sobie z takimi atakami, skuteczna, jeśli router jest blisko nadawcy. Router zakłada, że pakiet musi mieć adres źróðłowy z określonego zakresu. Nie przepuszcza ruchu o adressach IP, które wydają się podejrzane.
+
+### ❖ Na czym polega atak RIP spoofing?
+RIPv1 nie jest uwierzytelniany. Wystarczy rozgłaszać trasę do siebie o małym koszcie, a wtedy cała sieć zacznie przekierowywać ruch do odbiorców przez nas.
+
+### ❖ Na czym polega zatruwanie pamięci podręcznej serwera DNS?
+
+* Atakujący wysyła do R zapytanie o amazon.com. 
+* R wysyła zapytanie (przez UDP) o amazon.com do serwera DNS (o adresie IP=X). 
+* Atakujący wysyła odpowiedzi DNS (datagramy UDP) podszywając się pod X. 
+* R sprawdza, czy w odpowiedzi jest taki sam 16-bitowy ID jak w zapytaniu
+* Wystarczy, że atakujący wyśle 2^16 odpowiedzi ze wszystkimi możliwymi ID.
+
+
+Można temu zapobiec za pomocą DNSSEC (kryptograficzne uwierzytelnianie pakietów DNS) — stosowane przez główne serwery DNS. Obecnie ataku na DNS nie są tak skuteczne — uwierzytelnianie punktów końcowych połączenia (TLS).
+
+### ❖ Jak wygląda uwierzytelnianie serwera SSH?
+
+* Przy pierwszym połączeniu serwer przesyła klucz publiczny, a program klienta oblicza dla niego funkcję skrótu.
+* Użytkownik potwierdza ten fingerprint (albo i nie, bo komu by się chciało dzwonić do administratora).
+* Po zaakceptowaniu klucz publiczny jest zapisywany lokalnie w liście znanych hostów.
+
+
+### ❖ Na czym polega uwierzytelnianie użytkownika przez SSH z wykorzystaniem kluczy RSA?
+
+* Klient może po prostu podać hasło do konta albo
+* klient podaje wiadomość, że jest takim użytkownikiem, za jakiego się podaje
+* serwer prosi go, by podpisał jakieś dane
+* klient podpisuje dane i odsyła
+* serwer sprawdza, czy to faktycznie użytkownik (zna jego klucz publiczny, bo użytkownik wcześniej zapisał go w pliku **authorized_keys** na serwerze. Jest to lepsze niż hasło, bo nie działa atak powtórzeniowy (ktoś może podsłuchać naszą komunikację i ją powtórzyć).
+
+
+### ❖ Przedstaw przykładowe ataki wykorzystujące brak sprawdzania poprawności wprowadzanych danych.
+
+* przepełnienie bufora — nadpisujemy na stosie adres powrotu procedury na adres złośliwego kodu i zapisujemy wyżej ten kod
+
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_13_--_Bezpieczeństwo_sieci/pasted_image.png)
+
+* atak typu [../](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki) — możemy poprosić w pomocniczym skrypcie WWW o wrażliwy plik z serwera, np.<http://example.com/skrypt?plik=test> wyświetla zawartość pliku /var/www/test.
+
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_13_--_Bezpieczeństwo_sieci/pasted_image001.png)
+
+
+* SQL injection
+
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_13_--_Bezpieczeństwo_sieci/pasted_image002.png)
+
+### ❖ Wyjaśnij pojęcia: robak internetowy, exploit, botnet.
+**Robak internetowy** — programy komputerowe, które wykorzystują znalezione luki w bezpieczeństwie niektórych usług.
+**Exploit **— gotowe sposoby wykorzystania luk w zabezpieczeniach lub implementacji , do znalezienia na specjalistycznych stronach internetowych, np. CIRCL, VulDB, Security Focus. Często uzywane przez niedoświadczonych użyszkodników. Często wystarczy drobna zmiana, np. podmiana numeru portu, na którym nasłuchuje  SSH, żeby taki program przestał działać (**security by obscurity**).
+**Botnet **— sieć komputerów, zainfekowanych przez robaka internetowego. Pozwala na rozproszony atak.
+
+### ❖ Na czym polega phishing?
+**Phishing** — podszywanie się pod zaufaną stronę, np. Facebook, bank, Netflix, by uzyskać dostęp do danych użytkownika.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_13_--_Bezpieczeństwo_sieci/pasted_image003.png)
+
+### ❖ Co to jest skanowanie portów? Po co się je wykonuje?
+**Skanowanie portów** to wyszukiwanie otwartych portów. Często wykonywane przed atakiem, by sprawdzić, jakie usługi działają na maszynie. Polega na używaniu specjalnych programów, np. **nmap**, lub wysyłaniu komunikatów z dziwnymi flagami, np. RST+ACK, skanowanie za pomocą SYN, itp.
+
+### ❖ Co to są ataki DoS i DDoS?
+**DoS **i** DDoS **to ataki polegające na odmowie dostępu do usług, np. w celu wymuszenia okupu lub z chęci zemsty. Mogą polegać na zakłócaniu fizycznego kanału, np. sieci bezprzewodowej, wyczerpywaniu mocy obliczeniowej, zalewaniu łącza pakietami, np. ICMP ECHO. Czasami stosuje się **Reflected DoS**, gdzie sami nie jesteśmy w stanie zalać ofiary pakietami (mamy za wolny komputer), ale wysyłamy, np. zapytania DNS, z adresem źródłowym ofiary. Wtedy mocniejszy komputer (serwer DNS) zalewa ofiarę znacznie większymi pakietami, niż te wysłane przez nas. Czasami spotyka się też **smurf attack**, w któ©ym wykorzystujemy ICMP ECHO (ping), by wysłáć jeden pakiet do switcha, ale na adres broadcast. Switch zwielokratnia nasz pakiet i rozsyła po całej sieci. Każdy odbiorca odpowiada ofierze.
+**DDoS **to **Distributed Denial of Service**, czyli rozproszony DoS. Jest wykonywany z wielu komputerów, które np. zostały wcześniej zainfekowane robakiem, tworząc botnet.
+
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_13_--_Bezpieczeństwo_sieci/pasted_image005.png)
+
+### ❖ Na czym polega atak typu odbity (reflected) DoS?
+ **Reflected DoS **— sami nie jesteśmy w stanie zalać ofiary pakietami (mamy za wolny komputer), ale wysyłamy, np. zapytania DNS, z adresem źródłowym ofiary. Wtedy mocniejszy komputer (serwer DNS) zalewa ofiarę znacznie większymi pakietami, niż te wysłane przez nas. 
+
+### ❖ Jak działa i do czego jest wykorzystywany ICMP Traceback?
+Każdy router dla przesyłanego pakietu z małym prawdopodobieństwem (ok. 1/20000) wysyła do odbiorcy dodatkowy komunikat ICMP. Zawiera on informacje o pakiecie, routerze, itd. Pomaga zidentyfikować podejrzany ruch sieciowy, w przypadku ataku. 
+
+### ❖ Podaj przykłady tunelowania.
+**Tunelowanie** to przesyłanie usług sieciowych za pomocą innych usług sieciowych, łamiąc standardowy model warstwowy. Pozwala nam to zestawić wirtualne połączenie (często szyfrowane).
+Przykładem jest tunelowanie pakietóœ IPv6 w pakietach IPv4 lub VPN.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_13_--_Bezpieczeństwo_sieci/pasted_image006.png)
+
+### ❖ Rozwiń skrót VPN. Do czego służy?
+**VPN (Virtual Private Network)** — dwie sieci są połączone internetem, ale chcemy z nich zrobić jedną sieć logiczną, np. zdalnie pracujący pracownicy firmy chcą działać w obrębie zaufanej sieci firmowej.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_13_--_Bezpieczeństwo_sieci/pasted_image008.png)
+
+### ❖ Porównaj wady i zalety filtrów pakietów: prostych, stanowych i działających w warstwie aplikacji.
+**Filtry proste** — warstwa sieciowa. Analizują tylko IP i porty. Szybkie, ale mało precyzyjne.
+**Stanowe** — warstwa transportowa. Analizują nagłówki IP i TCP. Śledzą nawiązywanie połączenia TCP, pamiętają jego stan.
+**Filtry działające w wastwie aplikacji** — analizują zawartość segmentów i datagramów. Rozumieją, że trzeba otworzyć port na dane. Nie należy ich mylić z zaporwami aplikacji, które analizują wywyołania systemowe aplikacji (syscalle). Znacznie wolniejsze niż poprzednie.
+
+### ❖ Do czego służą moduły input, output, forward w filtrze Netfilter / nftables?
+**Input **— konfiguruje zachowanie dla pakietów przychodzących, np. są wpuszczane lub odrzucane..
+**Output **— konfiguruje zachowanie dla pakietów wychodzących.
+**Forward** — konfiguruje pakiety, które tylko przechodzą przez nasz router.
+
+**nat PREROUTING** — podmiana docelowych adresów IP, np. przy przekierowywaniu do innego komputera.
+**nat POSTROUTING** — podmiana źróðłowych adresów IP. Ostatnia czynność przed wysłaniem pakietu.
+
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_13_--_Bezpieczeństwo_sieci/pasted_image009.png)
+### ❖ W jakich łańcuchach zapory Linuksa wykonywany jest źródłowy a w jakich docelowy NAT?
+**Źródłowy w postrouting.**
+**Docelowy w prerouting.** 
 
