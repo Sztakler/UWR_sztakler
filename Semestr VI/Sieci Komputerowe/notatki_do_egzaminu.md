@@ -3,6 +3,16 @@ Created Tuesday 21 June 2022
 
 [+Wykład 1 -- Wstęp](#Sieci Komputerowe -- Notatki:Wykład 1 -- Wstęp)
 [+Wykład 2-- Routing (adresowanie)](#Sieci Komputerowe -- Notatki:Wykład 2-- Routing (adresowanie))
+[+Wykład 3 -- Routing (tworzenie tablic)](#Sieci Komputerowe -- Notatki:Wykład 3 -- Routing (tworzenie tablic))
+[+Wykład 4 -- Routing (wewnątrz routera)](#Sieci Komputerowe -- Notatki:Wykład 4 -- Routing (wewnątrz routera))
+[+Wykład 5-- Niższe warstwy](#Sieci Komputerowe -- Notatki:Wykład 5-- Niższe warstwy)
+[+Wykład 6 -- Transport (podstawy)](#Sieci Komputerowe -- Notatki:Wykład 6 -- Transport (podstawy))
+[+Wykład 7 -- Transport (protokół TCP)](#Sieci Komputerowe -- Notatki:Wykład 7 -- Transport (protokół TCP))
+[+Wykład 8 -- Transport (kontrola przeciążenia)](#Sieci Komputerowe -- Notatki:Wykład 8 -- Transport (kontrola przeciążenia))
+[+Wykład 9 -- Warstwa aplikacji (HTTP)](#Sieci Komputerowe -- Notatki:Wykład 9 -- Warstwa aplikacji (HTTP))
+[+Wykład 10 -- Warstwa aplikacji (inne zastosowania)](#Sieci Komputerowe -- Notatki:Wykład 10 -- Warstwa aplikacji (inne zastosowania))
+[+Wykład 11 -- Kodowanie i szyfrowanie](#Sieci Komputerowe -- Notatki:Wykład 11 -- Kodowanie i szyfrowanie)
+[+Wykład 12 -- Podstawy kryptografii](#Sieci Komputerowe -- Notatki:Wykład 12 -- Podstawy kryptografii)
 
 # Wykład 1 -- Wstęp
 Zagadnienia
@@ -375,7 +385,7 @@ Wykorzystuje routery brzegowe danego AS, tj. rozgłasza prefiksy CIDR tego AS, a
 
 Dla AS z jednym wyjściem X ustala **routing wewnątrz AS** (OSPF lub RIP, IS-IS, itd.), a następnie dodaje X na wszystkich routerach jako bramę domyślną.
 
-Jeśli AS posiada wiele wyjść X~1~, X~2~, ..., wtedy routery X~i~ biorą udział w protokole routingu wewnątrz AS, udostępniając w nim trasy, któ©ych nauczyły się przez BGP, jako swoje sąsiedztwo. Każdy router musi przechować dane o wielu sieciach.
+Jeśli AS posiada wiele wyjść X~1~, X~2~, ..., wtedy routery X~i~ biorą udział w protokole routingu wewnątrz AS, udostępniając w nim trasy, których nauczyły się przez BGP, jako swoje sąsiedztwo. Każdy router musi przechować dane o wielu sieciach.
 ![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_3_--_Routing_(tworzenie_tablic)/pasted_image006.png)
 
 # Wykład 4 -- Routing (wewnątrz routera)
@@ -876,7 +886,7 @@ Jest prosty w implementacji i nie trzeba nam bufora odbiorcy (bo i po co?), ale 
 
 **Potwierdzanie selektywne** — odbiorca potwierdza odebranie, gdy dostał segment, który jest w oknie lub został odebrany wcześniej. Nie potwierdza, gdy jest z przyszłości (na prawo od okna). Gdy jest dokładnie pierwszym segmentem z okna, wtedy przesuwa okno do pierwszego nieodebranego. W tym wypadku wiemy dokładnie które pakiety dotarły, ale wysyłamy dużo niepotrzebnych potwierdzeń.
 
-**Potwierdzanie skumulowane** — wysyła ACK tylko wtedy, gdy segment S <= LFRcvd + RWS (czyli jak w selektywnym), ale gdy przesuwamy okno, to wysyłamy tylko ACK do którego miejsca przesunęliśmy. Dzięki temu nadawca wie, dokąd może przesunąć swoje okno. Zmniejsza liczbę potwierdzeń bez generowania timeoutów. Dodatkowo możemy wprowadzic mechanizm opóźnionych potwierdzeń — jeśli są dane do wysłania w drugą stronę, to wysyłamy ACK z tymi danymi, a w p.p. wymuszamy określony czas (ułamek RTT) pomiędzy kolejnymi ACK.
+**Potwierdzanie skumulowane** — wysyła ACK tylko wtedy, gdy segment S <= LFRcvd + RWS (czyli jak w selektywnym), ale gdy przesuwamy okno, to wysyłamy tylko ACK do którego miejsca przesunęliśmy. Dzięki temu nadawca wie, dokąd może przesunąć swoje okno. Zmniejsza liczbę potwierdzeń bez generowania timeoutów. Dodatkowo możemy wprowadzic **mechanizm opóźnionych potwierdzeń** — jeśli są dane do wysłania w drugą stronę, to wysyłamy ACK z tymi danymi, a w p.p. wymuszamy określony czas (ułamek RTT) pomiędzy kolejnymi ACK.
 
 ### ❖ Dlaczego istotne jest potwierdzanie odbioru duplikatów segmentów?
 Możemy na przykład wysłać jakiś segment A, i dotrze on do celu, ale nie dotrze do nas potwierdzenie. Wtedy wyślemy A ponownie, a odbiorca nie odeśle nam potwierdzenia, bo to duplikat. Będziemy wysyłali A w nieskończoność, bo odbiorca nigdy nie odeśle ACK.
@@ -1016,39 +1026,530 @@ Zagadnienia
 
 ### ❖ Czym różni się kontrola przepływu od kontroli przeciążenia?
 
+**Kontrola przepływu **— nadawca musi zwolnić, żeby odbiorca był w stanie nadążyć z odbieraniem pakietów.
+
+**Kontrola przeciążenia** — sieć ma ograniczoną przepustowość i należy tak ograniczać komputery, by liczba wysyłanych przez nie pakietów nie była zbyt duża (bufory w routerach nie mogą się przepełnić, bo pakiety będą tracone)..
+
 ### ❖ Co to jest przeciążenie?
+**Przeciążenie** to przepełnienie buforów (kolejek) w routerach. Pakiety są wtedy odrzucane.
 
 ### ❖ Na czym polega mechanizm opóźnionych potwierdzeń?
+M**echanizm opóźnionych potwierdzeń** — jeśli są dane do wysłania w drugą stronę, to wysyłamy ACK z tymi danymi, a w p.p. wymuszamy określony czas (ułamek RTT) pomiędzy kolejnymi ACK.
 
 ### ❖ Jaka jest zależność między rozmiarem okna nadawcy a prędkością transmisji?
+Większe okno to większa prędkość transmisji. Dane są średnio wysyłane z prędkością rozmiar okna nadawcy / RTT.
+Jeśli okno jest mniejsze od BDP = przepustowość * RTT, wtedy nadawca nie wykorzystuje całego łącza.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_8_--_Transport_(kontrola_przeciążenia)/pasted_image.png)
 
 ### ❖ Czy nieskończone bufory rozwiązałyby problem przeciążenia?
+Nie, ponieważ bufory generują opóźnienie. Jedyne w czym pomagają, to że pakiety nie byłyby tracone.
 
 ### ❖ Jak zależy średni rozmiar kolejki od średniej prędkości nadchodzenia pakietów?
+Rośnie do nieskończoności wraz ze wzrostem prędkości.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_8_--_Transport_(kontrola_przeciążenia)/pasted_image001.png)
 
 ### ❖ Jakie są cele kontroli przeciążenia?
 
+* Wysokie wykorzystanie łączy
+* Sprawiedliwy podział łącza
+* algorytm powinien być rozproszony i szybko reagować na zmiany sieci
+
+
 ### ❖ Jak można definiować sprawiedliwy podział łącza? Co to jest max-min fairness?
+Definiować można na wiele sposób, np. każdemu po równo, ale sensownym wydaje się wprowadzić politykę max-min fairness, wg. której podział jest sprawiedliwy, gdy wszyscy mają taki udział w łączu, że nie jesteśmy w stanie zwiększyć udziału żadnego z komputerów, nie zabierając udziałów innemu z nich (który jest wolniejszy lub tak samo szybki). Innymi słowy nie możemy nikomu zrobić lepiej, nie robiąc gorzej komuś innemu.
 
 ### ❖ Na jakiej podstawie zmienia się rozmiar okna przeciążenia?
+Na podstawie utraty pakietów. **Okno przeciążenia (congestion window) **rośnie o 1/cwnd przy każdy poprawnie wysłanym pakiecie (ACK wróciło), więc po RTT cwnd zwiększy się o 1. Przy pakiecie zgubionym lub opóźnionym maleje o połowę. 
 
 ### ❖ Kiedy TCP wnioskuje, że pakiet zaginął?
+Przekroczyliśmy timeout albo otrzymaliśmy podwójne potwierdzenie.
 
 ### ❖ Opisz algorytm ustalania rozmiaru okna przeciążenia
+W **AIMD okno przeciążenia (congestion window) **rośnie o 1/cwnd przy każdy poprawnie wysłanym pakiecie (ACK wróciło), więc po RTT cwnd zwiększy się o 1. Przy pakiecie zgubionym lub opóźnionym maleje o połowę. W **TCP **dodajemy jeszcze fazę **wolnego startu**. Polega ona na tym, że zaczynamy od cwnd = MSS (maximum segment size), a po każdym ACK zwiększamy cwnd  o MSS (dokładnie jak w AIMD, ale mamy przeskalowane dane — MSS zamiast 1). Oznacza to, że co RTT mamy dwukrotny wzrost cwnd, czyli rośnie ono wykładniczo.
 
-### ❖ Rozwiń skrót AIMD. Czego dotyczy?
+Przy utracie pakietu ustawiamy **segment size threshold (ssthreshold) **na cwnd/2 i uruchamiamy wolny start, aż cwnd > ssthresh. 
+
+Wolny start ma na celu próbkowanie łącza, by dowiedzieć się, ile najwięcej jesteśmy w stanie wysyłáć.
+
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_8_--_Transport_(kontrola_przeciążenia)/pasted_image002.png)
+
+### ❖ Rozwiń  skrót AIMD. Czego dotyczy?
+
+**AIMD** — Additive Increase, Multiplicative Decrease to algorytm kontroli przeciążenia, który polega na powolnym zwiększaniu cwnd, gdy udaje się poprawnie wysyłać dane, a gdy tylko pakiety zostają tracone, wtedy cwnd maleje o połowę.
 
 ### ❖ W jaki sposób AIMD gwarantuje sprawiedliwy podział łącza?
+W AIMD rozmiary okien zbiegają do R/n, gdzie R to przepustowość, a n to liczba urządzeń.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_8_--_Transport_(kontrola_przeciążenia)/pasted_image003.png)
 
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_8_--_Transport_(kontrola_przeciążenia)/pasted_image004.png)
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_8_--_Transport_(kontrola_przeciążenia)/pasted_image005.png)
 ### ❖ Opisz fazy unikania przeciążenia i wolnego startu w TCP.
+**Unikanie przeciążenia tak samo jak w AIMD** — co RTT wysyłamy cwnd/MSS segmentów. Jeśli wszystkie są potwierdzone, to zwiększamy cwnd o MSS. Jeśli jakiś pakiet zaginął (przekroczony timeout albo podwójne potwierdzenie), wtedy zmniejszamy cwnd dwukrotnie.
+
+**Wolny start** — zaczynamy od cwnd = MSS i zwiększamy o MSS dla każdego przesłanego pakietu. Po RTT wzrośnie dwukrotnie, wiec cwnd rośnie wykładniczo. Faza trwa do utraty pierwszego pakietu.
+
 
 ### ❖ Opisz mechanizm szybkiej retransmisji i szybkiego przywracania.
 
+**Szybka retransmisja **— wysyłamy brakujący segment bez czekania na timeout. Przydatne, ponieważ często jakiś pakiet nie dojdzie, bo nawali karta sieciowa lub coś innego, niekoniecznie jest to przepełnienie kolejki. Wtedy możemy go szybko dosłać.
+
+**Szybkie przywracanie** — pomijamy krótki start. sstresh = cwnd / 2, cwnd = sshtresh.
+
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_8_--_Transport_(kontrola_przeciążenia)/pasted_image006.png)
 ### ❖ Na czym polega mechanizm RED?
+
+**RED **— Random Early Detection. Mechanizm routera, który wspomaga kontrolę przeciążenia. Router na trasie wyrzuca losowe pakiety. Prawdopodobieństwo wyrzucenia jest ustalane jako rosnąca funkcja **średniej długości kolejki**. Nie reaguje na krótkotrwałe zwiększenia kolejek. Pomaga utrzymać krótsze kolejki, przez co mamy mniejsze opóźnienia. Desynchronizuje strumienie, przez co zmniejszają swoje prędkości w różnych momentach.
 
 ### ❖ Opisz działanie mechanizmu ECN (explicit congestion notification).
 
+**ECN — **explicit congestion notification. W nagłówku IP możemy w polu *typ usługi* wstawić informację o tym, że prawdopodobnie występuje przeciążenie. Router ustawia te bity w nagłówku IP, a odbiorca ustawia bity ECN w nagłówku TCP ACK. Nadawca reaguje na taki pakiet jak na utratę pakietu. Pozwala to na szybsze reagowanie na przeciążenia — bez konieczności tracenia pakietów.
+
 ### ❖ Jaka jest relacja w AIMD między przepustowością a traconymi pakietami?
 
+Przepustowość jest zależna od odwrotności pierwiastka z liczby traconych pakietów.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_8_--_Transport_(kontrola_przeciążenia)/pasted_image007.png)
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_8_--_Transport_(kontrola_przeciążenia)/pasted_image008.png)
+
 ### ❖ Jakie modyfikacje wprowadza FastTCP do AIMD? Dlaczego?
+
+**FastTCP** to protokół, który pozwala szybkim łączom zachować wysoką sprawność mimo utraty pakietów. Powyżej pewnej wartości cwnd jest szybciej zwiększany i wolniej zmniejszane. Wynika ono stąd, że by zachować sensowną przepustowość konieczne jest, by tracić nierealnie małą liczbę pakietów.
+
+# Wykład 9 -- Warstwa aplikacji (HTTP)
+Created Saturday 25 June 2022
+
+Zagadnienia
+-----------
+
+### ❖ Opisz budowę adresu URL. Opisz budowę adresu URL w przypadku schematu http.
+**URL — Uniform Resource Locator**
+Służy do identyfikacji zasobu. Składa się z dwóch części rozdzielonych dwukropkiem:
+
+* schemat: (http, https, ftp, mailto, ...)
+* część zależna od rodzaju zasobu
+
+
+Przykład:
+<http://www.ii.uni.worc.pl/index.html>
+
+W przypadku http lub https po dwukropku podajemy 
+
+1. //
+2. nazwa serwera WWW
+3. opcjonalnie :port
+4. /
+5. identyfikator zasobu wewnątrz serwera
+	1. niekoniecznie jest to ścieżka do pliku
+	2. / w identyfikatorze wskazuje na hierarchię
+
+Np. <hhtps://en.wikipedia.org:443/wiki/HTTP/3>
+
+### ❖ W jakim celu serwer WWW ustawia typ MIME dla wysyłanej zawartości? Podaj kilka przykładów typów MIME.
+
+By przeglądarka wiedziała jak dokładnie obsługiwać przesłane przez serwer dane, np. wyświetla pliki PDF, pobiera octet-stream, itd.
+
+Przykłady:
+
+* text/plain
+* text/html
+* image/jpeg
+* video/mpeg
+* application/msword — dokument .doc(x)
+* application/pdf — dokument pdf
+* application/octet-stream — ciąg bajtów bez interpretacji
+
+
+### ❖ Wymień parę możliwych odpowiedzi HTTP wraz z ich znaczeniem.
+
+1xx — informacyjne
+2xx — sukces
+3xx — przekierowania
+4xx -- błąd po stronie klienta
+5xx — błąd po stronie serwera
+
+500 — Internal Server Error
+404 — Not Found
+200 — OK
+
+### ❖ Po co w nagłówku żądania HTTP/1.1 podaje się pole Host?
+ Przeglądarka musi zamienić nazwę hosta, np. en.wikipedia.org na adres IP, by umieć się z nim połączyć. Pole Host podaje się ponownie, ponieważ na jeden adres IP może się mapować wiele adresów domenowych (tekstowych), dlatego specyfikujemy jaki konkretnie nas interesuje.
+
+### ❖ Do czego służą pola Accept, Accept-Language, User-Agent, Server, Content-Length, Content-Type w
+
+### nagłówku HTTP?
+
+Informują serwer o tym, co potrafi zrozumieć przeglądarka internetowa, np. jakiego języka strony oczekuje (np. polski, angielski),  jakie typy MIME potrafi odebrać, jakiej przeglądarki uzywmy i w jakiej wersji.
+
+### ❖ Jak wygląda warunkowe zapytanie GET protokołu HTTP?
+
+W nagłówku podajemy **If-Modified-Since**. Podajemy w nim timestamp, kiedy ostatnio pobieraliśmy stronę. Jest to przydatne, gdy chcemy cache'ować strony, by nie pobierać ich niepotrzebnie za każdym razem, szczególnie jeśli dana strona nie zmienia swojego stanu zbyt często. Możemy dostać odpowiedzi 200 OK, wtedy pobieramy jeszcze raz, albo 304 Not Modified i wtedy pobieramy z cache'a.[[[[
+
+### ❖ Jakie znasz kody odpowiedzi protokołu HTTP?
+
+1xx — informacyjne
+2xx — sukces
+3xx — przekierowania
+4xx -- błąd po stronie klienta
+5xx — błąd po stronie serwera
+
+500 — Internal Server Error
+404 — Not Found
+200 — OK
+
+### ❖ Na czym polegają połączenia trwałe w HTTP/1.1? Do czego służy opcja Connection: close w nagłówku HTTP?
+
+Wiele zapytań do serwera wrzucamy do jednego połączenia TCP, by przyspieszyć przesył danych. Opcja **Connection: close **w nagłówku pozwala na zamknięcie połączenia TCP.
+
+### ❖ Do czego służą arkusze stylów CSS?
+
+Do definiowania wyglądu strony. HTML określa wtedy jedynie strukturę strony.
+
+### ❖ Wymień parę możliwości uzyskiwania dynamicznych stron WWW.
+
+
+* Korzystanie z JavaScript, można go też wzbogacać bibliotekami (React, Angular, Vue, itd.)
+* URL może wskazywać na program generujący kod HTML — wykorzystywane przez popularne frameworki do tworzenia aplikacji po stronie serwera: Django, Flask, Spring, Laravel. Dany program może komunikować się z serwerem za pośrednictwem IPC (komunikacja międzyprocesowa), np. CGI (Common Gateway Interface) lub API, np. interfejs WSGI.
+* Formularzami, przekazywaniem parametrów (np. metody GET i POST)
+* ciasteczka — do utrzymywania stanu sesji, bo HTTP jest bezstanowy.
+
+
+### ❖ Po co stosuje się metodę POST?
+Do wysyłania żądań, w którego treści (nie w nagłówku) znajduje się parametry. Można tak wysyłać do serwera np. pliki.
+
+### ❖ Co to jest technologia REST?
+**REST (Representational State Transfer) **jest to technologia lub raczej filozofia, która pozwala na zautomatyzowany dostęp do niektórych serwisów. Jest to pewna usługa sieciowa, która wykorzystuje metody protokołu HTML (GET, PUT, POST, DELETE), by ułatwić przesył danych — stworzyć do tego wygodne API, zamiast korzystać z gołego TCP.
+
+### ❖ Do czego służą serwery proxy?
+
+Służą do przechowywania w swojej pamięci stron, które niedawno były przeglądane przez użytkowników, by zmniejszyć liczbę zapytań do głównego serwera HTTP. Przynosi to korzyści głównie dostawcy internetu, ponieważ ogranicza przesył danych. Wykorzystywane przez dostawców internetu.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_9_--_Warstwa_aplikacji_(HTTP)/pasted_image001.png)
+### ❖ Co to jest odwrotne proxy? Co to jest CDN?
+
+Odwrotne proxy to proxy ale nie dla dostawców internetów, ale dla dostawców treści, np. dla Youtube, Facebook. Pobierane przez użytkowników treści gromadzą w swojej pamięci, by w razie kolejnego zapytania o te dane zwrócić je bezpośrednio do klienta, a nie pobierać je z serwera ponownie. Ruch jest rozłożony na wiele serwerów proxy, by odciążyć jeden główny serwer WWW. Wykorzystywany przez serwery WWW.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_9_--_Warstwa_aplikacji_(HTTP)/pasted_image.png) 
+**CDN** (Content Delivery Network) to serwery proxy, ale obsługiwane przez inne organizacje, np. Akamai, Limelight. Inne firmy korzystają z ich usług. Służą do zapewnienia lokalnego proxy, który fizycznie znajduje się bliżej klienta, by przyspieszyć pobieranie treści, gdy główny serwer HTTP jest bardzo daleko.
+
+### ❖ Jak skłonić klienta, żeby łączył się z serwerem proxy a nie bezpośrednio ze stroną WWW?
+Można ustalić takie zachowanie w ustawieniach przeglądarki.
+
+### ❖ Jakie informacje dołączane są przez serwer proxy do zapytania?
+
+Dane identyfikujące klienta i serwer proxy:
+**X-Forwarded-For:** adres IP
+**Via:** adres IP proxy
+
+Anonimizujące serwery proxy nie dodają takich nagłówków i zwykle są płatne.
+
+### ❖ Co to są anonimowe serwery proxy?
+
+To serwery proxy, które nie dodają do zapytań  HTTP informacji identyfikujących klienta. Wtedy serwer WWW nie wie, że to my się z nim komunikujemy, tylko myśli że to proxy.
+
+### ❖ W jakim celu powstał protokół QUIC? Jakie funkcje spełnia?
+
+Jest to protokół, który ma przyspieszać przesył danych. Ma załatać problemy HTTP/2:
+
+* powolne nawiązywanie połączenia — dużo czasu mija, nim klient zobaczy początek danych
+* HTTP nie dostaje danych, gdy TCP zgubi choć jeden segment, nie ważne jak mało istotny. Musi czekać, aż TCP zrekonstruuje cały strumień.
+
+
+**QUIC**
+
+* własna kontrola przeciążenia
+* implementacja na UDP (nie na IP, żeby zachować kompatybilność wsteczną — stare maszyny oczekują UDP/TCP).
+* zintegrowany TLS 1.3
+* zaimplementowany w przestrzeni użytkownika (TCP w jądrze) — przewidywana szybsza ewolucja
+
+
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_9_--_Warstwa_aplikacji_(HTTP)/pasted_image002.png)
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_9_--_Warstwa_aplikacji_(HTTP)/pasted_image003.png)
+
+# Wykład 10 -- Warstwa aplikacji (inne zastosowania)
+Created Saturday 25 June 2022
+
+ 
+
+Zagadnienia
+-----------
+
+### ❖ Jaki jest cel systemu nazw DNS?
+Służy do tłumaczenia nazw symbolicznych— bardziej zrozumiałe dla ludzi — na adresy IP.
+
+### ❖ Do czego służy plik [/etc/hosts?](file:///etc/hosts%3F)
+
+Przechowuje lokalnie mapowanie adresów IP na nazwy symboliczne. Stosowany głównie w początkach internetu, gdy sieć była niewielka.
+
+### ❖ Rozwiń skrót TLD (kontekst: DNS), podaj parę przykładów.
+
+**TLD — Top Level Domains **— domeny krajowe, znajdują się na górze hierarchii nazw domen w DNS.
+
+### ❖ Czym są strefy i delegacje DNS?
+
+**Strefy DNS** — spójne fragmenty drzewa hierarchii nazw domen. Jest to najmniejsza jednostka administracyjna DNS, odrębnie zarządzana. Właściciel danej strefy (sewer DNS) wie wszystko o nazwach domen w tej strefie.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image.png)
+
+**Delegacja DNS** — wpisy w rekordach **NS (nameserver)**. Cały rekord NS przechowuje nazwę strefy, np. wroc.pl, oraz wartość — nazwę serwera DNS obsługującego strefę, np. sun2.pwr.wroc.pl. Rekord powinien pamiętać kogo odpytywać jako następnego, gdy przechodzimy w dół po drzewie hierarchii nazw domen. Wpisy, które nas o tym informują to **delegacje**.
+
+### ❖ Czym różni się rekurencyjne odpytywanie serwerów DNS od iteracyjnego?
+
+**Rozszyfrowywanie iteracyjne **— klient sam przechodzi przez drzewo DNS od korzenia w dół.
+
+**Rozszyfrowywanie rekurencyjne **— klient pyta **resolver DNS**, a on w jego imieniu wykonuje dalsze odpytywanie.
+
+**Resolver DNS** — to co wpisujemy w polu *server DNS*, gdy konfigurujmey komputer. Służy do pooprawy wydajności odpytywać, bo zapisuje zwracane wyniki w pamięci podręcznej. Sam może być też serwerem DNS.
+
+### ❖ Jak działa odwrotny DNS? Jaki typ rekordów i jaką domenę wykorzystuje?
+
+Służy do odwrotnej konwersji — adresy IP na nazwę domeny. Wykorzystuje typ **rekordów PTR **oraz **sztuczną domenę in-addr.arpa**, której poddomenami są klasy lub adresy IP.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image002.png)
+
+### ❖ Jakie znasz typy rekordów DNS? Co to jest rekord CNAME?
+
+Typy rekordów:
+
+* A (adres IPv4)
+* AAAA (adres IPv6)
+* NS (nameserver)
+* **CNAME (canonical name) **— nazwa to alias nazwy domeny, np. [www.ii.uni.wroc.pl](www.ii.uni.wroc.pl), a wartość to główna nazwa domeny, np. swiatowit.ii.uni.wroc.pl
+* MX (mail exchanger) — nazwa to nazwa domeny, np. gmail.com, a wartość to serwer obsługujący pocztę, np. gmail-smtp-in.1.google.com
+
+
+### ❖ Po co są wpisy sklejające w opisie delegacji DNS?
+
+Są to wpisy przechowujące to rekordy NS, które dodatkowo przechowują także adresy IP, co pozwala na unikanie nieskończonych pętli w odpytywaniu, np. pytamy się uni.wroc.pl o t, jaki adres ip ma on sam.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image003.png)
+
+### ❖ Co robi funkcja getaddrinfo()?
+Służy do odpytywania DNS w programie. Zwraca ciąg wypełnionych struktur addrinfo, które od razu możemy wykorzystać. Przyjmuje tzw. hinty, które informują ją o tym, jakie typy adresów nas interesują, np. mailowe lub IPv4.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image004.png)
+
+### ❖ Do czego służy protokół SMTP a do czego POP3?
+
+**SMTP** służy do przekazywania poczty od klienta do serwera i potem gdzieś dalej, np. do odbiorcy.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image007.png)
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image009.png)
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image006.png)
+
+**POP3** służy do przekazywania poczty od serwera do klienta. 
+
+### ❖ Co to jest przekazywanie poczty (relaying)? Co to jest smarthost?
+
+Przekazywanie poczty nie bezpośrednio od nadawcy do serwera, który może nie zawsze być dostępny — musimy wtedy czekać, aż email dotrze. Żeby nie czekać samemu, możemy zlecić to innemu serwerowi — relayowi/serwerowi SMTP/smarthostowi.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image010.png)
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image008.png)
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image011.png)
+
+### ❖ Jaki rekord DNS jest sprawdzany przed wysłaniem poczty do danej domeny?
+
+Rekord MX (mail exchanger).
+
+### ❖ Wymień parę popularnych pól w nagłówku maila. Do czego służą pola Received i Bcc?
+
+* From
+* To
+* Subject
+* Cc — kopiowanie maila do innych osób, niż tylko odbiorca.
+* **Bcc — ślepia kopia — kopiowanie maila do innych osób niż odbiorca, ale ich adesy nie są wyświetlane w liście odbiorców, czyli odbiorcy nie widzą się wzajemnie.**
+* Mesage-ID (unikatowy identyfikator wiadomości)
+* Date (data wysłania)
+* In-Reply-To (ID maila, na którego odpowiadamy)
+* References
+* **Received **— gdy mail przechodzi przez kolejne pośredniczące serwery pocztowe, wtedy w tym polu są zapisywane informacje o tym przystanku, np. jego adres i data otrzymania.
+* ![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image012.png)
+
+
+### ❖ Na czym polega greylisting?
+Wysyłanie spamu jest opłacalne, wysyłamy go szybko. Graylisting opiera się na spowalnianiu spammera, mówiąc mu, że teraz nie możemy odpowiedzieć i musi spróbować później. Akceptujemy maile tylko, jeśli przyjdą wtedy w odpowiednim oknie czasowym. Obecnie rzadko stosowane, bo spowalnia komunikację.
+
+### ❖ Na czym polega mechanizm SPF?
+
+Rekordy **SPF **w DNS dla danej domeny definiują jakie komputery są uprawnianie do wysyłania poczty z polem **from** równym danej domenie. Chroni przed podszywaniem się (spammer moze udawać, że nie jest spamem, podając jako **from **na przykład adres odbiorcy. **To odbiorca sprawdza ten rekord.**
+
+### ❖ Co umożliwia standard MIME?
+
+Umożliwia informowanie klienta pocztowego o tym czym jest treść maila, np. czystym tekstem, tekstem HTML, obrazkiem, plikiem, itd.
+
+### ❖ Co to jest spam? Jakie znasz metody walki ze spamem?
+
+Spam to niechciane wiadomości, często reklamy. Metody walki ze spamem to, np.:
+
+* **graylisting**
+* mechanizm **SPF**
+* filtrowanie wiadomości przez regexy, uczenie maszynowe, heurystyki
+
+
+### ❖ Jaka jest rola trackera w sieci Bittorrent?
+**Tracker **to specjalny serwer, który zna adresy członków sieci i udostępnia adresy niektórych (50-100). Jego IP jest przechowywane w pliku turrent. Tracker zapewnia, że sieć się nie rozpada, przechowując listę użytkowników i komunikuje ze sobą użytkowników. 
+
+### ❖ Po co w plikach .torrent stosuje się funkcje skrótu?
+W metadanych pliku .torrent przechowuje się funkcje skrótu dla każdego z kawałków, które pozwalają sprawdzić, czy pobieramy dobry kawałek, bo ktoś może nam wysyłać jakieś śmieci.
+
+### ❖ Jakie są różnice w postępowaniu seedera i leechera w sieci BitTorrent?
+**Seeder** — wybiera po kolei  kandydatów do odbierania plików spośród chętnych.
+**Leecher **— ma listę klientów, którym udostępnia, ale tylko pod warunkiem, że dostanie coś od nich w zamian. Na tej liście są ci, którzy najszybciej wysyłają mu swoje kawałki. Czasami wysyła kawałek losowemu człokowi sieci, by sprawdzić, czy uda mu się odesłać kawałek odpowiednio szybko. Nowym klientom przekazuje kawałek za darmo.
+
+### ❖ Na czym polegają połączenia odwrócone? Jak stosuje się je w protokole FTP?
+
+**NAT **sprawia problemy w komunikacji między dwoma komputerami za innymi NATami. Jeśli komputer C chce się połączyć z A, ale A jest za NATem, wtedy oba utrzymują kontakt z jakimś komputerem R. C może prosić za pośrednictem R kompter A o nawiązanie połączenia z C. Wtedy komunikacja zachodzi, ale połączenie jest odwrócone.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image014.png)
+
+W protokole FTP stosuje się je trochę inaczej. A chce się łączyć z C i wysyłą polecenie "chcę pobrać plik i słucham na porcie X". C łączy się z X klienta A i wysyła plik, ale robi to odrębnym połączeniem TCP. NAT odrzuciłby takie połączenie. Dlatego robi się to inaczej — w trybie pasywnym. A wysyła polecenie "chcę pobrać plik w trybie pasywnym", wtedy C zaczyna słuchać na Y i wysyła komunikat "słucham na Y". A łączy się z Y i pobiera plik. Jak widać, tutaj połączenie też jest odwrócone.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image015.png)
+
+### ❖ Opisz podobieństwa i różnice asymetrycznych (cone) NAT (pełnego, ograniczonego i ograniczonego portowo) i symetrycznych NAT.
+
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image016.png)
+
+Wszystkie łączy fakt, że przypisują komputerom ze swojej sieci pewne mapowanie i zapamiętują je, by odsyłać tym komputerom odpowiedzi spoza sieci. W NAT asymetrycznym nie ma żadnych ograniczeń co do tego, kto może odsyłać pakiety do komputerów wewnątrz sieci. W ograniczonym NAT mogą odsyłać tylko te adresy, na które komputer z NAT coś wysyłał. W ograniczonym portowo dodajemy takie samo ograniczenie ale do portów, na które wysyłamy.
+
+W NAT symetrycznym wybijanie dziur (najpierw wysyłam do kogoś, żeby wiedział, jak do mnie odesłać i mógł to zrobić — zostanie zapisany w NAT na liście odbiorców) nie jest możliwe, ponieważ mapowanie jest zależne nie tylko od adresu i portu nadawcy, ale także odbiorcy — przy wysłaniu do różnych odbiorców mamy zupełnie innne mapowanie.
+
+### ❖ Opisz technikę wybijania dziur (hole punching) w NAT. Po co konieczny jest serwer pośredniczący?
+Router C chce komunikować się z A, ale nie wie jaki ma on adres. Dlatego najpierw wysyła do B, które odrzuca ten pakiet, ale na routerze D adres B zostaje zapisany na liście odbiorców komputera C. Teraz A wysyła pakiet do D. Adres jest podmieniany na B, a D przepuszcza pakiet od B do C. Wszystko gra, tralalalala ;)
+
+
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_10_--_Warstwa_aplikacji_(inne_zastosowania)/pasted_image017.png)
+
+# Wykład 11 -- Kodowanie i szyfrowanie
+Created Sunday 26 June 2022
+
+Zagadnienia
+-----------
+
+### ❖ Jakie znasz typy kodów detekcyjnych? Do czego służą i jakie są między nimi różnice?
+**Kody detekcyjne** — bity dołączane do przesyłanych wiadomości, mające pozwolić na **wykrycie** niektórych przekłamań transmisji.
+
+Typy:
+
+* sumy kontrolne (CRC, bit parzystości, proste suma kontrolna) — mają na celu sprawdzić, czy w wiadomości nie wystąpiły przekłamania w czasie transmisji.
+* kody MAC (Message Authentication Code — ma uwierzytelnić integralność wiadomości: trudno ją celowo zmodyfikować tak, by zostało to niewykryte)
+
+
+### ❖ Jakie rodzaje błędów mają wykrywać kody detekcyjne? Z czego biorą się błędy przy przesyłaniu danych?
+**Źródła błędów**:
+
+* analogowy sygnał dociera zniekształcony (gubienie bitów, przekłamanie ciągu bitów, przekłamania niektórych bitów)
+* błędy urządzeń końcowych lub pośrednich, np. błędy w oprogramowaniu lub wadliwy RAM.
+
+
+Kody detekcyjne potrafią wykrywać błędy tego typu, np.:
+
+* pojedyncze błędy bitów
+* nieparzysta liczba pojedynczych blędów bitów
+* dwa błędy bitów oddalone o co najwyżej jakąś odległość
+* przekłamania ciągu bitów nie dłuższego niż jakaś odległość
+
+
+### ❖ Jak działa algorytm obliczania sum kontrolnych CRC?
+Wybieramy wielomian G(x) stopnia r (znany odbiorcy i nadawcy) i generujemy r-bitową sumę kontrolną taką, by ciąg bitów b i odpowiadający mu wielomian B(x) = x^r * M(x) + S(x), gdzie M to wiadomość, a S to suma kontrolna, był podzielny przez G(x). Każdemu ciągowi bitów przypisujemy wielomian — jeśli bit = 1 to mamy x w odpowiedniej potędze, jeśli mamy 0 to nie mamy danego składnika, tylko 0, np. 101 = x^2 + 1.
+
+Odbiorca otrzymuje jakąś wiadomość b', której odpowiada wielomianm B'(x). Sprawdza, czy G(x) dzieli B'(x). Jeśli tak jest, to **zakładamy**, że dane są poprawne, jeśli nie, to musiało wystąpić przekłamanie.
+
+### ❖ W jaki sposób działa wykrywanie błędów przy sumie kontrolnej CRC?
+Sprawdzamy, czy wielomian G(x) dzieli wielomian, jaki odpowiada otrzymanej wiadomości. Jeśli dzieli bez reszty, to działa, a jeśli nie, to wystąpił błąd.
+
+### ❖ Do czego służą kody MAC? Co to jest HMAC?
+**Kody MAC** służą do weryfikacji, czy przesłana wiadomość nie została przez kogoś **celowo zmodyfikowana**. Stosuje kryptograficzne funkcje haszujące, np. SHA-256.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_11_--_Kodowanie_i_szyfrowanie/pasted_image001.png)
+
+**Standard HMAC** to pewien standard zwiększający bezpieczeństwo kodów MAC, ponieważ znalezienie w nim kolizji funkcji haszującej nie implikuje od razu złamania bezpieczeństwa standardu MAC.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_11_--_Kodowanie_i_szyfrowanie/pasted_image.png)
+
+### ❖ Jakie własności powinna mieć kryptograficzna funkcja skrótu?
+Dla dowolnego x znalezienie y, takiego że h(x) = h(y) jest obliczeniowo trudne, tzn. ciężko jest znaleźć taką wiadomość, by wystąpiła kolizja z inną wiadomością.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_11_--_Kodowanie_i_szyfrowanie/pasted_image002.png)
+
+### ❖ Jakie znasz metody korygowania błędów w transmisji?
+
+* kody korekcyjne, np. (a,b)-kody, np. kody Hamminga
+* kody detekcyjne + mechanizmy ARQ (wysyłania do skutku)
+
+
+### ❖ Co to jest (a,b)-kod? Podaj przykład.
+**(a,b)-kod** to kod, który zamienia wiadomość długości b na kod długości a>=b. Przykład to bit parzystości dla ciągów 7-bitowych, czyli (8,7)-kod. Narzut kodu to a/b.
+
+### ❖ Co to jest odległość Hamminga? Jak wpływa na możliwość detekcji i korekcji błędów?
+**Odległość Hamminga** — minimalna liczba bitów, jaką należy zmienić w kodzie, by zamienić go w inny poprawny kod. Jeśli mamy kodowanie, które gwarantuje, że odległość Hamminga między dowolną parą kodów to co najmniej k, wtedy potrafimy **wykryć do k-1 błędów pojedynczych bitów** oraz **skorygować do (k-1)/2 błędów pojedynczych bitów**.
+
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_11_--_Kodowanie_i_szyfrowanie/pasted_image005.png)
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_11_--_Kodowanie_i_szyfrowanie/pasted_image003.png)![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_11_--_Kodowanie_i_szyfrowanie/pasted_image004.png)
+
+### ❖ Czym różni się poufność od integralności?
+**Poufność **— tylko nadawca i odbiorca wiedzą, co jest przesyłane.
+**Integralność** — wykrywanie (złośliwych) zmian w przesyłanej wiadmości.
+**Uwierzytelnianie** — potwierdzenie tożsamości drugiej strony.
+
+### ❖ Co to są szyfry monoalfabetyczne? Dlaczego łatwo je złamać?
+**Szyfry monoalfabetyczne **to szyfry, które mapują jedną literę alfabetu na inną, ale zawsze taką samą. Łatwo je złamać, ponieważ mapowanie liter jest zawsze takie samo — łatwo je odgadnąć, jeśli możemy podejrzeć szyfrogram i tekst jawny, a nawet z samym szyfrogramem możemy oszacować jakie jest mapowanei znaków. Możliwe strategie ataków to:
+
+* **atak z wybranym tekstem jawnym **— adwersarz zmusza jedną stronę do nadawania wiadomości znanej adwersarzowi, na podstawie której może potem rozpoznać przesunięcie
+* **atak ze znanym tekstem jawnym** — adwersarz potrafi podejrzeć kilka par (tekst jawny, szyfrogram) i wtedy łatwo może odgadnąć kodowanie.
+* **atak ze znanym szyfrogramem** — jeśli adwersarz widzi jedynie szyfrogramy, wtedy może statystycznie oszacować jakie jest kodowanie (częstość występowania liter, itd.)
+
+
+### ❖ Na czym polegają ataki z wybranym tekstem jawnym, znanym tekstem jawnym i znanym szyfrogramem?
+
+* **atak z wybranym tekstem jawnym **— adwersarz zmusza jedną stronę do nadawania wiadomości znanej adwersarzowi, na podstawie której może potem rozpoznać przesunięcie
+* **atak ze znanym tekstem jawnym** — adwersarz potrafi podejrzeć kilka par (tekst jawny, szyfrogram) i wtedy łatwo może odgadnąć kodowanie.
+* **atak ze znanym szyfrogramem** — jeśli adwersarz widzi jedynie szyfrogramy, wtedy może statystycznie oszacować jakie jest kodowanie (częstość występowania liter, itd.)
+
+
+### ❖ Czym szyfrowanie symetryczne różni się od asymetrycznego?
+**Szyfrowanie symetryczne** — obie strony znają ten sam klucz, który parametryzuje publiczny algorytm szyfrujący, i tekst jawny. Dany jest też odpowiedni algorytm deszyfrujący parametryzowany **tym samym kluczem. **Obie strony komunikacji znają ten sam klucz i uzywają go do szyfrowania i deszyfrowania. Przykład to O**ne-Time Pad**.
+
+**Szyfrowanie asymetryczne **— problemem z szyfrowaniem symetrycznym jest ustalenie bezpiecznego sposobu na wysyłanie wspólnego klucza. W tym celu stosuje się inne rozwiązanie — szyfrowanie asymetryczne — gdzie mamy dwie pary kluczy — publicznych i prywatnych.
+
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_11_--_Kodowanie_i_szyfrowanie/pasted_image008.png)
+
+### ❖ Co to jest szyfrowanie one-time pad?
+**One-Time Pad** to metoda **szyfrowania symetrycznego, **w której wiadomość xorujemy z kluczem (musi być tak samo długi jak wiadomość).
+
+### ❖ Na czym polega szyfrowanie blokowe? Czym różni się tryb ECB od CBC?
+**Szyfrowanie blokowe** — gdy nadajemy długie wiadomości, to możemy mieć problem z szyfrowaniem, bo większość algorytmów szyfrowania symetrycznego zakłada, że wiadomość ma określoną długość, np. 128 bitów. Dlatego wiadomości dzieli się wtedy na **bloki takiego rozmiaru **i szyfruje je jeden po drugim. Ostatni kawałek jest dopełniany do długości bloku.
+
+**ECB (electronic codebook)** — każdy blok jest szyfrowany niezależnie tym samym kluczem. Z tego powodu takie same bloki dają takie same kawałki szyfrogramu. Można dodać losowość, by wiadomość w każdym bloku xorować z losowym ciągiem, i dopiero wtedy szyfrować bloki, ale wtedy dwukrotnie zwiększamy rozmiar wysyłanej wiadomości (trzeba też wysłać losowe ciągi).
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_11_--_Kodowanie_i_szyfrowanie/pasted_image007.png)
+
+**CBC** (**Cipher block chaining)** — losuje pierwszy wektor bitów (wektor iniicjujący) i szyfruje z jego pomocą pierwszy blok. Następnie kolejne bloki są szyfrowane za pomocą szyfrogramu poprzedniego bloku. Musimy wtedy wysłać tylko szyfrogram i wektor inicjujący.
+![](./notatki_do_egzaminu_files/Sieci_Komputerowe_--_Notatki/Wykład_11_--_Kodowanie_i_szyfrowanie/pasted_image006.png)
+
+
+# Wykład 12 -- Podstawy kryptografii
+Created Sunday 26 June 2022
+
+### Zagadnienia
+
+#### ❖ Czym szyfrowanie symetryczne różni się od asymetrycznego?
+
+#### ❖ Na czym polega bezpieczeństwo przy szyfrowaniu asymetrycznym?
+
+#### ❖ Opisz algorytm RSA.
+
+#### ❖ Czy różni się szyfrowanie od uwierzytelniania?
+
+#### ❖ Co to jest atak powtórzeniowy?
+
+#### ❖ Czy w szyfrowaniu asymetrycznym szyfrujemy kluczem publicznym czy prywatnym?
+
+#### ❖ Na czym polega podpisywanie wiadomości? Jakim kluczem to robimy?
+
+#### ❖ Jak można wykorzystać podpisy cyfrowe do uwierzytelniania?
+
+#### ❖ Czy HMAC można wykorzystać do uwierzytelniania? Czy HMAC jest podpisem cyfrowym?
+
+#### ❖ Dlaczego lepiej podpisywać funkcję skrótu wiadomości niż samą wiadomość? Z jakim ryzykiem się to wiąże?
+
+#### ❖ Co to są certyfikaty? Co to jest ścieżka certyfikacji?
+
+#### ❖ Co to jest urząd certyfikacji (CA)?
+
+#### ❖ Jak SSL/TLS zapewnia bezpieczeństwo połączenia?
+
+#### ❖ W jaki sposób w SSL następuje uwierzytelnienie serwera, z którym się łączymy?
+
+#### ❖ Co to są klucze sesji? Po co się je stosuje?
+
+#### ❖ Co to są kolizje kryptograficznej funkcji skrótu?
+
+#### ❖ Na czym polega atak urodzinowy?
+
+#### ❖ Na jaki atak narażone jest podejście, w którym wiadomość najpierw szyfrujemy a potem podpisujemy?
 
