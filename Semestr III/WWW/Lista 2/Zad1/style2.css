@@ -1,0 +1,18 @@
+p
+{
+    color: blue;
+}
+
+div 
+{
+    color: red;
+    text-decoration: underline;
+    text-decoration-color: darkolivegreen;
+    background-color: whitesmoke !important;
+}
+
+h1
+{
+    color: blue !important;
+    font-size: 30px;
+}

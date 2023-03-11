@@ -1,0 +1,12 @@
+@import "style2.css";
+
+body
+{
+    background-color: #666666 !important;
+}
+
+p
+{
+    color: red;
+}
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Zadanie 2</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+    <form id="form" action="#" method="POST">
+        <div id="user_select">
+            <label for="brand">Marka:</label>
+            <select id="brand" name="brand">
+            </select><br>
+
+            <label for="model">Model:</label>
+            <select id="model" name="model">
+            </select>
+        </div>
+
+        <div id="user_add">
+            <label for="new_option">Nowa pozycja:</label>
+            <input type="text" id="new_option" name="new_option"><br>
+
+            <label for="user_add">Chcę dodać:</label><br>
+            <input type="radio" id="new_brand" name="add_car" value="brand">
+            <label for="male">Marka</label><br>
+            <input type="radio" id="new_model" name="add_car" value="model">
+            <label for="female">Model</label><br>
+
+            <input type="button" id="add_button" value="Dodaj">
+        </div>
+    </form>
+    
+</body>
+
+</html>

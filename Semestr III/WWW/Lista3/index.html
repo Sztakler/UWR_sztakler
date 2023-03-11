@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zadanie 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <div class="container">
+        <div class="inner">
+            <h1>Form</h1>
+            <p>Please fill out the form below. Thanks.</p>
+
+            <form>
+                <span class="message">Enter full name, please</span>
+                <input type="text" placeholder="Name" class="textfield">
+                <input type="email" placeholder="Email Address" class="textfield">
+                <input type="date" placeholder="Date of birth" class="textfield">
+
+                <input type="submit" value="Submit" class="button">
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
+
+    <script>
+        const container = popmotion.styler(document.querySelector(".container"));
+        const formElements = (document.querySelector(".inner"));
+        const messagePop = (document.querySelector(".message"));
+
+        const formAnimation1 = popmotion.tween({
+            from: {
+                scale: 0.4,
+                opacity: 0,
+                y: -400
+            },
+            to: {
+                scale: 1,
+                opacity: 1,
+                y: 0
+            },
+            duration: 1000 // ms
+        }).start(container.set);
+
+        const formAnimation2 = popmotion.keyframes({
+            values: [
+                {y: -50, opacity: 1},
+                {y: -20, opacity: 1},
+                {y: -20, opacity: 1},
+                {y: 0, opacity: 0}
+            ],
+            times: [0, .2,.8, 1],
+            duration: 3000 // ms
+        })
+
+        // formAnimation1.start({
+        //     update: container.set,
+        //     complete: () => { formAnimation2.start(messagePop.set); console.log("animation done"); }
+        // });
+
+        // const stylers = Array
+        //     .from(formElements.children)
+        //     .map(popmotion.styler)
+
+        // const animations = Array(stylers.length)
+        //     .fill(popmotion.spring({ from: 100, to: 0}))
+
+        // popmotion.stagger(animations, 100)
+        //     .start((v) => v.forEach((y, i) => stylers[i].set('y', y)))
+    </script>
+</body>
+</html>

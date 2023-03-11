@@ -1,0 +1,3 @@
+
+            previous[difference] != difference)
+        {

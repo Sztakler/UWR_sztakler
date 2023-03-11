@@ -1,0 +1,96 @@
+var carBrands = ["Ford", "Fiat"];
+var carModels = {};
+
+carModels["Ford"] = ["Fiesta", "Focus"];
+carModels["Fiat"] = ["Punto", "Panda"];
+
+const form = document.getElementById("form");
+const brandSelect = document.getElementById("brand");
+const addButton = document.getElementById("add_button");
+
+
+var addCarBrands = function(e)
+{
+    var brandSelect = document.getElementById("brand");
+
+    var brandSelectHTML = "";
+    for(brand of carBrands)
+    {
+        brandSelectHTML +=  "<option>" + brand.toString() + "</option>";
+    }
+
+    brandSelect.innerHTML = brandSelectHTML;
+    console.log("tralalala: " + brandSelectHTML);
+}
+
+var addBrandModels = function(e)
+{
+    var selectedBrand = document.getElementById("brand");
+    var selectedModels = document.getElementById("model");
+    var brandModels = carModels[selectedBrand.value];
+
+    var modelSelectHTML = ""
+    for(model of brandModels)
+    {
+        modelSelectHTML +=  "<option>" + model.toString() + "</option>";
+    }
+    
+    selectedModels.innerHTML = modelSelectHTML;
+    console.log("lalala: " + modelSelectHTML);
+}
+
+var addNewPosition = function(e)
+{
+    function updateSelectFields()
+    {
+        var brandSelect = document.getElementById("brand");
+
+        var brandSelectHTML = "";
+        for(brand of carBrands)
+        {
+            brandSelectHTML +=  "<option>" + brand.toString() + "</option>";
+        }
+
+        brandSelect.innerHTML = brandSelectHTML;
+        console.log("tralalala: " + brandSelectHTML);
+
+        var modelSelect = document.getElementById("model");
+        var brandModels = carModels[brandSelect.value];
+        var modelSelectHTML = "";
+        for(model of brandModels)
+        {
+            modelSelectHTML +=  "<option>" + model.toString() + "</option>";
+        }
+        
+        modelSelect.innerHTML = modelSelectHTML;
+        console.log("lalala: " + modelSelectHTML);
+    }
+
+    let radioButtons = document.getElementsByName("add_car");
+
+    for(radioButton of radioButtons)
+    {
+        if(radioButton.checked)
+        {
+            let newPosition = document.getElementById("new_option").value.toString();
+
+            if(radioButton.id == "new_brand"){
+                carBrands.push(newPosition);
+                carModels[newPosition] = [];
+                updateSelectFields();
+                return;
+            }
+            
+            let carBrand = document.getElementById("brand").value.toString();
+            carModels[carBrand].push(newPosition);
+            updateSelectFields();
+        }
+    }
+}
+
+
+addCarBrands()
+addBrandModels()
+
+addButton.addEventListener("click", addNewPosition);
+brandSelect.addEventListener("change", addBrandModels);

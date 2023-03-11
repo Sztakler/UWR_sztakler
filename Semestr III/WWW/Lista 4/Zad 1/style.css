@@ -1,0 +1,25 @@
+.item_list
+{
+    width: 300px;
+    height: auto;
+    border: 2px solid black;
+    padding: 20px 0;
+    margin: 20px 0;
+}
+
+.base
+{
+    font-size: auto;
+}
+
+.unmatched
+{
+    font-size: auto;
+    color: lightgray;
+}
+
+.highlighted
+{
+    font-size: auto;
+    background-color: yellow;
+}

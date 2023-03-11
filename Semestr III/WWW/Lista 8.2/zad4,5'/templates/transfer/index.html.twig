@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Przelew{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('public/css/style.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    {% include '_share/transfer-form.html.twig' %}
+{% endblock %}

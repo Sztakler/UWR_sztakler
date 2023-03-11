@@ -1,0 +1,87 @@
+.catalog
+{
+    background-color: rgb(255, 254, 248);
+}
+
+.catalog > h1
+{
+    position: relative;
+    left: 100px;
+}
+
+.product
+{
+    width: 800px;
+    height: 150px;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(255, 254, 248);
+}
+
+.product > img
+{
+    width: 150px;
+    position: absolute;
+    left: 0px;
+    border: 1px solid rgb(129, 129, 126);
+}
+
+.product_name
+{
+    height: 40px;
+    font-size: 14px;
+    position: relative;
+    left: 180px;
+    top: 8px;
+}
+
+.product_name > h1
+{
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+}
+
+.product_description
+{
+    font-size: 10px;
+    position: absolute;
+    left: 160px;
+}
+
+.product_price
+{
+    position: absolute;
+    font-size: 10px;
+    left: 160px;
+    bottom: 50px;
+
+}
+
+.product_details
+{
+    width: 70px;
+    height: 13px;
+    color: white;
+    font-size: 11px;
+    position: absolute;
+    background-color: rgb(179, 179, 1);
+    left: 160px;
+    bottom: 30px;
+    border: 1px dashed black;
+
+}
+
+.tag_sale
+{
+    height: 15px;
+    width: 30px;
+    font-size: 10px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}

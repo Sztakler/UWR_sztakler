@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+
+ <div id="header">{% block header %}{{ header }}{% endblock %}</div>
+
+<div id="menu">
+{% include("main_page/menu.html.twig") %}
+</div>
+
+<div id="content">
+
+<p>Przelew <br>
+    {{date}}: {{amount}}zł
+</p>
+
+</div>
+
+<div id="sidebar">
+<p>Sidebar</p>
+</div>
+
+ <div id="footer">{% block footer %}{{ footer }}{% endblock %}</div>
+
+{% endblock %}

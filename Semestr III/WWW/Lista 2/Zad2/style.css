@@ -1,0 +1,18 @@
+div
+{
+    background-color: lightblue;
+    width: 500px;
+    border: 20px solid lightskyblue;
+    padding: 50px;
+    padding-bottom: 60px;
+    margin: 20px;
+    margin-bottom: 70px;
+    display: inline-block;
+}
+
+span
+{
+    background-color: lightcoral;
+    display: inline;
+}
+

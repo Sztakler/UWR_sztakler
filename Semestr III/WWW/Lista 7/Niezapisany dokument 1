@@ -1,0 +1,37 @@
+1.
+www.ii.uni.wroc.pl
+Server:		127.0.0.53
+Address:	127.0.0.53#53
+
+Non-authoritative answer:
+www.ii.uni.wroc.pl	canonical name = ii.uni.wroc.pl.
+Name:	ii.uni.wroc.pl
+Address: 156.17.4.11
+
+#Serwery poczty
+Non-authoritative answer:
+www.ii.uni.wroc.pl	canonical name = ii.uni.wroc.pl.
+ii.uni.wroc.pl	mail exchanger = 5 ALT1.ASPMX.L.GOOGLE.COM.
+ii.uni.wroc.pl	mail exchanger = 10 ASPMX2.GOOGLEMAIL.COM.
+ii.uni.wroc.pl	mail exchanger = 1 ASPMX.L.GOOGLE.COM.
+ii.uni.wroc.pl	mail exchanger = 10 ASPMX3.GOOGLEMAIL.COM.
+ii.uni.wroc.pl	mail exchanger = 5 ALT2.ASPMX.L.GOOGLE.COM.
+
+
+
+www.uj.edu.pl
+
+Server:	127.0.0.53
+Address:	127.0.0.53#53
+
+Non-authoritative answer:
+Name:	www.uj.edu.pl
+Address: 149.156.169.67
+
+#Serwery poczty
+Non-authoritative answer:
+www.uj.edu.pl	mail exchanger = 0 mailin1b.srv.uj.edu.pl.
+www.uj.edu.pl	mail exchanger = 0 mailin1a.srv.uj.edu.pl.
+
+
+2. Po wprowadzeniu linii 79.96.11.200 pawel.ii.uni.wroc.pl i przejściu pod adres http://pawel.ii.uni.wroc.pl/. Przeglądarka wyświetlała informację, że strona jest w przygotowaniu i znajduje się na serwerach home.pl. Najprawdopodobniej strona http://pawel.ii.uni.wroc.pl/ nie znajduje się na serwerach o podanym hoście, stąd informacja, że stona jest w przygotowaniu.

@@ -1,0 +1,51 @@
+#loading_animation
+{
+    width: 650px;
+    height: 500px;
+    background-color: white;
+    border: 2px solid black;
+    position: relative;
+}
+
+#square
+{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    position: absolute;
+    top: 200px;
+    transition: top 500ms;
+}
+
+._purple
+{
+    left: 150px;
+    background-color: rgb(167, 55, 133); 
+}
+
+._orange
+{
+    left: 220px;
+    background-color: rgb(165, 87, 42);
+}
+
+._green
+{
+    left: 290px;
+    background-color: rgb(69, 209, 151);
+}
+
+._magenta
+{
+    left: 360px;
+    background-color: rgb(199, 79, 199);
+}
+
+._blue
+{
+    left: 430px;
+    background-color: rgb(91, 91, 253);
+}
+

@@ -1,0 +1,17 @@
+<ul>
+    <li><a href="{{ path("main_page") }}">Strona główna</a>
+    <li><a href="{{ path("transfers") }}">Przelewy</a>
+        <ul>
+            <li><a href="{{ path("domesticTransfers") }}">Przelewy krajowe</a>
+                <ul>
+                    <li><a href="{{ path("domesticTransfersForeignAccount") }}">Na rachunek obcy</a>
+                    <li><a href="{{ path("domesticTransfersClientAccount") }}">Na rachunek własny</a>
+                </ul>
+        </ul>
+    <li><a href="{{ path("transfersList") }}">Lista przelewów</a>
+    <li><a href="{{ path("cards") }}">Karty</a>
+        <ul>
+            <li><a href="{{ path("creditCards") }}">Karty kredytowe</a>
+            <li><a href="{{ path("accountCards") }}">Karty do konta</a>
+        </ul>
+</ul>

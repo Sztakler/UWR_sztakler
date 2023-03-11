@@ -1,0 +1,37 @@
+.table
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.column
+{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row
+{
+    border: 1px solid black;
+    display: flex;
+}
+
+.column-title
+{
+    border: 3px solid black;
+    height: 20px;
+    padding: 5px;
+    display: flex;
+}
+
+#button-generate
+{
+    margin: 20px 0;
+}
+
+#sentence-text
+{
+    width: 500px;
+    margin: 20px 0;
+}

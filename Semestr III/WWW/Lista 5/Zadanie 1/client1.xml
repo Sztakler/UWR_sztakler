@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<cl:client
+xmlns:cl="https://zadanie1.com/zad1.xsd"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="https://zadanie1.com/zad1.xsd zad1.xsd">
+    <account_number>12345678901234567890123456</account_number>
+    <PESEL>11223355667</PESEL>
+    <birth_date>12.03.1993</birth_date>
+    <email>idjfaksd@dsfja.com</email>
+</cl:client>

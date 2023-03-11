@@ -1,0 +1,41 @@
+#header { 
+    clear: both; 
+    width: 900px; 
+    height: 70px; 
+    border: solid 1px red; }
+
+#content { 
+    float: left; 
+    width: 600px; 
+    height: 400px; 
+    border: solid 1px blue; }
+
+#menu { 
+    float: left; 
+    width: 300px; 
+    height: 400px; 
+    border: solid 1px purple; }
+
+
+
+#sidebar { 
+    float: left; 
+    width: 300px; 
+    height: 400px; 
+    border: solid 1px purple; }
+
+
+#footer { 
+    float: left; 
+    clear: both; 
+    width: 900px; 
+    height: 30px; 
+    border: solid 1px green; }
+
+.error ul { 
+    margin: 0;
+    color: red;
+    padding:0 }
+
+.error ul li { 
+    list-style: none; }

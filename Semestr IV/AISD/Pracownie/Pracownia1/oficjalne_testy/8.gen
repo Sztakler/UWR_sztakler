@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+
+import random
+from common import print_input
+
+
+random.seed(12348)
+print_input(1000000, 1000000000, 1000000000)

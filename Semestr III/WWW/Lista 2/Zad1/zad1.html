@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='pl'>
+    <head>
+        <meta charset="UTF-8">
+        <title>Zadanie 1</title>
+        <link rel="stylesheet" href="style1.css">
+    </head>
+
+    <body>
+        <p>Paragraf 1</p>
+        <p>Paragraf 2</p>
+
+        <div>
+            Div 1
+        </div>
+
+        <div>
+            <p>
+                Paragraf wewnątrz diva
+            </p>
+            <div>
+                <p>
+                    Paragraf wewnątrz diva wewnątrz diva
+                </p>
+                Dekorowany tekst
+            </div>
+        </div>
+        Niedekorowany tekst (jest poza divem)
+
+        <div style="color: yellow; text-align: center;">
+            Div
+            <p>Paragraf wewnątrz diva wewnątrz paragrafu</p>
+            <h2>H2 wewnątrz diva wewnątrz paragrafu</h2>
+        </div>
+
+        <h2>H2</h2>
+        <h1 style="color: green; font-size: 12px;">
+            Ten nagłówek nie jest zielony, bo ustawiliśmy w style2.css jego kolor na !important, więc deklaracja inline go nie nadpisała,
+            ale ma 12px, bo jego rozmiar określony w pliku css został już nadpisany (nie był !important)
+        </h1>
+    </body>
+</html>

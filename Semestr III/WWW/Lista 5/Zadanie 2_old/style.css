@@ -1,0 +1,30 @@
+.newest
+{
+    height: fit-content;
+    border: 2px solid black;
+    background-color: white;
+    font-family: Roboto Light, Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.news > h1
+{
+    text-underline-offset: 10px;
+    text-decoration: lightgray underline;
+}
+
+.news
+{
+    width: 500px;
+    height: fit-content;
+    padding: 10px;
+    display: block;
+    margin: 20px;
+    transition: box-shadow 500ms;
+}
+
+.news:hover
+{
+    box-shadow: 0 0 10px rgb(207, 207, 207);
+}

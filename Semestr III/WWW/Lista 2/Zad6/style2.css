@@ -1,0 +1,4 @@
+div.kwadrat1 { float: left; background-color: #FFFF99; width: 40px; height: 40px; border: 1px solid #FFCC66; }
+ div.kwadrat2 { float: right; background-color: #FFFF99; width: 40px; height: 40px; border: 1px solid #FFCC66; }
+ div.title { padding-top: 10px; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight: bold; }
+ div.mainbox { border: 1px solid black; width: 240px; height: 160px; overflow: hidden; font-family:Arial, Helvetica, sans-serif; font-size:9px; }

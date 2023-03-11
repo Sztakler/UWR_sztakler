@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Efekty</title>
+<script src="jquery-3.1.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+   $("a#toggle").click(function() {
+     $("#toggleBox").toggle();
+   });
+   $("a#slidetoggle").click(function() {
+     $("#slidetoggleBox").slideToggle(2000, function() { alert('gotowe') });
+   });   
+   $("a#fadetoggle").click(function() {
+     $("#fadetoggleBox").fadeToggle("slow");
+   });   
+ });
+</script>
+<style type="text/css">
+.boxGreen { width: 100px; height: 100px; background-color: green; }
+.boxBlue { width: 100px; height: 100px; background-color: blue; }
+.boxRed { width: 100px; height: 100px; background-color: red; }
+</style>
+</head>
+
+<body>
+
+<table cellpadding="10" cellspacing="4" border="0">
+
+<tr>
+<td valign="top">
+
+<a id="toggle" href="#">Toggle</a>
+<div id="toggleBox" class="boxGreen">&nbsp;</div>
+
+</td>
+<td valign="top">
+
+<a id="slidetoggle" href="#">Slide toggle</a>
+<div id="slidetoggleBox" class="boxBlue">&nbsp;</div>
+
+</td>
+<td valign="top">
+
+<a id="fadetoggle" href="#">Fade toggle</a>
+<div id="fadetoggleBox" class="boxRed">&nbsp;</div>
+
+</td>
+</tr>
+
+
+
+</table>
+
+
+</body>
+</html>

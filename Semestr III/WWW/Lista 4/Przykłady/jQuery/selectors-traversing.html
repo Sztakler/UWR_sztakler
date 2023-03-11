@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Selectors</title>
+    <script src="jquery-3.1.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#orderedlist").addClass("red");
+	$("#orderedlist > li").addClass("blue");
+	$("#orderedlist li:last").hover(function() {
+	     $(this).addClass("green");
+   		},function(){
+     	$(this).removeClass("green");
+   		});
+	$("#orderedlist").find("li").each(function(i) {
+     $(this).append( " BAM! " + i );
+   });
+
+	$('#faq').find('dd').hide().end().find('dt').click(function() {
+     $(this).next().slideToggle();
+   });
+ });
+</script>
+<style type="text/css">
+.red { color: red; }
+.blue { color: blue; }
+.green { color: green; }
+</style>
+</head>
+
+<body>
+
+<ol id="orderedlist">
+<li>A1</li>
+<li>A2</li>
+<li>A3</li>
+</ol>
+
+<dl id="faq">
+<dt>A</dt>
+<dd>Ala ma kota</dd>
+<dt>B</dt>
+<dd>Basia ma kota</dd>
+</dl>
+
+</body>
+</html>

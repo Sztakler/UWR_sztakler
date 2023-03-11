@@ -1,0 +1,42 @@
+const account_number = document.getElementById('account_number')
+const PESEL = document.getElementById('PESEL')
+const birth_date = document.getElementById('birth_date')
+const email = document.getElementById('email')
+const form = document.getElementById('form')
+const errorElement = document.getElementById('error')
+
+var validateForm = function(e){
+    let messages = []
+  
+    var regexAccountNumber = /^[0-9]{26}$/; 
+    if(regexAccountNumber.test(account_number.value) == false){
+        messages.push("Account number is invalid (must contain 26 digits)")
+    }
+
+    var regexPESEL = /^[0-9]{11}$/; 
+    if(regexPESEL.test(PESEL.value) == false){
+        messages.push("PESEL is invalid (must contain 11 digits)")
+    }
+
+    var regexDate = /^\s*(3[01]|[12][0-9]|0?[1-9])\.(1[012]|0?[1-9])\.((?:19|20)\d{2})\s*$/; 
+    if(regexDate.test(birth_date.value) == false){
+        messages.push("Date of birth is invalid (must be dd.mm.yy)")
+    }
+    console.log(birth_date.value)
+
+    var regexEmail = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/; 
+    if(regexEmail.test(email.value) == false){
+        messages.push("Email is invalid")
+    }
+
+    if(messages.length > 0){
+        e.preventDefault(
+        errorElement.innerHTML = messages.join("<br>"))
+    }
+    else{
+        errorElement.innerHTML = ''
+    }
+}
+
+form.addEventListener('submit', validateForm)
+form.addEventListener('focusout', validateForm)

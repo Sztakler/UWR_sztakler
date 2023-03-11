@@ -1,0 +1,2 @@
+Polecenie "about" wyświetla informacje o zainstalowanej wersji Symfony, PHP oraz Kernelu.
+Polecenia "router:match" możemy użyć, gdy chcemy zdebugować pewnego routa w naszej aplikacji. Wtedy, by nie musieć przeszukiwać kodu, by znaleźć odpowiedni kontroler i funkcję, możemy użyć polecenia router:match "ścieżka", które wświetli nam, która funkcja ją obsługuje, jaka jest nazwa routa, co ułatwi proces debugowania.

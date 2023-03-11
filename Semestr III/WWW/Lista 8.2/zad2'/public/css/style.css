@@ -1,0 +1,13 @@
+table, tr, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+.tr-winner{
+    background-color: rgba(0, 128, 0, 0.466);
+}
+
+.tr-total-loser{
+    background-color: rgba(112, 112, 112, 0.466);
+}

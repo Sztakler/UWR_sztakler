@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema 
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="https://zadanie1.com/zad1.xsd"
+xmlns="https://zadanie1.com/zad1.xsd">
+
+<xs:element name="client">
+    <xs:complexType>
+        <xs:all>
+            <xs:element name="account_number" type="xs:string"/>
+            <xs:element name="PESEL" type="xs:string"/>
+            <xs:element name="birth_date" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+        </xs:all>
+    </xs:complexType>
+</xs:element>
+
+ </xs:schema> 

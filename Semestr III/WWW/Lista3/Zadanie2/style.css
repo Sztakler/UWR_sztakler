@@ -1,0 +1,21 @@
+#user_select
+{
+    width: 280px;
+    height: 80px;
+    border: 2px solid slategrey;
+    border-radius: 8px;
+    margin: 20px 0 20px 0;
+    padding: 10px;
+    background-color: gainsboro;
+}
+
+#user_add
+{
+    width: 280px;
+    height: 140px;
+    border: 2px solid slategrey;
+    border-radius: 8px;
+    margin: 20px 0 20px 0;
+    padding: 10px;
+    background-color: gainsboro;
+}
